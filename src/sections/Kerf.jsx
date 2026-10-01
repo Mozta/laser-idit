@@ -25,13 +25,13 @@ function DiagramaRegla() {
       </title>
       <motion.rect
         className="s-pieza"
-        initial={{ attrX: 60, attrY: 30, width: 300, height: 220 }}
-        whileInView={{ attrX: 60 + K / 2, attrY: 30 + K / 2, width: 300 - K, height: 220 - K }}
+        initial={{ attrX: 30, attrY: 30, width: 280, height: 220 }}
+        whileInView={{ attrX: 30 + K / 2, attrY: 30 + K / 2, width: 280 - K, height: 220 - K }}
         viewport={vista}
         transition={t}
       />
       <motion.circle
-        cx="210"
+        cx="170"
         cy="140"
         className="s-hueco"
         initial={{ r: 55 }}
@@ -39,15 +39,15 @@ function DiagramaRegla() {
         viewport={vista}
         transition={t}
       />
-      <rect x="60" y="30" width="300" height="220" className="s-guia" style={{ stroke: 'var(--text)' }} />
-      <circle cx="210" cy="140" r="55" className="s-guia" style={{ stroke: 'var(--text)' }} />
-      <text x="60" y="280" className="s-texto-chico">Punteado: tu dibujo</text>
-      <text x="368" y="60" className="s-texto rose">afuera</text>
-      <text x="368" y="80" className="s-texto-chico">se encoge</text>
-      <text x="180" y="146" className="s-texto amber" style={{ fill: 'var(--amber)' }}>
+      <rect x="30" y="30" width="280" height="220" className="s-guia" style={{ stroke: 'var(--text)' }} />
+      <circle cx="170" cy="140" r="55" className="s-guia" style={{ stroke: 'var(--text)' }} />
+      <text x="30" y="280" className="s-texto-chico">Punteado: tu dibujo</text>
+      <text x="326" y="60" className="s-texto" style={{ fill: 'var(--rose)' }}>afuera</text>
+      <text x="326" y="80" className="s-texto-chico">se encoge</text>
+      <text x="170" y="146" textAnchor="middle" className="s-texto" style={{ fill: 'var(--amber)' }}>
         adentro
       </text>
-      <text x="183" y="164" className="s-texto-chico">crece</text>
+      <text x="170" y="164" textAnchor="middle" className="s-texto-chico">crece</text>
     </svg>
   )
 }
@@ -99,14 +99,14 @@ export default function Kerf() {
           Anota siempre cuál usaste.
         </p>
         <div className="rejilla-2">
-          <Tarjeta titulo="1. Piezas juntas" acento="teal">
+          <Tarjeta titulo="1. Piezas juntas" acento="accent">
             <figure className="diagrama">
               <DiagramaPiezas />
             </figure>
             <p>Juntas las 10 piezas y mides su largo total. Cada pieza perdió un kerf completo, medio por cada lado.</p>
             <Formula>{'kerf = ({dibujado} − {medido}) / 10'}</Formula>
           </Tarjeta>
-          <Tarjeta titulo="2. Hueco en el marco" acento="amber">
+          <Tarjeta titulo="2. Hueco en el marco" acento="blue">
             <figure className="diagrama">
               <DiagramaMarco />
             </figure>

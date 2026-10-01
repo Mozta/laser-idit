@@ -26,7 +26,7 @@ function Lamina({ W, H, g, m, mejor }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.25, delay: animar ? i * 0.012 : 0 }}
         >
-          <rect x={x} y={y} width={mejor.pw} height={mejor.ph} className="s-pieza" style={{ stroke: 'var(--teal)', strokeWidth: borde }} />
+          <rect x={x} y={y} width={mejor.pw} height={mejor.ph} className="s-pieza" style={{ stroke: 'var(--accent)', strokeWidth: borde }} />
         </motion.g>
       ))}
     </svg>

@@ -12,8 +12,8 @@ function DiagramaFoco() {
         El cabezal enfoca el haz en un punto sobre el material. Entre la boquilla y el material hay 5 mm, que se ajustan con un
         calibrador.
       </title>
-      <rect x="130" y="10" width="100" height="70" rx="10" fill="#8E8EA8" />
-      <path d="M150 80 L210 80 L195 130 L165 130 Z" fill="#5A5A76" />
+      <rect x="130" y="10" width="100" height="70" rx="10" fill="#a3aba7" />
+      <path d="M150 80 L210 80 L195 130 L165 130 Z" fill="#4d5755" />
       <path d="M170 130 L190 130 L181 196 L179 196 Z" className="s-amber" opacity="0.9" />
       <circle cx="180" cy="196" r="5" className="s-amber" />
       <rect x="20" y="196" width="320" height="34" className="s-madera" />
@@ -31,23 +31,23 @@ function DiagramaFoco() {
 const CONTROLES = [
   {
     titulo: 'Foco',
-    acento: 'amber',
+    acento: 'accent',
     texto: `Distancia entre la boquilla y el material: ${parametros.foco} mm, ajustada con un calibrador de esa medida. Muy bajo quema; muy alto no corta.`,
   },
   {
     titulo: 'Potencia máxima (%)',
-    acento: 'teal',
+    acento: 'accent',
     texto: 'La que usa en tramos rectos. Decide si el láser atraviesa el material.',
   },
   {
     titulo: 'Potencia mínima (%)',
-    acento: 'teal',
+    acento: 'accent',
     texto:
       'La que usa en curvas y esquinas, donde el cabezal frena. Si es alta, quema las esquinas; si es baja, deja curvas sin cortar. Déjala de 10 a 20 % abajo de la máxima.',
   },
   {
     titulo: 'Velocidad (mm/s)',
-    acento: 'orange',
+    acento: 'blue',
     texto: 'Más lenta corta más hondo, pero quema más y ensancha el corte.',
   },
 ]

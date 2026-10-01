@@ -23,7 +23,7 @@ export function DiagramaPiezas() {
       <line x1="40" y1="16" x2="40" y2="28" className="s-linea" />
       <line x1="480" y1="16" x2="480" y2="28" className="s-linea" />
       {Array.from({ length: 10 }, (_, i) => (
-        <rect key={i} x={40 + i * (ancho - 1.6)} y="40" width={ancho - 1.6} height="60" className="s-pieza" stroke="#16161E" strokeWidth="1" />
+        <rect key={i} x={40 + i * (ancho - 1.6)} y="40" width={ancho - 1.6} height="60" className="s-pieza" stroke="#0d1111" strokeWidth="1" />
       ))}
       <line x1="40" y1="120" x2={40 + 10 * (ancho - 1.6)} y2="120" className="s-amber-trazo" />
       <line x1="40" y1="113" x2="40" y2="127" className="s-amber-trazo" />
@@ -42,7 +42,7 @@ export function DiagramaMarco() {
       <rect x="20" y="20" width="480" height="100" className="s-madera" />
       <rect x="50" y="40" width="420" height="60" className="s-hueco" />
       {Array.from({ length: 10 }, (_, i) => (
-        <rect key={i} x={50 + i * 40.5} y="40" width="40.5" height="60" className="s-pieza" stroke="#16161E" strokeWidth="1" />
+        <rect key={i} x={50 + i * 40.5} y="40" width="40.5" height="60" className="s-pieza" stroke="#0d1111" strokeWidth="1" />
       ))}
       <rect x="455" y="40" width="15" height="60" className="s-amber" opacity="0.85" />
       <line x1="455" y1="132" x2="470" y2="132" className="s-amber-trazo" />

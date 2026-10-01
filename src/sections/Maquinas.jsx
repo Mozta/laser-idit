@@ -13,7 +13,7 @@ export default function Maquinas() {
         {maquinas.map((q, i) => (
           <Revelar key={q.id} className="maquina">
             <Figura ruta={q.imagen} recorte="4 / 3" pie="" />
-            <Tarjeta titulo={q.modelo} acento={['teal', 'amber', 'orange'][i]}>
+            <Tarjeta titulo={q.modelo} acento="accent">
               <p className="maquina-area">
                 {q.ancho} × {q.alto} <small>mm</small>
               </p>

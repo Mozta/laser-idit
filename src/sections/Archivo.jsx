@@ -13,7 +13,7 @@ const PROGRAMAS = [
   {
     valor: 'fusion',
     etiqueta: 'Fusion',
-    color: 'teal',
+    color: 'accent',
     pasos: [
       <>Abre <strong>Modify › Change Parameters</strong>.</>,
       <>Agrega tres parámetros de usuario: <code>espesor</code>, <code>kerf</code> y <code>ranura</code> con la expresión <code>espesor - kerf</code>.</>,
@@ -25,7 +25,7 @@ const PROGRAMAS = [
   {
     valor: 'onshape',
     etiqueta: 'Onshape',
-    color: 'orange',
+    color: 'blue',
     pasos: [
       <>Agrega una operación <strong>Variable</strong> por cada parámetro, al inicio del árbol.</>,
       <>Úsalas en cotas con el signo de número: <code>#espesor</code>, <code>#ranura</code>.</>,
@@ -36,7 +36,7 @@ const PROGRAMAS = [
   {
     valor: 'autocad',
     etiqueta: 'AutoCAD',
-    color: 'amber',
+    color: 'teal',
     pasos: [
       <>Abre el <strong>Parameters Manager</strong> y crea los parámetros de usuario.</>,
       <>Acota con restricciones paramétricas y usa los parámetros en las expresiones. Así se diseñó el kit de 2019.</>,
@@ -48,7 +48,7 @@ const PROGRAMAS = [
   {
     valor: 'openscad',
     etiqueta: 'OpenSCAD',
-    color: 'rose',
+    color: 'amber',
     pasos: [
       <>Los parámetros son variables al inicio de tu código. Es la ruta de Daniel, natural si ya programas.</>,
       <>Dibuja en 2D, renderiza con <strong>F6</strong> y exporta con <strong>File › Export › Export as DXF</strong>.</>,

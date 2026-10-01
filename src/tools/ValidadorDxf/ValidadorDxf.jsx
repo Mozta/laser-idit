@@ -11,7 +11,7 @@ const MAX_BYTES = 10 * 1024 * 1024
 const NIVELES = [
   { nivel: 'error', titulo: 'Errores', tono: 'rose' },
   { nivel: 'aviso', titulo: 'Avisos', tono: 'amber' },
-  { nivel: 'info', titulo: 'Información', tono: 'teal' },
+  { nivel: 'info', titulo: 'Información', tono: 'blue' },
 ]
 const EJEMPLOS = [
   { archivo: 'prueba-kerf-100mm-10piezas-marco.dxf', ruta: 'dxf/', nombre: 'Tira de prueba' },
@@ -46,7 +46,7 @@ function Zona({ alCargar, cargando }) {
       <svg viewBox="0 0 48 48" aria-hidden="true" className="vdxf-icono">
         <path d="M12 6h17l9 9v27H12z" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
         <path d="M29 6v9h9" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-        <path d="M25 37V22m-6 6 6-6 6 6" fill="none" stroke="var(--teal)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M25 37V22m-6 6 6-6 6 6" fill="none" stroke="var(--accent)" strokeWidth="2.5" strokeLinecap="square" />
       </svg>
       <p className="vdxf-zona-texto">
         <strong>Arrastra tu archivo .dxf aquí</strong>

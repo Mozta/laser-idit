@@ -2,6 +2,11 @@
   margin-top: 12px;
 }
 
+.ensamble-dibujo svg {
+  max-width: 560px;
+  margin-inline: auto;
+}
+
 .ensamble-detalle {
   margin-bottom: 8px;
 }
