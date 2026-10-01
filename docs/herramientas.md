@@ -2,6 +2,8 @@
 
 Lógica pura en `src/lib/` con pruebas en Vitest; componentes en `src/tools/`. Todas las medidas en mm. Mostrar resultados con 2 decimales salvo que se indique otra cosa (kerf con 3, kerf por lado con 4). Redondear con una función propia que evite errores de punto flotante, no con `toFixed` directo. Cada caso de prueba listado aquí debe existir como prueba automatizada.
 
+> **Pendiente de decidir:** la regla pide kerf con 3 decimales, pero el caso del modo marco espera 0.1591 (4 decimales). Hoy la interfaz muestra 0.159 y la prueba comprueba 0.1591 redondeando a 4. Si se decide mostrar 4 decimales, cambiar `formatear(r.kerf, 3)` en `src/tools/CalculadoraKerf.jsx`.
+
 ---
 
 ## 1. Calculadora de kerf

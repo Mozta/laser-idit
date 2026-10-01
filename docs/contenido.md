@@ -122,6 +122,15 @@ Trabajos de la comunidad con crédito: kit paramétrico de polígonos (2019), ki
 
 ---
 
+## Pendientes por confirmar
+
+Datos de las fuentes que no cuadran. El sitio no los resuelve por su cuenta; se decide con Rafael.
+
+1. **Modelo de la tercera máquina.** Este documento dice CFL-CMA1309T. Dos fotos de la placa (página grupal y Daniel) dicen **CFL-CMA1390T**, y el área 1300 × 900 coincide con "1390". El sitio usa 1309T hasta confirmar; se cambia en `src/data/maquinas.json`.
+2. **Medida del vernier en 2019.** La página de 2019 reporta 98.25 mm; la foto `20190206_171302` parece marcar 98.34. El sitio no muestra la cifra junto a la foto.
+3. **Kerf de Daniel.** Su código usa `kerf = 0.136` y lo describe como el valor que calculó su clase; en sus resultados escribe "around 0.36mm". El sitio presenta ambos tal como él los reporta.
+4. **Kerf de la página grupal.** Divide el espesor del MDF entre el número de cortes (2.5 / 10 = 0.25). Ese cálculo no corresponde a ninguna de las dos maneras de medir; el valor se muestra solo como reportado.
+
 ## Fuentes
 
 - Rafael Pérez Aguirre, Fab Academy 2019, semana 4: https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/week04.html

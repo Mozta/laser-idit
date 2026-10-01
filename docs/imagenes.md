@@ -71,6 +71,51 @@ Base: `https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/image
 | `CFLCMA.jpeg` | CFL-CMA1080K | 1 |
 | `CFLCMA13.jpeg` | CFL-CMA1309T | 1 |
 
-**Pendiente:** la página tiene más imágenes (prueba de potencia, kerf, cada tipo de junta, interfaz de SmartCarve, pasos de operación) cuyas rutas no se pudieron leer desde el texto. Abrir el HTML de la página, extraer los `src` de las imágenes y asignarlas a sus secciones: juntas → 7, SmartCarve y pasos → 5, kerf → 3.
+Imágenes adicionales extraídas del HTML de la página (`images_group/`, todas `.jpeg`):
+
+| Archivo | Muestra | Sección sugerida |
+|---|---|---|
+| `lasergrin` | Plantilla de LaserGridMaster | 2 |
+| `laserresonator` | Tubo láser de CO₂ | sin usar por ahora |
+| `medicionesdeprueba` | Medición de la prueba de kerf | 3 |
+| `pruebasdetolerancias` | Peine de holguras (2.60 a 3.00 mm) | 3 |
+| `encendido1`, `encendido2`, `parodeemergencia`, `controlesdemaquina` | Encendido | 5 |
+| `calibraciondedistancia5mm`, `calibraciondedistancia`, `cortadorapordentro`, `manejodecontroles` | Foco y origen | 5 |
+| `toolmenu`, `parametrosdemaquina` | Interfaz de SmartCarve | 5 |
+| `cerrarmaquina`, `cortelaser` | Corte | 5 |
+| `pruebadecorte` | Pieza terminada | 5, 8 |
+| `typesofjoints`, `snapfit`, `fingerjoints`, `wedgejoints`, `pinnedjoints`, `pressfit` | Juntas | 7, 8 |
+
+**Juntas: los nombres parecen intercambiados en la fuente.** `fingerjoints` muestra dos placas con ranura encajadas en cruz (press-fit) y `pressfit` muestra dientes intercalados (finger joint). En el sitio cada foto se usa según lo que muestra. `pinnedjoints` no deja ver con claridad un perno. Confirmar con el grupo.
+
+**`tipodemaquinalaser`** no muestra la placa de modelo: es el enfriador de agua CAMFive SL-2D.
+
+### Descartadas
+
+| Archivo | Motivo |
+|---|---|
+| 2019 `cutlaser.png` | Parece imagen de catálogo del fabricante; licencia incierta |
+| Grupo `miniom`, `miniom2` | Muestran un personaje con derechos de autor (Minion) |
+| Grupo `ejemplomaterialpandeado`, `ejemplomaterialpandeado2` | No se nota el pandeo en la foto |
+| Grupo `maquinaorigin` | Borrosa, tomada a través del vidrio; no muestra el origen |
+| Grupo `download`, `grabar`, `programvynil`, `textcroquis` | Flujo de software ajeno al sitio |
+
+### Optimizadas pero sin usar todavía
+
+Están en `public/img/` y en `creditos.json`, listas para usarse (por ejemplo, al crecer la galería):
+
+- 2019: `20190206_172738`, `22`, `cut1`, `cut3`, `kit3` a `kit6`, `piece1`, `piece2`, `piece4` a `piece8`, `piece111`.
+- Daniel: `cutter2`, `cutter4`, `cutter5`, `cutter9`, `laser4`, `scad2`, `scad4`.
+- Grupo: `calibraciondedistancia`, `controlesdemaquina`, `cortadorapordentro`, `cortelaser`, `encendido1`, `laserresonator`, `maquinalaser`, `parametrosdemaquina`, `tipodemaquinalaser`.
+
+Al agregar una imagen nueva: convertir a webp (`cwebp -q 80`, máx. 1600 px de ancho), guardarla en `public/img/<fuente>/` y registrarla en `src/data/creditos.json` (con `alt`, `pie`, `ancho`, `alto`) y en `CREDITS.md`.
+
+### Notas de revisión
+
+- 2019 `22.jpg` no muestra living hinge: es el cabezal cortando triángulos del kit. Se usa como foto de corte.
+- 2019 `20190206_172738.jpg` muestra a un integrante del equipo frente a SmartCarve, no la prueba.
+- 2019 `team.png` muestra a cuatro personas identificables: confirmar que están de acuerdo con su publicación.
+- Daniel `cutter1` es el regulador de voltaje bajo la máquina (el "switch inferior" de su texto).
+- Daniel `cutter9` muestra en pantalla 60 / 40 / 100 mm/s, no sus valores de 80 / 75 / 25; el pie no menciona valores.
 
 Archivos descargables del grupo: `https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/downlan/KERF.zip` y `.../downlan/joints.zip`.
