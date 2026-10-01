@@ -1,28 +1,47 @@
 .pie {
   border-top: 1px solid var(--line);
-  padding: 48px 0 64px;
+  padding: 0 0 64px;
   font-size: 0.95rem;
 }
 
 .pie-rejilla {
   display: grid;
-  gap: 32px;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-top: 0;
+  padding: 0;
+}
+
+.pie-rejilla > div {
+  background: var(--bg);
+  padding: 32px clamp(20px, 3vw, 32px);
 }
 
 .pie-titulo {
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-family: var(--mono);
+  font-size: var(--fs-kicker);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
 }
 
 .pie ul {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 0;
+  list-style: none;
   display: grid;
-  gap: 8px;
+  gap: 4px;
 }
 
 .pie li a {
   display: inline-block;
-  padding: 4px 0;
+  padding: 6px 0;
+  color: var(--text);
+}
+
+.pie li a:hover {
+  color: var(--accent);
 }

@@ -4,7 +4,8 @@ import './Pie.css'
 export default function Pie() {
   return (
     <footer className="pie">
-      <div className="wrap pie-rejilla">
+      <div className="wrap">
+      <div className="pie-rejilla">
         <div>
           <p className="pie-titulo">Corte láser en el IDIT</p>
           <p className="muted">
@@ -28,6 +29,7 @@ export default function Pie() {
             ))}
           </ul>
         </div>
+      </div>
       </div>
     </footer>
   )

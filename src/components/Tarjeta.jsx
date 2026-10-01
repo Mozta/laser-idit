@@ -1,6 +1,6 @@
 import './Tarjeta.css'
 
-export default function Tarjeta({ acento = 'teal', titulo, children, className = '', as: Tag = 'div', nivel = 3 }) {
+export default function Tarjeta({ acento = 'accent', titulo, children, className = '', as: Tag = 'div', nivel = 3 }) {
   const Titulo = `h${nivel}`
   return (
     <Tag className={`tarjeta ${className}`} style={{ '--acento': `var(--${acento})` }}>

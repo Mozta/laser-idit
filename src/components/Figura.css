@@ -8,7 +8,7 @@
   width: 100%;
   padding: 0;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
   background: var(--card);
   cursor: zoom-in;
@@ -33,7 +33,7 @@
 }
 
 .figura figcaption {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--muted);
   margin-top: 8px;
   line-height: 1.4;
@@ -41,6 +41,10 @@
 
 .figura-credito::before {
   content: 'Crédito: ';
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .figura-credito a {
@@ -48,21 +52,21 @@
 }
 
 .figura-credito a:hover {
-  color: var(--teal);
+  color: var(--accent);
 }
 
 .figura-dialogo {
   width: min(96vw, 1200px);
   max-height: 94vh;
   padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
+  border: 1px solid var(--line-2);
+  border-radius: 0;
   background: var(--bg-2);
   color: var(--text);
 }
 
 .figura-dialogo::backdrop {
-  background: rgb(10 10 14 / 0.85);
+  background: rgb(5 7 7 / 0.9);
 }
 
 .figura-dialogo img {
@@ -70,7 +74,6 @@
   height: auto;
   max-height: 74vh;
   object-fit: contain;
-  border-radius: 12px;
 }
 
 .figura-dialogo p {

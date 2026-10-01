@@ -1,4 +1,5 @@
 import { motion } from 'motion/react'
+import { SECCIONES } from '../data/secciones.js'
 import './Seccion.css'
 
 const aparecer = {
@@ -16,13 +17,22 @@ export function Revelar({ children, className, as = 'div' }) {
 }
 
 export default function Seccion({ id, numero, titulo, idea, alterna = false, children }) {
+  const etiqueta = SECCIONES.find((x) => x.id === id)?.corto
   return (
     <section id={id} className={`seccion${alterna ? ' seccion-alterna' : ''}`} aria-labelledby={`${id}-titulo`}>
       <div className="wrap">
         <Revelar as="header" className="seccion-cabeza">
-          {numero && <p className="seccion-numero">{String(numero).padStart(2, '0')}</p>}
-          <h2 id={`${id}-titulo`}>{titulo}</h2>
-          {idea && <p className="seccion-idea">{idea}</p>}
+          {numero && (
+            <p className="seccion-kicker kicker">
+              <span className="seccion-numero">{String(numero).padStart(2, '0')}</span>
+              <span className="seccion-linea" aria-hidden="true" />
+              <span>{etiqueta}</span>
+            </p>
+          )}
+          <div>
+            <h2 id={`${id}-titulo`}>{titulo}</h2>
+            {idea && <p className="seccion-idea">{idea}</p>}
+          </div>
         </Revelar>
         {children}
       </div>
