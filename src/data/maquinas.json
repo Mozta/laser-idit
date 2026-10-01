@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cma1200",
+    "modelo": "CAMFive CFL-CMA1200",
+    "corto": "CMA1200",
+    "ancho": 1200,
+    "alto": 600,
+    "cama": "Panal",
+    "notas": "Cama de panal.",
+    "imagen": "grupo/cflcma1200.webp"
+  },
+  {
+    "id": "cma1080k",
+    "modelo": "CAMFive CFL-CMA1080K",
+    "corto": "1080K",
+    "ancho": 1000,
+    "alto": 800,
+    "cama": "Panal o varillas",
+    "notas": "La documentada en 2019. La mesa sube y baja, y tiene accesorio rotativo.",
+    "imagen": "grupo/cflcma.webp"
+  },
+  {
+    "id": "cma1309t",
+    "modelo": "CAMFive CFL-CMA1309T",
+    "corto": "1309T",
+    "ancho": 1300,
+    "alto": 900,
+    "cama": "Panal",
+    "notas": "Cama de panal. La de mayor área.",
+    "imagen": "grupo/cflcma13.webp"
+  }
+]

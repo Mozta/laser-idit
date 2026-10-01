@@ -1,0 +1,93 @@
+{
+  "aprobado": 7,
+  "preguntas": [
+    {
+      "pregunta": "¿Qué haces antes de operar la láser por primera vez?",
+      "opciones": [
+        "Tomar la inducción de seguridad del IDIT.",
+        "Ver un video del modelo en internet.",
+        "Pedirle a un compañero que te explique mientras cortas.",
+        "Leer este sitio completo."
+      ],
+      "correcta": 0,
+      "explicacion": "Nadie opera sin la inducción del IDIT. Este sitio te ayuda a repasar, pero no la sustituye."
+    },
+    {
+      "pregunta": "¿Cuándo puedes abrir la tapa?",
+      "opciones": [
+        "En cuanto el cabezal deja de moverse.",
+        "Con el botón Laser apagado y después de que el extractor sacó el humo.",
+        "Cuando quieras revisar el corte, si lo haces rápido.",
+        "Cuando el contorno exterior ya se cortó."
+      ],
+      "correcta": 1,
+      "explicacion": "El haz no se ve. Primero apagas Laser y esperas a que el extractor saque el humo."
+    },
+    {
+      "pregunta": "El trabajo va a durar 12 minutos. ¿Qué haces?",
+      "opciones": [
+        "Vas por un café y regresas al terminar.",
+        "Te quedas cerca, pero contestando mensajes.",
+        "Te quedas vigilando todo el corte.",
+        "Revisas cada 5 minutos."
+      ],
+      "correcta": 2,
+      "explicacion": "Papel, cartón y MDF pueden encenderse. La máquina nunca se queda sola mientras corta."
+    },
+    {
+      "pregunta": "¿Qué se enciende primero?",
+      "opciones": [
+        "La llave de la máquina.",
+        "El switch inferior de sistemas auxiliares (extractor).",
+        "El botón Laser.",
+        "La computadora con SmartCarve."
+      ],
+      "correcta": 1,
+      "explicacion": "El switch inferior arranca el extractor y los sistemas auxiliares. Hace mucho ruido: es normal."
+    },
+    {
+      "pregunta": "Te ofrecen un plástico sin etiqueta para cortar.",
+      "opciones": [
+        "Lo cortas con poca potencia para probar.",
+        "Lo cortas si huele bien al grabarlo.",
+        "Lo cortas con la tapa abierta para ventilar.",
+        "No se corta: puede ser PVC y liberar cloro."
+      ],
+      "correcta": 3,
+      "explicacion": "PVC y vinil liberan cloro, que daña tus pulmones y la máquina. Si no sabes qué es, no entra."
+    },
+    {
+      "pregunta": "Ves mucho humo y la lámina no se atraviesa.",
+      "opciones": [
+        "Detienes y revisas foco, potencia y velocidad.",
+        "Subes la potencia al 100 % sin detener.",
+        "Esperas a que termine y le das otra pasada.",
+        "Abres la tapa para que salga el humo."
+      ],
+      "correcta": 0,
+      "explicacion": "Mucho humo significa que no está cortando bien. Detén el trabajo y revisa antes de seguir."
+    },
+    {
+      "pregunta": "¿Dónde fijas el origen por defecto?",
+      "opciones": [
+        "Esquina inferior izquierda.",
+        "Al centro de la lámina.",
+        "Esquina superior derecha.",
+        "Donde quede el cabezal al encender."
+      ],
+      "correcta": 2,
+      "explicacion": "Por defecto el origen va en la esquina superior derecha: lo mueves con las flechas y presionas Origin."
+    },
+    {
+      "pregunta": "¿En qué orden se procesa el archivo?",
+      "opciones": [
+        "Contorno, huecos, grabado.",
+        "Huecos, grabado, contorno.",
+        "Todo al mismo tiempo, según el dibujo.",
+        "Grabado, huecos, contorno."
+      ],
+      "correcta": 3,
+      "explicacion": "Si el contorno va antes, la pieza se suelta y lo de adentro sale desplazado."
+    }
+  ]
+}
