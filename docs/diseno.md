@@ -1,48 +1,55 @@
 # Estándar visual
 
-Basado en la presentación de clase de corte láser, que Rafael fijó como estándar del curso.
+Inspirado en el lenguaje visual de [motion.dev](https://motion.dev/): fondo casi negro verdoso, un solo acento amarillo intenso, rejillas de celdas con líneas finas, esquinas rectas y etiquetas monoespaciadas en mayúsculas. Se toma el estilo, no la marca: el logo, los textos y las ilustraciones son del sitio.
+
+> Esta versión vive en la rama `diseno-motion`. La versión anterior (paleta de la presentación de clase, Carlito, tarjetas redondeadas) está en `main`.
 
 ## Colores
 
 | Token | Hex | Uso |
 |---|---|---|
-| `--bg` | `#16161E` | Fondo principal |
-| `--bg-2` | `#1D1D27` | Fondo alterno de secciones |
-| `--card` | `#23232F` | Tarjetas |
-| `--line` | `#33334A` | Bordes y divisores |
-| `--text` | `#ECEAE4` | Texto principal (blanco tostado, no `#fff`) |
-| `--muted` | `#A9A6B8` | Texto secundario |
-| `--teal` | `#3CC8B4` | Acento principal: fabricación, correcto, acciones |
-| `--amber` | `#F5B841` | Advertencias, el haz del láser, valores a vigilar |
-| `--rose` | `#F0627E` | Errores, prohibido |
-| `--orange` | `#F28C38` | Onshape / segunda herramienta |
-| `--wood` | `#8A6A48` | MDF en ilustraciones |
-| `--wood-light` | `#A9855E` | Piezas cortadas en ilustraciones |
+| `--bg` | `#0D1111` | Fondo principal |
+| `--bg-2` | `#111616` | Fondo alterno de secciones |
+| `--card` | `#131A19` | Celdas, tarjetas, herramientas |
+| `--code-bg` | `#0A0D0D` | Campos, fórmulas, diagramas |
+| `--line` | `#1E2427` | Líneas de rejilla y bordes |
+| `--line-2` | `#2C322D` | Bordes de campos y botones |
+| `--text` | `#EDEDEC` | Texto principal |
+| `--muted` | `#979D97` | Texto secundario (7:1 sobre el fondo) |
+| `--accent` | `#FFDB2A` | Acento: portada, barra superior, botones, números, selección |
+| `--ink` | `#0D1111` | Texto sobre el acento |
+| `--teal` | `#52CD86` | Correcto, listo, ajuste justo |
+| `--amber` | `#FFA23A` | Aviso, valor a vigilar |
+| `--rose` | `#FF5F57` | Error, prohibido |
+| `--blue` | `#3E98FF` | Información, segunda herramienta |
+| `--wood` / `--wood-light` | `#8A6A48` / `#A9855E` | MDF en ilustraciones |
 
-Tema oscuro por defecto. No se requiere tema claro en la etapa 1.
+Los nombres `--teal`, `--amber` y `--rose` se conservan por compatibilidad: hoy significan correcto, aviso y error. El amarillo es solo para la interfaz, nunca para un estado.
 
 ## Tipografía
 
-- Texto: **Carlito** (Google Fonts, métrica de Calibri), respaldo `Arial, sans-serif`.
-- Código y fórmulas: `'Courier New', monospace`.
-- Escala (escritorio): 72 / 44 / 32 / 20 / 16 px. Bajar proporcionalmente en móvil con `clamp()`.
-- Énfasis con peso o color, no con tamaños nuevos.
+- Texto y títulos: **TASA Orbiter** (Google Fonts), respaldo `Arial, sans-serif`. Títulos en peso 700 con interletrado cerrado (−0.04 em).
+- Etiquetas, botones, números, fórmulas y código: **Geist Mono** (Google Fonts). Etiquetas y botones en mayúsculas con interletrado abierto (0.1 em). Las etiquetas de campos van en minúsculas para no cambiar las variables (`n`, `t`, `k`).
+- Escala: 80 / 44 / 28 / 20 / 16 px, bajando en móvil con `clamp()`.
 
 ## Componentes
 
-- **Tarjeta:** fondo `--card`, borde 1 px `--line`, radio 20 px, borde izquierdo de 8 px con el color del acento.
-- **Bloque de fórmula:** fondo `#101016`, fuente monoespaciada, nombres de variable en `--teal`.
-- **Sección de acento:** fondo `--teal` con texto `--bg`, para preguntas o ideas clave. Una o dos en todo el sitio.
-- **Checklist:** filas con ícono de palomita en `--teal`.
-- **Ilustraciones:** SVG propios con la paleta. Las fotos reales llevan pie con crédito.
+- **Encabezado de sección:** a la izquierda `01 —— ETIQUETA` en monoespaciada (número en amarillo); a la derecha el título y la idea central. En móvil se apilan.
+- **Rejilla de celdas:** celdas pegadas, separadas por líneas de 1 px (`.rejilla`). Cada celda dibuja su borde derecho e inferior para que los huecos al final queden limpios.
+- **Tarjeta:** fondo `--card`, borde de 1 px, línea de color de 2 px arriba según el acento.
+- **Celda amarilla:** fondo `--accent` con texto `--ink`, para ideas clave. Una o dos en todo el sitio.
+- **Herramienta:** contenedor con la etiqueta `■ INTERACTIVO` en amarillo, encabezado separado por una línea, resultados en celdas con número monoespaciado.
+- **Diagramas:** fondo `--code-bg` con cuadrícula de 24 px.
+- **Botones:** rectos, monoespaciados en mayúsculas. Primario amarillo; sobre amarillo, negro con texto amarillo o contorno negro.
+- **Barra superior:** amarilla. Al bajar se despega y flota dentro del ancho del contenido.
 
 ## Portada
 
-Animación de la cortadora vista desde arriba, ya hecha en canvas: `docs/referencia/portada-animacion.html`. Corta tres piezas, primero los huecos y al final el contorno. Convertirla en componente React con `useEffect` y `requestAnimationFrame`, respetando `prefers-reduced-motion` (mostrar el estado final estático).
+Banda amarilla a todo lo ancho con el título, botones y la animación de la cortadora en una celda oscura. Abajo, una franja de datos en monoespaciada y una fila de atajos a las secciones. La animación respeta `prefers-reduced-motion` (estado final estático).
 
 ## Principios
 
 - Material atemporal: sin número de sesión ni fechas de semestre.
 - Contenido que llene el espacio: sin huecos vacíos ni marcadores de imagen sin imagen.
-- Tono cercano en títulos.
 - Móvil primero: los alumnos abren el sitio frente a la máquina.
+- Contraste AA o mejor en todo texto; Lighthouse de accesibilidad 95 o más.
