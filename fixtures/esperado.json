@@ -1,0 +1,135 @@
+{
+  "nota": "Niveles esperados por fixture. 'errores' y 'avisos' son exactos (lista completa de ids); 'incluye' solo exige que aparezcan.",
+  "archivos": {
+    "perfecto.dxf": {
+      "errores": [],
+      "avisos": [],
+      "piezas": 1,
+      "huecos": 2
+    },
+    "abierto.dxf": {
+      "errores": [
+        "4"
+      ],
+      "avisos": [],
+      "abiertos": 1
+    },
+    "duplicado.dxf": {
+      "errores": [
+        "5"
+      ],
+      "avisos": [],
+      "piezas": 1
+    },
+    "con-cotas.dxf": {
+      "errores": [
+        "6"
+      ],
+      "avisos": [
+        "12a"
+      ]
+    },
+    "pulgadas.dxf": {
+      "errores": [
+        "2a"
+      ],
+      "avisos": [],
+      "caja": [
+        0,
+        0,
+        101.6,
+        76.2
+      ]
+    },
+    "sin-unidades.dxf": {
+      "errores": [],
+      "avisos": [
+        "2b"
+      ]
+    },
+    "spline.dxf": {
+      "errores": [],
+      "avisos": [
+        "7"
+      ],
+      "piezas": 1
+    },
+    "piezas-juntas.dxf": {
+      "incluye": [
+        "10"
+      ],
+      "errores": [],
+      "avisos": [
+        "10"
+      ]
+    },
+    "grande.dxf": {
+      "errores": [
+        "3"
+      ],
+      "avisos": [],
+      "camas": [
+        "cma1200",
+        "cma1080k",
+        "cma1309t"
+      ]
+    },
+    "bloques.dxf": {
+      "errores": [],
+      "avisos": [],
+      "piezas": 3,
+      "caja": [
+        0,
+        0,
+        230,
+        40
+      ]
+    },
+    "bulge.dxf": {
+      "errores": [],
+      "avisos": [],
+      "piezas": 1,
+      "huecos": 1,
+      "caja": [
+        0,
+        0,
+        60,
+        20
+      ]
+    },
+    "lado-compartido.dxf": {
+      "incluye": [
+        "5"
+      ]
+    },
+    "encimado-parcial.dxf": {
+      "incluye": [
+        "5a"
+      ]
+    },
+    "muescas.dxf": {
+      "errores": [],
+      "avisos": [],
+      "ranuras": 2,
+      "opciones": {
+        "espesor": 2.85,
+        "kerf": 0.2
+      }
+    },
+    "tira-kerf.dxf": {
+      "errores": [],
+      "avisos": [],
+      "piezas": 10
+    },
+    "tira-kerf-marco.dxf": {
+      "errores": [],
+      "avisos": []
+    },
+    "binario.dxf": {
+      "errores": [
+        "1"
+      ],
+      "avisos": []
+    }
+  }
+}
