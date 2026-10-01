@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { generarTiraDxf, lineasTira, nombreTira, validarOpcionesTira } from './tiraKerf.js'
+import { validarDxf } from './dxf/validar.js'
 
 function contarLineas(texto) {
   const g = texto.split('\n')
@@ -46,5 +47,11 @@ describe('generador de la tira de prueba', () => {
     expect(validarOpcionesTira({ L: 100, n: 10, a: 20 })).toBeNull()
     expect(validarOpcionesTira({ L: 100, n: 1.5, a: 20 })).not.toBeNull()
     expect(validarOpcionesTira({ L: NaN, n: 10, a: 20 })).not.toBeNull()
+  })
+  it.each([false, true])('el DXF generado pasa el validador sin errores ni avisos (marco: %s)', (marco) => {
+    const { texto } = generarTiraDxf({ L: 100, n: 10, a: 20, marco, m: 10 })
+    const r = validarDxf(texto)
+    expect(r.resumen.errores).toBe(0)
+    expect(r.resumen.avisos).toBe(0)
   })
 })
