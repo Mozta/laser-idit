@@ -72,3 +72,15 @@ Tolerancia de unión por defecto: 0.01 mm (configurable hasta 0.05).
 - Guardarlos en `fixtures/alumnos/` con nombres anónimos (`alumno-01.dxf`, …) y **agregar esa carpeta a `.gitignore`**: el repo del sitio es público.
 - Probar que ninguno rompe el validador (sin excepciones) y revisar a mano con Rafael si los hallazgos tienen sentido. Ajustar tolerancias con base en eso.
 - Registrar qué herramienta generó cada uno (Fusion, Onshape, SolidWorks, AutoCAD…) leyendo el encabezado; sirve para detectar diferencias por programa.
+
+## Implementación (etapa 2)
+
+- **Lectura:** `dxf-parser` 1.1.2 (MIT). Cubre `LWPOLYLINE` y `POLYLINE` con bulges, `ELLIPSE`, `SPLINE` (puntos de control con nudos y pesos, o solo puntos de ajuste), bloques con escala, rotación y arreglos, capas con color y extrusión invertida. No reporta los tipos que no conoce (`HATCH`, `IMAGE`…), así que `src/lib/dxf/leer.js` cuenta los tipos de la sección `ENTITIES` con un escaneo propio. Los binarios se reconocen por su encabezado.
+- **Unidades:** las medidas se convierten a mm según `$INSUNITS` (pulgadas, pies, cm, m) antes de revisar. Sin unidades se toma como mm, igual que SmartCarve.
+- **Contornos:** los trayectos abiertos se unen por sus extremos. Un extremo que cae sobre otra línea cuenta como unión en T (así la tira de prueba, con aristas compartidas, no marca contornos abiertos). Una red de líneas compartidas cuenta sus piezas por caras (fórmula de Euler) y usa su envolvente convexa como silueta.
+- **Duplicados:** los trayectos repetidos se reportan en la revisión 5 y no cuentan como piezas aparte (evita un "dos piezas a 0 mm" falso). Dos piezas que comparten un lado completo sí reportan error 5 y error 10.
+- **Revisiones extra:** `1a` (sin dibujo), `1b` (bloques que no se pudieron expandir) y `12a` (capas de anotación con elementos, aviso).
+- **Interfaz:** `src/tools/ValidadorDxf/`, dentro de la sección 4. Corre en un Web Worker; si no hay Worker, carga el validador aparte en el hilo principal. Ejemplos descargables en `public/dxf/ejemplos/`.
+- **Fixtures:** `node scripts/generar-fixtures.js` regenera `fixtures/dxf/` (17 archivos, incluidos `bloques`, `bulge`, `lado-compartido`, `encimado-parcial`, `muescas` y `binario` además de los de la tabla) y los ejemplos públicos. Lo esperado vive en `fixtures/esperado.json` y lo comprueba `src/lib/dxf/fixtures.test.js`.
+
+**Pendiente:** fixtures reales de alumnos. Falta la lista de repositorios.

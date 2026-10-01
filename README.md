@@ -31,7 +31,8 @@ npm run preview   # sirve dist/ localmente
 
 ```
 public/img/{2019,daniel,grupo}/   imágenes en webp (máx. 1600 px de ancho)
-public/dxf/                       tiras de prueba de kerf descargables
+public/dxf/                       tiras de prueba de kerf y ejemplos del validador
+fixtures/                         DXF de prueba del validador y resultados esperados
 src/data/                         datos editables (ver abajo)
 src/sections/                     una sección de contenido por archivo
 src/tools/                        componentes interactivos
@@ -55,6 +56,18 @@ Los valores que cambian con el tiempo viven en `src/data/`, nunca dentro de los 
 | `materiales.json` | Materiales que se cortan, se graban y están prohibidos; tipos de junta |
 | `galeria.json` | Trabajos de la galería |
 | `creditos.json` | Autoría, licencia, `alt` y pie de cada imagen |
+
+## Validador de DXF
+
+Revisa en el navegador el archivo que se va a cortar (nada se sube a un servidor). La lógica está en `src/lib/dxf/` y la interfaz en `src/tools/ValidadorDxf/`. La especificación y las decisiones de implementación están en `docs/validador-dxf.md`.
+
+Los DXF de prueba se generan con:
+
+```bash
+node scripts/generar-fixtures.js
+```
+
+Lo que se espera de cada uno está en `fixtures/esperado.json`. Los DXF reales de alumnos van en `fixtures/alumnos/`, que está en `.gitignore`.
 
 ## Archivos DXF de ejemplo
 
