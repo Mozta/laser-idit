@@ -6,6 +6,7 @@ import Figura from '../components/Figura.jsx'
 import Checklist from '../components/Checklist.jsx'
 import { Segmentado } from '../tools/comun.jsx'
 import OrdenCorte from '../tools/OrdenCorte.jsx'
+import ValidadorDxf from '../tools/ValidadorDxf/ValidadorDxf.jsx'
 import './secciones.css'
 
 const PROGRAMAS = [
@@ -119,6 +120,10 @@ export default function Archivo() {
           <Figura ruta="daniel/laser3.webp" />
         </div>
       </div>
+
+      <Bloque>
+        <ValidadorDxf />
+      </Bloque>
 
       <Bloque titulo="Orden de trabajo: grabado, huecos, contorno">
         <p>

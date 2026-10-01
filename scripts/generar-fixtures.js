@@ -134,4 +134,9 @@ for (const marco of [false, true]) {
 }
 // Un binario simulado: encabezado de DXF binario seguido de bytes.
 writeFileSync('fixtures/dxf/binario.dxf', Buffer.concat([Buffer.from('AutoCAD Binary DXF\r\n\x1a\x00'), Buffer.from([0, 1, 2, 3, 255])]))
-console.log(`${Object.keys(archivos).length + 3} fixtures en fixtures/dxf/`)
+// Algunos fixtures se publican como ejemplos para probar el validador desde el sitio.
+mkdirSync('public/dxf/ejemplos', { recursive: true })
+for (const nombre of ['abierto.dxf', 'duplicado.dxf', 'con-cotas.dxf', 'piezas-juntas.dxf']) {
+  writeFileSync(`public/dxf/ejemplos/${nombre}`, archivos[nombre].texto())
+}
+console.log(`${Object.keys(archivos).length + 3} fixtures en fixtures/dxf/ y 4 ejemplos en public/dxf/ejemplos/`)

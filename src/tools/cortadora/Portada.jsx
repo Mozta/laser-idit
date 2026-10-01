@@ -85,6 +85,9 @@ export default function Portada() {
             <a className="btn btn-primary" href="#maquinas">
               Empieza aquí
             </a>
+            <a className="btn" href="#validador-dxf">
+              Revisa tu DXF
+            </a>
             <a className="btn" href="#kerf">
               Calcula tu kerf
             </a>

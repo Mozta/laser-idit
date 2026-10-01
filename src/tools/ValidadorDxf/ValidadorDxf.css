@@ -1,0 +1,243 @@
+.vdxf-privacidad {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--code-bg);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.vdxf-privacidad::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+.vdxf-zona {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: clamp(20px, 5vw, 36px);
+  border: 2px dashed var(--line);
+  border-radius: 18px;
+  background: var(--code-bg);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.vdxf-zona.encima {
+  border-color: var(--teal);
+  background: color-mix(in srgb, var(--teal) 10%, var(--code-bg));
+}
+
+.vdxf-icono {
+  width: 48px;
+  height: 48px;
+  color: var(--muted);
+}
+
+.vdxf-zona-texto {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  max-width: none;
+}
+
+.vdxf-zona label.btn {
+  cursor: pointer;
+}
+
+.vdxf-zona:focus-within label.btn {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+.vdxf-ejemplos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.vdxf-chip {
+  font-weight: 400;
+  padding: 8px 14px;
+}
+
+.vdxf-opciones,
+.vdxf-limites {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0 16px;
+  margin: 0 0 14px;
+}
+
+.vdxf-opciones summary,
+.vdxf-limites summary {
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.vdxf-opciones[open] summary,
+.vdxf-limites[open] summary {
+  margin-bottom: 8px;
+}
+
+.vdxf-limites ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.vdxf-resumen {
+  display: grid;
+  gap: 2px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border-left: 8px solid var(--acento);
+  background: color-mix(in srgb, var(--acento) 14%, var(--code-bg));
+  margin: 4px 0 16px;
+}
+
+.vdxf-resumen strong {
+  font-size: var(--fs-4);
+  color: var(--acento);
+}
+
+.vdxf-resumen span {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.vdxf-rejilla {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+.vdxf-vista {
+  margin: 0;
+  position: sticky;
+  top: 72px;
+}
+
+.vdxf-svg {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.vdxf-vista figcaption {
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.vdxf-sin-vista {
+  padding: 40px 16px;
+  text-align: center;
+  background: var(--code-bg);
+  border-radius: 14px;
+}
+
+.vdxf-hallazgos {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.vdxf-hallazgos ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.vdxf-grupo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--acento);
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+}
+
+.vdxf-grupo span {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--acento) 18%, transparent);
+}
+
+.vdxf-hallazgo {
+  font: inherit;
+  width: 100%;
+  min-height: var(--tap);
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--acento);
+  background: var(--code-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.vdxf-hallazgo.fijo {
+  cursor: default;
+}
+
+button.vdxf-hallazgo:hover {
+  border-color: var(--acento);
+}
+
+.vdxf-hallazgo.activo {
+  background: color-mix(in srgb, var(--acento) 14%, var(--code-bg));
+  border-color: var(--acento);
+}
+
+.vdxf-hallazgo-titulo {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.vdxf-hallazgo-titulo small {
+  font-weight: 400;
+  color: var(--acento);
+  white-space: nowrap;
+}
+
+.vdxf-hallazgo-texto {
+  color: var(--muted);
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .vdxf-rejilla {
+    grid-template-columns: 1fr;
+  }
+  .vdxf-vista {
+    position: static;
+  }
+}
