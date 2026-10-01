@@ -1,0 +1,33 @@
+{
+  "nota": "Para agregar trabajos de alumnos: sube las fotos a public/img/alumnos/, regístralas en creditos.json y agrega una entrada aquí.",
+  "trabajos": [
+    {
+      "titulo": "Kit paramétrico de polígonos",
+      "autor": "Rafael Pérez Aguirre",
+      "anio": 2019,
+      "descripcion": "Pentágonos, triángulos y conectores con ranuras que dependen del espesor del material. Se arman figuras sin pegamento.",
+      "imagenes": ["2019/cut2.webp", "2019/piece3.webp", "2019/piece10.webp", "2019/piece9.webp", "2019/piece122.webp", "2019/cut4.webp"]
+    },
+    {
+      "titulo": "Kit de esferas en OpenSCAD",
+      "autor": "Daniel Peña Cruz",
+      "anio": 2026,
+      "descripcion": "Discos ranurados en tres tamaños, generados con código. Cada esfera se arma con discos que encajan entre sí.",
+      "imagenes": ["daniel/cutterresult.webp", "daniel/cutter11.webp", "daniel/scad3.webp"]
+    },
+    {
+      "titulo": "Soporte de laptop",
+      "autor": "Daniel Peña Cruz",
+      "anio": 2026,
+      "descripcion": "Placa con ranuras de ventilación, tres triángulos de soporte y uniones de ranura y pestaña en MDF de 3 mm.",
+      "imagenes": ["daniel/laser12.webp"]
+    },
+    {
+      "titulo": "Pruebas del grupo",
+      "autor": "Itzel Eunice Moreno Rodríguez y equipo",
+      "anio": 2026,
+      "descripcion": "Juntas de prueba y una pieza de corte y grabado para caracterizar la máquina.",
+      "imagenes": ["grupo/typesofjoints.webp", "grupo/pruebadecorte.webp", "grupo/snapfit.webp"]
+    }
+  ]
+}

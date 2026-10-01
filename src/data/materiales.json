@@ -1,0 +1,44 @@
+{
+  "fuente": "Página grupal Fab Academy 2026, Itzel Eunice Moreno Rodríguez y equipo (CC BY-NC). Redacción revisada.",
+  "cortar": [
+    { "nombre": "Madera natural", "nota": "Los bordes pueden quemarse; casi siempre hay que lijar." },
+    { "nombre": "MDF", "nota": "Saca mucho humo y olor; necesita buena ventilación." },
+    { "nombre": "Triplay", "nota": "Las capas internas de pegamento pueden afectar el corte." },
+    { "nombre": "Acrílico (PMMA)", "nota": "Deja bordes brillantes; ideal para letreros y exhibidores." },
+    { "nombre": "Piel natural", "nota": "Puede encogerse si la potencia es muy alta." },
+    { "nombre": "Piel sintética sin PVC", "nota": "Asegúrate de que no tenga cloro.", "cuidado": true },
+    { "nombre": "Tela", "nota": "Se quema fácil; usa poca potencia y velocidad alta." },
+    { "nombre": "Papel", "nota": "Riesgo de incendio; nunca dejes la máquina sola.", "cuidado": true },
+    { "nombre": "Cartón", "nota": "Puede deformarse con el calor; prueba primero." },
+    { "nombre": "Corcho", "nota": "Tiende a carbonizarse; usa varias pasadas ligeras." },
+    { "nombre": "Hule suave sin cloro", "nota": "Puede derretirse con potencia alta." },
+    { "nombre": "Foami (EVA)", "nota": "Funciona bien para manualidades; evita sobrecalentarlo." },
+    { "nombre": "PET (algunos tipos)", "nota": "Puede derretirse; no todo el PET es seguro para el láser." },
+    { "nombre": "Polipropileno (PP)", "nota": "Difícil de cortar limpio; requiere prueba." }
+  ],
+  "grabar": [
+    { "nombre": "Vidrio", "nota": "Papel húmedo o spray encima mejora el contraste." },
+    { "nombre": "Cerámica", "nota": "Solo marca la superficie; no graba hondo." },
+    { "nombre": "Azulejo", "nota": "Funciona mejor en superficies vidriadas." },
+    { "nombre": "Piedra (mármol, granito)", "nota": "Deja un grabado claro en la superficie; el granito puede pedir varias pasadas." },
+    { "nombre": "Acero inoxidable sin recubrimiento", "nota": "Solo una marca muy ligera; no se corta." },
+    { "nombre": "Aluminio sin tratar", "nota": "Necesita spray para marcar." },
+    { "nombre": "Aluminio anodizado", "nota": "El láser quita el anodizado y deja una marca visible." },
+    { "nombre": "Latón", "nota": "Grabado débil; mejor con recubrimientos especiales." },
+    { "nombre": "Fibra de vidrio", "nota": "Suelta polvo peligroso; usa protección.", "cuidado": true }
+  ],
+  "prohibidos": [
+    { "nombre": "PVC", "nota": "Libera cloro." },
+    { "nombre": "Vinil", "nota": "Libera cloro." },
+    { "nombre": "Piel sintética o hule con cloro", "nota": "Si no puedes confirmar que no tiene PVC ni cloro, no se corta." },
+    { "nombre": "Plásticos sin identificar", "nota": "Pueden ser PVC. Sin etiqueta, no entran." }
+  ],
+  "juntas": [
+    { "nombre": "Press-fit", "imagen": "grupo/fingerjoints.webp", "descripcion": "Ranura contra ranura, sin pegamento. La ranura se dibuja un poco más angosta que el espesor (descontando el kerf) y las fibras del MDF se comprimen para sostener la unión." },
+    { "nombre": "Finger joint", "imagen": "grupo/pressfit.webp", "descripcion": "Dedos que se intercalan en el borde de dos placas. Mucha superficie para pegar; ideal para esquinas de cajas a 90°." },
+    { "nombre": "Snap-fit", "imagen": "grupo/snapfit.webp", "descripcion": "Una pestaña con gancho se flexiona al entrar y queda trabada. Usa la elasticidad del material." },
+    { "nombre": "Cuña", "imagen": "grupo/wedgejoints.webp", "descripcion": "Una pestaña atraviesa la ranura y una cuña pequeña la asegura. Muy firme y se desarma fácil." },
+    { "nombre": "Perno", "imagen": "grupo/pinnedjoints.webp", "descripcion": "Un eje (taquete, tornillo o perno cortado en láser) une dos piezas y les deja girar. Sirve para mecanismos." },
+    { "nombre": "Flexión (living hinge)", "imagen": "2019/living.webp", "descripcion": "Un patrón de cortes cortos y desfasados hace que el MDF se doble sin piezas extra." }
+  ]
+}

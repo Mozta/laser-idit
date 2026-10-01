@@ -1,0 +1,8 @@
+{
+  "reportados": [
+    { "fuente": "Fab Academy 2019", "autor": "Rafael Pérez Aguirre", "kerf": 0.16, "material": "MDF de 3 mm", "nota": "Kerf total." },
+    { "fuente": "Fab Academy 2026", "autor": "Daniel Peña Cruz", "kerf": 0.136, "material": "MDF de 3 mm", "nota": "Valor que usa en su código de OpenSCAD." },
+    { "fuente": "Fab Academy 2026", "autor": "Daniel Peña Cruz", "kerf": 0.36, "aproximado": true, "material": "MDF de 3 mm", "nota": "Lo que dice que midió su grupo." },
+    { "fuente": "Fab Academy 2026, página grupal", "autor": "Itzel Eunice Moreno Rodríguez y equipo", "kerf": 0.25, "material": "MDF de 2.5 mm", "nota": "" }
+  ]
+}

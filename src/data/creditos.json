@@ -27,493 +27,657 @@
       "fuente": "2019",
       "alt": "Laptop sobre una mesa con una llave USB roja conectada a un costado, junto a un llavero rojo del IDIT y un cable",
       "pie": "Sin la llave USB conectada, SmartCarve no abre.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/20190206_124324.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/20190206_124324.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/20190206_171302.webp": {
       "fuente": "2019",
       "alt": "Tiras de MDF recién cortadas, juntas una contra otra entre las mordazas de un vernier digital Mitutoyo",
       "pie": "Juntas las tiras y mides el total: la diferencia contra el dibujo te da el kerf.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/20190206_171302.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/20190206_171302.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/20190206_172738.webp": {
       "fuente": "2019",
       "alt": "Integrante del equipo frente a una laptop con SmartCarve abierto: los nombres de la prueba y un calamar en rosa",
       "pie": "Revisando en SmartCarve el archivo de prueba del equipo antes de cortar.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/20190206_172738.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/20190206_172738.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/22.webp": {
       "fuente": "2019",
       "alt": "Cabezal de la cortadora láser cortando en una placa de MDF filas de triángulos del kit con un triángulo grabado al centro",
       "pie": "La láser cortando los triángulos del kit.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/22.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/22.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/captura18.webp": {
       "fuente": "2019",
       "alt": "SmartCarve con los nombres Letty, Rafael, Alma y Carlos, recuadros con tres valores cada uno y una fila de rectángulos para el kerf",
       "pie": "Archivo de prueba: cada nombre y recuadro usa otra combinación de potencia y velocidad.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/Captura18.PNG"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/Captura18.PNG",
+      "ancho": 1100,
+      "alto": 687
     },
     "2019/cut1.webp": {
       "fuente": "2019",
       "alt": "Cabezal de la cortadora láser cortando piezas del kit en una placa de MDF; se ve el punto brillante del láser",
       "pie": "La láser cortando las piezas del kit.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/cut1.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/cut1.jpg",
+      "ancho": 1100,
+      "alto": 618
     },
     "2019/cut2.webp": {
       "fuente": "2019",
       "alt": "Placa de MDF con muchas piezas del kit ya cortadas, pentágonos con anillos grabados, discos ranurados y conectores",
       "pie": "Así queda la placa: piezas cortadas y grabados listos para sacarse.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/cut2.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/cut2.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/cut3.webp": {
       "fuente": "2019",
       "alt": "Piezas sueltas del kit en MDF sobre una superficie oscura: pentágonos, un disco ranurado, un conector y una pieza ensamblada",
       "pie": "Primeras piezas sueltas; algunas tienen el borde quemado.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/cut3.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/cut3.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/cut4.webp": {
       "fuente": "2019",
       "alt": "Pentágonos de MDF con anillos grabados y otras piezas del kit sobre la rejilla de panal de la cortadora",
       "pie": "Piezas recién cortadas sobre la cama de panal de la máquina.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/cut4.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/cut4.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/kit.webp": {
       "fuente": "2019",
       "alt": "AutoCAD con un pentágono dentro de un círculo, con ranuras en sus lados y restricciones paramétricas de cotas y ángulos",
       "pie": "Pieza pentagonal del kit, dibujada con restricciones paramétricas.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit.png",
+      "ancho": 1100,
+      "alto": 667
     },
     "2019/kit2.webp": {
       "fuente": "2019",
       "alt": "AutoCAD con un conector angular acotado con parámetros; el ancho de sus ranuras depende de la variable material",
       "pie": "Conector paramétrico: si cambia el grosor del material, cambian las ranuras.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit2.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit2.png",
+      "ancho": 1100,
+      "alto": 667
     },
     "2019/kit3.webp": {
       "fuente": "2019",
       "alt": "AutoCAD con el pentágono del kit ya con esquinas redondeadas y anillos concéntricos dibujados al centro",
       "pie": "El pentágono con esquinas redondeadas y el dibujo que se va a grabar.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit3.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit3.png",
+      "ancho": 1100,
+      "alto": 667
     },
     "2019/kit4.webp": {
       "fuente": "2019",
       "alt": "AutoCAD con tres conectores del kit: dos discos con ranuras y un agujero central, y una pieza angular con ranuras",
       "pie": "Los conectores del kit: discos ranurados y una pieza en ángulo.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit4.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit4.png",
+      "ancho": 1100,
+      "alto": 667
     },
     "2019/kit5.webp": {
       "fuente": "2019",
       "alt": "AutoCAD con un triángulo de esquinas redondeadas, ranuras en sus lados y restricciones de ángulo de 60 grados",
       "pie": "Pieza triangular del kit, también paramétrica.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit5.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit5.png",
+      "ancho": 1100,
+      "alto": 667
     },
     "2019/kit6.webp": {
       "fuente": "2019",
       "alt": "AutoCAD con muchos triángulos del kit acomodados en filas, alternando hacia arriba y hacia abajo para aprovechar el material",
       "pie": "Triángulos acomodados para aprovechar la placa de MDF.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit6.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/kit6.png",
+      "ancho": 1100,
+      "alto": 656
     },
     "2019/living.webp": {
       "fuente": "2019",
       "alt": "Cabezal de la cortadora láser cortando en MDF el patrón de líneas paralelas desfasadas de una bisagra flexible",
       "pie": "Living hinge: muchas ranuras cortas hacen que el MDF se doble.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/living.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/living.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece1.webp": {
       "fuente": "2019",
       "alt": "Dos pentágonos de MDF con grabado unidos por conectores en ángulo, formando el inicio de una figura en tres dimensiones",
       "pie": "Empieza el armado: dos pentágonos unidos con conectores.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece1.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece1.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece10.webp": {
       "fuente": "2019",
       "alt": "Mano sosteniendo un icosaedro de MDF armado con triángulos grabados; atrás se ve un dodecaedro del mismo kit",
       "pie": "Icosaedro de triángulos, con el dodecaedro al fondo.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece10.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece10.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece111.webp": {
       "fuente": "2019",
       "alt": "Mano sosteniendo una figura que combina pentágonos, triángulos y un calamar de MDF unidos con conectores del kit",
       "pie": "Mezclando piezas: pentágonos, triángulos y el calamar.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece111.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece111.png",
+      "ancho": 838,
+      "alto": 1712
     },
     "2019/piece122.webp": {
       "fuente": "2019",
       "alt": "Calamar de MDF montado sobre una figura de pentágonos y conectores del kit, apoyada en una mesa blanca",
       "pie": "El calamar encima de una figura armada con el kit.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece122.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece122.png",
+      "ancho": 838,
+      "alto": 1712
     },
     "2019/piece2.webp": {
       "fuente": "2019",
       "alt": "Figura a medio armar con pentágonos de MDF unidos por conectores, junto a una pila de pentágonos sueltos",
       "pie": "El ensamble avanza; las ranuras ajustan sin pegamento.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece2.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece2.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece3.webp": {
       "fuente": "2019",
       "alt": "Mano sosteniendo un dodecaedro de MDF armado con pentágonos grabados unidos por conectores",
       "pie": "Dodecaedro terminado con piezas del kit.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece3.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece3.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece4.webp": {
       "fuente": "2019",
       "alt": "Mano sosteniendo varios pentágonos de MDF unidos en distintos ángulos con conectores rectos y en ángulo",
       "pie": "Los conectores permiten unir piezas en varias direcciones.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece4.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece4.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece5.webp": {
       "fuente": "2019",
       "alt": "Tres triángulos de MDF con un triángulo grabado al centro, unidos por un conector de tres brazos",
       "pie": "Tres triángulos unidos por un conector de tres brazos.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece5.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece5.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece6.webp": {
       "fuente": "2019",
       "alt": "Figura curva a medio armar hecha con triángulos de MDF grabados y conectores de tres brazos",
       "pie": "Con triángulos, la figura empieza a cerrarse.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece6.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece6.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece7.webp": {
       "fuente": "2019",
       "alt": "Varios triángulos de MDF grabados unidos por conectores de tres brazos, formando parte de una figura cerrada",
       "pie": "Otro ángulo del ensamble con triángulos.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece7.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece7.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece8.webp": {
       "fuente": "2019",
       "alt": "Mano sosteniendo una figura pequeña armada con discos ranurados de MDF y un triángulo grabado",
       "pie": "Los discos ranurados también sirven para armar figuras.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece8.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece8.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/piece9.webp": {
       "fuente": "2019",
       "alt": "Varios discos ranurados de MDF encajados entre sí formando una cadena de figuras sobre una mesa blanca",
       "pie": "Discos encajados entre sí: puedes armar sin plan fijo.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece9.jpg"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/piece9.jpg",
+      "ancho": 1100,
+      "alto": 534
     },
     "2019/rect.webp": {
       "fuente": "2019",
       "alt": "AutoCAD con un rectángulo de 100 por 40 dividido por líneas verticales en rectángulos iguales para la prueba de kerf",
       "pie": "Modelo de la prueba de kerf: un rectángulo partido en tiras iguales.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/rect.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/rect.png",
+      "ancho": 1100,
+      "alto": 667
     },
     "2019/team.webp": {
       "fuente": "2019",
       "alt": "Cuatro integrantes del equipo sonríen y sostienen calamares de MDF cortados con láser frente a la cortadora abierta",
       "pie": "El equipo con los calamares que salieron de la prueba.",
-      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/team.png"
+      "original": "https://fabacademy.org/2019/labs/puebla/students/rafael-aguirre/images/week04/team.png",
+      "ancho": 1100,
+      "alto": 826
     },
     "daniel/cutter.webp": {
       "fuente": "daniel",
       "alt": "Cortadora láser CAMFive gris con tapa azul, marcada con el número 3, y regulador de voltaje en el piso debajo de ella",
       "pie": "Una de las cortadoras del laboratorio.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter1.webp": {
       "fuente": "daniel",
       "alt": "Regulador de voltaje CAMFive CFVR-3000VA bajo la cortadora, marcando 222 V de entrada, con su interruptor Power a la derecha",
       "pie": "Debajo de la máquina: el primer interruptor que se enciende, con el pie.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter1.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter1.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter10.webp": {
       "fuente": "daniel",
       "alt": "Cortadora con la tapa cerrada; a través de la ventana se ve el cabezal cortando círculos en la lámina",
       "pie": "Corte en progreso: la tapa no se abre hasta que termine.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter10.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter10.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter11.webp": {
       "fuente": "daniel",
       "alt": "Decenas de discos ranurados de MDF sobre la cama de panal y dos pilas de discos más grandes al frente",
       "pie": "Las piezas del kit al terminar el corte.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter11.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter11.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter12.webp": {
       "fuente": "daniel",
       "alt": "Cortadora láser CAMFive vista de frente con la tapa cerrada y el regulador de voltaje debajo",
       "pie": "Así debe quedar la máquina al terminar: tapa cerrada y sin retazos.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter12.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter12.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter13.webp": {
       "fuente": "daniel",
       "alt": "Esferas de MDF armadas con discos ensamblados sobre un escritorio, junto a teclado, ratón y piezas sueltas",
       "pie": "Pruebas de ensamble: le tomó 9 cortes lograr un ajuste aceptable.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter13.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter13.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter2.webp": {
       "fuente": "daniel",
       "alt": "Costado de la cortadora con un interruptor basculante rojo y, junto a él, una pastilla termomagnética detrás de una ventanilla",
       "pie": "Los dos interruptores de encendido del láser, en el costado.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter2.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter2.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter3.webp": {
       "fuente": "daniel",
       "alt": "Panel de control con pantalla, botones, dos amperímetros, perillas de potencia y la llave de seguridad puesta en su cerradura",
       "pie": "La llave de seguridad, puesta en su cerradura del panel.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter3.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter3.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter4.webp": {
       "fuente": "daniel",
       "alt": "Placa metálica en la cortadora con un puerto rotulado USB-out y un conector circular rotulado Foot switch",
       "pie": "Puertos de la máquina: USB-out y pedal (Foot switch).",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter4.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter4.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter5.webp": {
       "fuente": "daniel",
       "alt": "Monitor HP con el programa SmartCarve 4.3 abierto: área de trabajo vacía y panel de capas por color a la derecha",
       "pie": "SmartCarve, el programa que manda el archivo a la cortadora.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter5.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter5.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter6.webp": {
       "fuente": "daniel",
       "alt": "SmartCarve con tres piezas circulares ranuradas importadas y el panel de parámetros de potencia y velocidad",
       "pie": "El archivo ya importado y acomodado en el área de corte.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter6.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter6.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter8.webp": {
       "fuente": "daniel",
       "alt": "Hoja de MDF colocada sobre la cama de panal, con el cabezal y el punto rojo de referencia en la esquina superior",
       "pie": "Material sobre la cama y cabezal ubicado en el punto de inicio.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter8.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter8.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutter9.webp": {
       "fuente": "daniel",
       "alt": "Pantalla de SmartCarve con Max Power 60, Min Power 40, Work Speed 100 mm/s y los botones Start, Suspend y Stop",
       "pie": "Parámetros en pantalla antes de presionar Start. Los tuyos salen de tu prueba.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter9.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutter9.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/cutterresult.webp": {
       "fuente": "daniel",
       "alt": "Estructura de esferas de MDF de tres tamaños, cada una hecha de discos ranurados encajados, sobre una mesa de madera",
       "pie": "El kit de esferas de Daniel, ya armado.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutterResult.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/cutterResult.webp",
+      "ancho": 1600,
+      "alto": 1200
     },
     "daniel/laser12.webp": {
       "fuente": "daniel",
       "alt": "Dibujo en AutoCAD de las piezas del soporte de laptop en rojo: placa con ranuras de ventilación, tres triángulos y barras, con cotas",
       "pie": "Piezas del soporte de laptop con sus medidas.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser12.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser12.webp",
+      "ancho": 1338,
+      "alto": 750
     },
     "daniel/laser13.webp": {
       "fuente": "daniel",
       "alt": "Piezas del soporte de laptop en rojo, sin cotas, acomodadas juntas con una pequeña separación entre ellas",
       "pie": "Archivo listo para cortar: piezas juntas, con al menos 3 mm entre ellas.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser13.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser13.webp",
+      "ancho": 1225,
+      "alto": 735
     },
     "daniel/laser3.webp": {
       "fuente": "daniel",
       "alt": "Administrador de capas de AutoCAD en español con las capas 0, CORTE en rojo y Defpoints",
       "pie": "Capas en AutoCAD: el color de la línea indica qué hace el láser.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser3.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser3.webp",
+      "ancho": 852,
+      "alto": 496
     },
     "daniel/laser4.webp": {
       "fuente": "daniel",
       "alt": "Barra de herramientas de AutoCAD con la capa CORTE en rojo seleccionada como capa actual en el archivo laptopStand.dxf",
       "pie": "Con la capa CORTE activa, todo lo que dibujes saldrá en rojo.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser4.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser4.webp",
+      "ancho": 573,
+      "alto": 285
     },
     "daniel/mistakes2.webp": {
       "fuente": "daniel",
       "alt": "Dos discos en AutoCAD, uno grande y uno chico; al escalar el grande, su ranura central y muescas también crecieron",
       "pie": "Error: al escalar la pieza, las ranuras crecieron con ella.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/mistakes2.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/mistakes2.webp",
+      "ancho": 983,
+      "alto": 616
     },
     "daniel/scad1.webp": {
       "fuente": "daniel",
       "alt": "Pieza base en OpenSCAD: círculo verde con seis muescas rectangulares repartidas en el borde",
       "pie": "La pieza base del kit, dibujada con código en OpenSCAD.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/scad1.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/scad1.webp",
+      "ancho": 1125,
+      "alto": 672
     },
     "daniel/scad2.webp": {
       "fuente": "daniel",
       "alt": "Tres discos verdes en OpenSCAD, cada uno con ranuras largas distintas además de las seis muescas del borde",
       "pie": "Las tres piezas que forman una esfera.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/scad2.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/scad2.webp",
+      "ancho": 1443,
+      "alto": 859
     },
     "daniel/scad3.webp": {
       "fuente": "daniel",
       "alt": "OpenSCAD con tres filas de discos ranurados en tamaño grande, mediano y chico generados por ciclos",
       "pie": "El kit completo en tres tamaños, generado por código.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/scad3.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/scad3.webp",
+      "ancho": 1600,
+      "alto": 794
     },
     "daniel/scad4.webp": {
       "fuente": "daniel",
       "alt": "Discos ranurados en líneas rojas en AutoCAD, reacomodados en filas por tamaño para aprovechar la lámina",
       "pie": "El DXF de OpenSCAD pasado a la capa de corte y reacomodado.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/scad4.webp"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/scad4.webp",
+      "ancho": 1577,
+      "alto": 807
     },
     "grupo/calibraciondedistancia.webp": {
       "fuente": "grupo",
       "alt": "Persona ajusta el cabezal láser sobre una tira de MDF en la cama de panal, con la tapa de la cortadora abierta",
       "pie": "Ajuste del cabezal sobre el material antes de cortar",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/calibraciondedistancia.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/calibraciondedistancia.jpeg",
+      "ancho": 1179,
+      "alto": 868
     },
     "grupo/calibraciondedistancia5mm.webp": {
       "fuente": "grupo",
       "alt": "Manos ajustan la altura del cabezal láser usando una pieza calibradora metálica entre la boquilla y la placa de MDF",
       "pie": "Con la pieza calibradora se ajusta la distancia de foco",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/calibraciondedistancia5mm.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/calibraciondedistancia5mm.jpeg",
+      "ancho": 1179,
+      "alto": 872
     },
     "grupo/cerrarmaquina.webp": {
       "fuente": "grupo",
       "alt": "Manos bajan la tapa azul de la cortadora tomándola de la manija hasta cerrarla",
       "pie": "Cierra la tapa antes de mandar el corte",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cerrarmaquina.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cerrarmaquina.jpeg",
+      "ancho": 1179,
+      "alto": 884
     },
     "grupo/cflcma.webp": {
       "fuente": "grupo",
       "alt": "Cortadora láser CAMFive CFL-CMA1080K, marcada con el número 2, con la tapa cerrada; a su lado, el enfriador de agua con un garrafón",
       "pie": "Máquina 2: CFL-CMA1080K, junto a su enfriador",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/CFLCMA.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/CFLCMA.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/cflcma1200.webp": {
       "fuente": "grupo",
       "alt": "Cortadora láser CAMFive CFL-CMA1200, marcada con el número 1, con la tapa azul abierta y la cama de panal a la vista",
       "pie": "Máquina 1: CFL-CMA1200, con tapa abierta y cama de panal",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/CFLCMA1200.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/CFLCMA1200.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/cflcma13.webp": {
       "fuente": "grupo",
       "alt": "Cortadora láser CAMFive marcada con el número 3, con la tapa cerrada; debajo hay un regulador de voltaje",
       "pie": "Máquina 3, la de mayor área.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/CFLCMA13.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/CFLCMA13.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/controlesdemaquina.webp": {
       "fuente": "grupo",
       "alt": "Tablero de la cortadora: amperímetro en mA, perilla Laser1 de MIN a MAX, botón Laser, llave, botón Rotate y panel CAMFive",
       "pie": "Tablero de control: amperímetro, perilla de potencia, llave y panel",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/controlesdemaquina.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/controlesdemaquina.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/cortadorapordentro.webp": {
       "fuente": "grupo",
       "alt": "Cabezal láser con su manguera de aire, colocado sobre una tira de MDF en la cama de panal dentro de la cortadora",
       "pie": "El cabezal listo sobre el material",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cortadorapordentro.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cortadorapordentro.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/cortelaser.webp": {
       "fuente": "grupo",
       "alt": "Vista a través de la ventana de la tapa cerrada: un punto brillante del láser corta piezas de MDF sobre la cama",
       "pie": "El láser cortando, visto desde la tapa cerrada",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cortelaser.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cortelaser.jpeg",
+      "ancho": 1178,
+      "alto": 872
     },
     "grupo/encendido1.webp": {
       "fuente": "grupo",
       "alt": "Persona en cuclillas señala el interruptor del regulador de voltaje DJW-3000, ubicado debajo de la cortadora",
       "pie": "Primero se enciende el regulador que está debajo de la máquina",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/encendido1.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/encendido1.jpeg",
+      "ancho": 1178,
+      "alto": 852
     },
     "grupo/encendido2.webp": {
       "fuente": "grupo",
       "alt": "Mano señala el interruptor principal en el costado de la cortadora, debajo del paro de emergencia y de las etiquetas de advertencia",
       "pie": "Después, el interruptor del costado de la máquina",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/encendido2.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/encendido2.jpeg",
+      "ancho": 1178,
+      "alto": 875
     },
     "grupo/extractordehumo.webp": {
       "fuente": "grupo",
       "alt": "Extractor de humo verde conectado a la parte trasera de la cortadora con una manguera flexible y a un ducto de PVC blanco",
       "pie": "El extractor saca el humo de la máquina hacia el ducto",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/extractordehumo.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/extractordehumo.jpeg",
+      "ancho": 960,
+      "alto": 1280
     },
     "grupo/fingerjoints.webp": {
       "fuente": "grupo",
       "alt": "Dos placas de MDF con una ranura cada una, encajadas entre sí formando una cruz",
       "pie": "Ranura contra ranura: el ajuste lo da el ancho de la ranura.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/fingerjoints.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/fingerjoints.jpeg",
+      "ancho": 1600,
+      "alto": 720
     },
     "grupo/lasergrin.webp": {
       "fuente": "grupo",
       "alt": "Página LaserGridMaster.com con una cuadrícula de prueba de 10 por 10: potencia de 10 a 90 % contra velocidad de 10 a 95 mm/s",
       "pie": "Plantilla de LaserGridMaster para comparar potencia y velocidad",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/lasergrin.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/lasergrin.jpeg",
+      "ancho": 1315,
+      "alto": 677
     },
     "grupo/laserresonator.webp": {
       "fuente": "grupo",
       "alt": "Compartimento trasero abierto de la cortadora que deja ver el tubo láser de vidrio, con su espiral de enfriamiento y cables de alto voltaje",
       "pie": "Dentro de este tubo de vidrio se genera el haz láser",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/laserresonator.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/laserresonator.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/manejodecontroles.webp": {
       "fuente": "grupo",
       "alt": "Dedo presiona las flechas del panel CAMFive para mover el cabezal sobre la cama, donde hay restos de MDF cortado",
       "pie": "Con las flechas del panel mueves el cabezal al punto de origen",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/manejodecontroles.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/manejodecontroles.jpeg",
+      "ancho": 1178,
+      "alto": 880
     },
     "grupo/maquinalaser.webp": {
       "fuente": "grupo",
       "alt": "Cortadora CAMFive CFL-CMA1080K, número 2, con la tapa abierta y piezas de MDF cortadas sobre la cama de panal",
       "pie": "La máquina 2 abierta, con piezas recién cortadas en la cama",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/maquinalaser.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/maquinalaser.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/medicionesdeprueba.webp": {
       "fuente": "grupo",
       "alt": "Manos miden con un calibrador digital Mitutoyo las tiras de una prueba de kerf cortada en MDF sobre la cama de panal",
       "pie": "Midiendo la prueba de kerf con calibrador",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/medicionesdeprueba.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/medicionesdeprueba.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/parametrosdemaquina.webp": {
       "fuente": "grupo",
       "alt": "Monitor con SmartCarve 4.3 abierto: diseño de prueba de kerf al centro, panel de capas y parámetros a la derecha",
       "pie": "El archivo de prueba de kerf abierto en SmartCarve",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/parametrosdemaquina.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/parametrosdemaquina.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/parodeemergencia.webp": {
       "fuente": "grupo",
       "alt": "Mano gira el botón rojo de paro de emergencia de la CFL-CMA1080K para liberarlo; arriba se ven el panel CAMFive y la llave",
       "pie": "Gira el paro de emergencia para liberarlo antes de arrancar",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/parodeemergencia.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/parodeemergencia.jpeg",
+      "ancho": 1178,
+      "alto": 862
     },
     "grupo/pinnedjoints.webp": {
       "fuente": "grupo",
       "alt": "Dos placas de MDF encajadas en ángulo por una ranura, con una pieza delgada atravesada en la unión",
       "pie": "Junta con perno entre dos placas de MDF",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pinnedjoints.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pinnedjoints.jpeg",
+      "ancho": 1600,
+      "alto": 720
     },
     "grupo/pressfit.webp": {
       "fuente": "grupo",
       "alt": "Dos placas planas de MDF unidas por el borde con dientes rectangulares que encajan entre sí",
       "pie": "Dientes que se intercalan, como en una caja.",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pressfit.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pressfit.jpeg",
+      "ancho": 1600,
+      "alto": 720
     },
     "grupo/pruebadecorte.webp": {
       "fuente": "grupo",
       "alt": "Pieza de cartón gris con dos ventanas cortadas y zonas de líneas grabadas, sobre la cama de panal con restos de corte",
       "pie": "Al terminar, revisa que las piezas se hayan cortado completas",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pruebadecorte.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pruebadecorte.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/pruebasdetolerancias.webp": {
       "fuente": "grupo",
       "alt": "Dos peines de MDF ensamblados en ángulo sobre una mano, con ranuras rotuladas de 2.60 a 3.00 mm",
       "pie": "Peine de holguras: prueba qué ranura ajusta mejor con tu material",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pruebasdetolerancias.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pruebasdetolerancias.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/snapfit.webp": {
       "fuente": "grupo",
       "alt": "Dos placas de MDF unidas en ángulo; una pestaña con gancho atraviesa una ranura en el centro de la placa superior",
       "pie": "Junta de gancho: la pestaña se flexiona y queda trabada",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/snapfit.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/snapfit.jpeg",
+      "ancho": 1600,
+      "alto": 720
     },
     "grupo/tipodemaquinalaser.webp": {
       "fuente": "grupo",
       "alt": "Enfriador de agua CAMFive SL-2D para tubo láser de CO2, con pantalla de control, colocado entre dos cortadoras",
       "pie": "El enfriador mantiene frío el tubo láser mientras corta",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/tipodemaquinalaser.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/tipodemaquinalaser.jpeg",
+      "ancho": 1280,
+      "alto": 960
     },
     "grupo/toolmenu.webp": {
       "fuente": "grupo",
       "alt": "Interfaz de SmartCarve 4.3 con sus zonas marcadas en color: menús, lista de objetos, herramientas, área de trabajo, capas, parámetros y ejecución",
       "pie": "Las zonas de SmartCarve que vas a usar",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/toolmenu.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/toolmenu.jpeg",
+      "ancho": 1320,
+      "alto": 681
     },
     "grupo/typesofjoints.webp": {
       "fuente": "grupo",
       "alt": "Diez piezas de MDF en dos filas con distintas ranuras, pestañas y dientes para probar varios tipos de junta",
       "pie": "Piezas para probar distintos tipos de junta",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/typesofjoints.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/typesofjoints.jpeg",
+      "ancho": 1600,
+      "alto": 720
     },
     "grupo/wedgejoints.webp": {
       "fuente": "grupo",
       "alt": "Dos placas de MDF unidas en ángulo; una pestaña sale por una ranura de la placa superior y la asegura una pequeña cuña",
       "pie": "Junta de cuña: una pieza pequeña asegura la pestaña",
-      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/wedgejoints.jpeg"
+      "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/wedgejoints.jpeg",
+      "ancho": 1600,
+      "alto": 720
     }
   }
 }
