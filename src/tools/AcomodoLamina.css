@@ -1,0 +1,41 @@
+.acomodo-lamina svg {
+  max-height: 420px;
+  margin-inline: auto;
+}
+
+.camas {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+}
+
+.cama {
+  margin: 0;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.cama svg {
+  width: 100%;
+  height: auto;
+}
+
+.cama figcaption {
+  display: grid;
+  gap: 2px;
+  font-size: 0.95rem;
+}
+
+.cama figcaption span {
+  color: var(--muted);
+}
+
+.cama .cama-estado {
+  color: var(--acento);
+  font-weight: 700;
+}

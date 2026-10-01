@@ -1,0 +1,57 @@
+[
+  {
+    "id": "encender",
+    "titulo": "Encender",
+    "pasos": [
+      "Enciende el switch inferior. Arranca el extractor y los sistemas auxiliares: hace mucho ruido, es normal.",
+      "Enciende los switches de la máquina.",
+      "Libera el paro de emergencia.",
+      "Gira la llave."
+    ],
+    "imagenes": ["daniel/cutter1.webp", "grupo/encendido2.webp", "grupo/parodeemergencia.webp", "daniel/cutter3.webp"]
+  },
+  {
+    "id": "preparar",
+    "titulo": "Preparar",
+    "pasos": [
+      "Ajusta el foco a 5 mm: afloja las tuercas, pon el calibrador entre la boquilla y el material, aprieta.",
+      "Coloca el material en la cama.",
+      "Fija el origen en la esquina superior derecha con las flechas y el botón Origin."
+    ],
+    "imagenes": ["grupo/calibraciondedistancia5mm.webp", "daniel/cutter8.webp", "grupo/manejodecontroles.webp"]
+  },
+  {
+    "id": "programar",
+    "titulo": "Programar",
+    "pasos": [
+      "Abre SmartCarve con la llave USB conectada e importa tu DXF en milímetros.",
+      "Asigna capas, prioridades, potencia y velocidad.",
+      "Presiona Go Scale: el cabezal recorre el perímetro del trabajo para que verifiques que cabe en el material.",
+      "Opcional: guarda como .oud para cargarlo desde USB."
+    ],
+    "imagenes": ["grupo/toolmenu.webp", "daniel/cutter6.webp", "2019/20190206_124324.webp"]
+  },
+  {
+    "id": "cortar",
+    "titulo": "Cortar",
+    "pasos": [
+      "Cierra la tapa.",
+      "Presiona el botón Laser.",
+      "Presiona Start.",
+      "Vigila todo el corte, de principio a fin."
+    ],
+    "imagenes": ["grupo/cerrarmaquina.webp", "daniel/cutter10.webp"]
+  },
+  {
+    "id": "terminar",
+    "titulo": "Terminar",
+    "pasos": [
+      "Espera a que el extractor saque el humo.",
+      "Apaga el botón Laser.",
+      "Abre la tapa y retira tus piezas.",
+      "Apaga en orden inverso: potencia al mínimo, llave fuera, paro de emergencia, switches.",
+      "Limpia la cama: sin retazos ni piezas olvidadas."
+    ],
+    "imagenes": ["daniel/cutter11.webp", "daniel/cutter12.webp"]
+  }
+]

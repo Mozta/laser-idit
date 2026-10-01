@@ -1,0 +1,11 @@
+.ensamble-dibujo {
+  margin-top: 12px;
+}
+
+.ensamble-detalle {
+  margin-bottom: 8px;
+}
+
+.ensamble-dibujo + .resultados .resultado:last-child .resultado-valor {
+  font-family: var(--font);
+}

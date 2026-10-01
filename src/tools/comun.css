@@ -1,0 +1,143 @@
+.herramienta {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(18px, 3.5vw, 32px);
+  margin: 0 0 24px;
+  min-width: 0;
+}
+
+.herramienta-cabeza {
+  margin-bottom: 20px;
+}
+
+.herramienta-cabeza h3 {
+  margin-bottom: 6px;
+}
+
+.herramienta-cabeza p:last-child {
+  margin-bottom: 0;
+}
+
+.herramienta-etiqueta {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.campos {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  margin-bottom: 18px;
+}
+
+.campo-unidad {
+  position: relative;
+}
+
+.campo-unidad input {
+  padding-right: 48px;
+}
+
+.campo-unidad span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.resultados {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  margin-bottom: 14px;
+}
+
+.resultado {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.resultado-destacado {
+  border-color: var(--acento, var(--teal));
+}
+
+.resultado-etiqueta {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.resultado-valor {
+  font-family: var(--mono);
+  font-size: clamp(1.4rem, 2vw + 0.8rem, 1.9rem);
+  font-weight: 700;
+  color: var(--acento, var(--text));
+  font-variant-numeric: tabular-nums;
+}
+
+.resultado-destacado .resultado-valor {
+  color: var(--acento, var(--teal));
+}
+
+.resultado-valor small {
+  font-size: 0.55em;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.mensaje {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--acento) 55%, var(--line));
+  background: color-mix(in srgb, var(--acento) 12%, var(--code-bg));
+  color: var(--text);
+  overflow: hidden;
+}
+
+.diagrama {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  margin: 0 0 18px;
+}
+
+.diagrama svg {
+  width: 100%;
+  height: auto;
+}
+
+.diagrama figcaption {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.nota-prueba {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.casilla {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--tap);
+  margin-bottom: 14px;
+  cursor: pointer;
+}

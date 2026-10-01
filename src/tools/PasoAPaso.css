@@ -1,0 +1,118 @@
+.pasos-barra {
+  position: sticky;
+  top: 60px;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background: rgb(29 29 39 / 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.pasos-progreso {
+  flex-basis: 100%;
+  height: 6px;
+  background: var(--code-bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.pasos-relleno {
+  height: 100%;
+  background: var(--teal);
+}
+
+.fases {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.fase {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 8px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(16px, 3vw, 26px);
+  transition: border-color 0.3s;
+}
+
+.fase-completa {
+  border-left-color: var(--teal);
+}
+
+.fase-cabeza {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.fase-cabeza h3 {
+  margin: 0;
+  flex: 1;
+}
+
+.fase-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--teal);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.fase-cuenta {
+  font-family: var(--mono);
+  color: var(--muted);
+}
+
+.fase-pasos {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.fase-pasos label {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 11px 0;
+  min-height: var(--tap);
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.fase-pasos li:last-child label {
+  border-bottom: 0;
+}
+
+.fase-pasos input {
+  margin-top: 2px;
+}
+
+.fase-pasos label.hecho span {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--teal);
+}
+
+.fase-fotos {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+}
