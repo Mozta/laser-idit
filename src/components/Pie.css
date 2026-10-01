@@ -1,0 +1,28 @@
+.pie {
+  border-top: 1px solid var(--line);
+  padding: 48px 0 64px;
+  font-size: 0.95rem;
+}
+
+.pie-rejilla {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.pie-titulo {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.pie ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.pie li a {
+  display: inline-block;
+  padding: 4px 0;
+}

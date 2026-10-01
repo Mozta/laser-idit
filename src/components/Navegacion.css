@@ -1,0 +1,125 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgb(22 22 30 / 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 60px;
+}
+
+.nav-marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--tap);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 12px var(--amber);
+}
+
+.nav-escritorio ul {
+  display: flex;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-escritorio a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 10px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.98rem;
+  white-space: nowrap;
+}
+
+.nav-escritorio a:hover,
+.nav-escritorio a[aria-current] {
+  color: var(--text);
+}
+
+.nav-subrayado {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--teal);
+}
+
+.nav-menu {
+  display: none;
+}
+
+.nav-movil {
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
+  max-height: calc(100dvh - 60px);
+  overflow-y: auto;
+}
+
+.nav-movil ul {
+  list-style: none;
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  display: grid;
+}
+
+.nav-movil a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.15rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-movil li:last-child a {
+  border-bottom: 0;
+}
+
+.nav-movil a[aria-current] {
+  color: var(--teal);
+}
+
+.nav-num {
+  font-family: var(--mono);
+  color: var(--teal);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1060px) {
+  .nav-escritorio {
+    display: none;
+  }
+  .nav-menu {
+    display: inline-flex;
+  }
+}

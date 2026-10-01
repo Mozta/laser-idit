@@ -1,0 +1,58 @@
+.tarjeta {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 8px solid var(--acento, var(--teal));
+  border-radius: var(--radius);
+  padding: clamp(18px, 3vw, 26px);
+  min-width: 0;
+}
+
+.tarjeta > :last-child {
+  margin-bottom: 0;
+}
+
+.tarjeta-titulo {
+  font-size: var(--fs-4);
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.acento-seccion {
+  background: var(--teal);
+  color: var(--bg);
+  border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 44px);
+  font-size: var(--fs-4);
+}
+
+.acento-seccion p {
+  max-width: 60ch;
+}
+
+.acento-seccion strong {
+  font-size: var(--fs-3);
+  display: block;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.acento-seccion > :last-child {
+  margin-bottom: 0;
+}
+
+.aviso {
+  display: grid;
+  gap: 4px;
+  border-radius: 14px;
+  padding: 14px 18px;
+  background: color-mix(in srgb, var(--acento) 12%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--acento) 50%, var(--line));
+}
+
+.aviso-titulo {
+  color: var(--acento);
+}
+
+.aviso p:last-child {
+  margin-bottom: 0;
+}

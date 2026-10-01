@@ -1,0 +1,84 @@
+.figura {
+  margin: 0;
+  min-width: 0;
+}
+
+.figura-boton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card);
+  cursor: zoom-in;
+}
+
+.figura-boton img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.figura-boton:hover img {
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .figura-boton img,
+  .figura-boton:hover img {
+    transition: none;
+    transform: none;
+  }
+}
+
+.figura figcaption {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.figura-credito::before {
+  content: 'Crédito: ';
+}
+
+.figura-credito a {
+  color: var(--muted);
+}
+
+.figura-credito a:hover {
+  color: var(--teal);
+}
+
+.figura-dialogo {
+  width: min(96vw, 1200px);
+  max-height: 94vh;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--bg-2);
+  color: var(--text);
+}
+
+.figura-dialogo::backdrop {
+  background: rgb(10 10 14 / 0.85);
+}
+
+.figura-dialogo img {
+  width: 100%;
+  height: auto;
+  max-height: 74vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.figura-dialogo p {
+  color: var(--muted);
+  margin: 12px 0;
+  max-width: none;
+}
+
+.figura-cerrar {
+  width: 100%;
+}

@@ -1,0 +1,29 @@
+.formula {
+  margin: 0 0 1em;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 18px;
+  overflow-x: auto;
+}
+
+.formula figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.formula code {
+  font-family: var(--mono);
+  font-size: clamp(1rem, 1.6vw + 0.6rem, 1.25rem);
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.formula var,
+var.v {
+  font-style: normal;
+  color: var(--teal);
+  font-family: var(--mono);
+  font-weight: 700;
+}
