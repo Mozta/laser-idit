@@ -275,6 +275,12 @@ input[type='checkbox'] {
   color: var(--accent);
 }
 
+.btn-ajustable {
+  white-space: normal;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
 .btn-flecha::after {
   content: '→';
   font-family: var(--mono);

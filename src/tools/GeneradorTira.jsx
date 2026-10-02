@@ -79,7 +79,7 @@ export default function GeneradorTira() {
               piezas se dibujan una sola vez: si cada pieza fuera un rectángulo cerrado, esas líneas se cortarían dos veces.
             </figcaption>
           </figure>
-          <button type="button" className="btn btn-primary" onClick={descargar}>
+          <button type="button" className="btn btn-primary btn-ajustable" onClick={descargar}>
             Descargar {dxf.nombre}
           </button>
         </>
