@@ -122,3 +122,34 @@ Basada en `docs/referencia/portada-animacion.html`.
 8. ¿En qué orden se procesa el archivo? → Grabado, huecos, contorno.
 
 Distractores plausibles en cada pregunta. Guardar el resultado en `localStorage` (envolver en try/catch).
+
+## 8. Panel de capas de SmartCarve
+
+Imita la pestaña *Layer* del *Control Panel* de SmartCarve 4.3 (verificado en las capturas `grupo/toolmenu` y `daniel/cutter6`): tabla de 10 capas con ID, color, prioridad (*Prior*) y si se procesa (*Process*); al elegir una capa, sus parámetros (*Max. Power*, *Min. Power*, *Work Speed*). En SmartCarve los objetos se asignan con clic derecho en el color › *Apply to picked object* (página grupal); las prioridades se ejecutan de menor a mayor.
+
+- Colores y prioridades de inicio en `src/data/smartcarve.json`, tomados de la captura de la página grupal (el rojo, capa 3, tiene prioridad 1; el azul, capa 1, prioridad 5). Se avisa en pantalla que en la máquina pueden ser otras.
+- Pieza de ejemplo: un grabado, dos huecos y el contorno. Todos empiezan en la capa 1.
+- Lógica en `src/lib/capas.js` (`ordenTrabajo`, `revisarCapas`), con pruebas.
+
+**Revisiones**
+| id | Nivel | Cuándo |
+|---|---|---|
+| `sin-procesar` | Error | Un objeto está en una capa con Process = No |
+| `mezcla` | Error | Grabado y corte en la misma capa |
+| `orden-grabado` | Error | Algún corte tiene prioridad menor que el grabado |
+| `orden-contorno` | Error | Algún hueco tiene prioridad mayor que el contorno |
+| `mismo-turno` | Aviso | Contorno y huecos en la misma capa o con la misma prioridad |
+| `prioridad-repetida` | Aviso | Dos capas en uso con la misma prioridad |
+| `sin-parametros` | Aviso | Capa en uso sin potencia máxima, mínima o velocidad |
+| `min-mayor` | Error | Potencia mínima mayor que la máxima |
+| `fuera-rango` | Error | Potencia mayor que 100 % |
+
+**Casos de prueba**
+| Asignación (grabado / huecos / contorno) | Resultado |
+|---|---|
+| 1 / 1 / 1 | `mezcla`, `mismo-turno` |
+| 3 / 2 / 5 con parámetros | Sin hallazgos; orden 3 → 2 → 5 |
+| 1 / 3 / 3 (azul graba, rojo corta) | `orden-grabado` |
+| 3 / 5 / 2 | `orden-contorno` |
+
+Valores de referencia mostrados: corte 2019 (60 / 50 / 18) y grabado 2019 (25 / 20 / 40), los dos en MDF de 3 mm, presentados como punto de partida.
