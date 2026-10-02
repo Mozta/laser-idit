@@ -38,7 +38,7 @@ Los nombres `--teal`, `--amber` y `--rose` se conservan por compatibilidad: hoy 
 - **Rejilla de celdas:** celdas pegadas, separadas por líneas de 1 px (`.rejilla`). Cada celda dibuja su borde derecho e inferior para que los huecos al final queden limpios.
 - **Tarjeta:** fondo `--card`, borde de 1 px, línea de color de 2 px arriba según el acento.
 - **Celda amarilla:** fondo `--accent` con texto `--ink`, para ideas clave. Una o dos en todo el sitio.
-- **Herramienta:** contenedor con la etiqueta `■ INTERACTIVO` en amarillo, encabezado separado por una línea, resultados en celdas con número monoespaciado.
+- **Herramienta:** contenedor con línea amarilla de 2 px arriba y la etiqueta `■ INTERACTIVO`, cuyo cuadrito parpadea como el indicador de un láser encendido (fijo con `prefers-reduced-motion`). Encabezado separado por una línea, resultados en celdas con número monoespaciado.
 - **Diagramas:** fondo `--code-bg` con cuadrícula de 24 px.
 - **Botones:** rectos, monoespaciados en mayúsculas. Primario amarillo; sobre amarillo, negro con texto amarillo o contorno negro.
 - **Barra superior:** amarilla. Al bajar se despega y flota dentro del ancho del contenido.
