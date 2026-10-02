@@ -7,6 +7,7 @@ import Checklist from '../components/Checklist.jsx'
 import { Segmentado } from '../tools/comun.jsx'
 import OrdenCorte from '../tools/OrdenCorte.jsx'
 import ValidadorDxf from '../tools/ValidadorDxf/ValidadorDxf.jsx'
+import PanelCapas from '../tools/PanelCapas/PanelCapas.jsx'
 import './secciones.css'
 
 const PROGRAMAS = [
@@ -131,6 +132,15 @@ export default function Archivo() {
           exterior. Si el contorno va antes, la pieza se suelta y lo de adentro sale desplazado.
         </p>
         <OrdenCorte />
+      </Bloque>
+
+      <Bloque titulo="Capas por color en SmartCarve">
+        <p>
+          SmartCarve separa tu dibujo por color: cada color es una capa con su potencia, su velocidad y su prioridad. Las
+          prioridades se ejecutan de menor a mayor. Es lo que te deja grabar primero, cortar los huecos después y el contorno
+          al final.
+        </p>
+        <PanelCapas />
       </Bloque>
 
       <Bloque titulo="Diseña con parámetros">
