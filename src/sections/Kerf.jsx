@@ -118,9 +118,9 @@ export default function Kerf() {
           </Tarjeta>
         </div>
         <div className="rejilla-fotos" style={{ marginTop: 20 }}>
-          <Figura ruta="2019/rect.webp" />
-          <Figura ruta="2019/20190206_171302.webp" />
-          <Figura ruta="grupo/medicionesdeprueba.webp" />
+          <Figura ruta="2019/rect.webp" recorte="3 / 2" />
+          <Figura ruta="2019/20190206_171302.webp" recorte="3 / 2" />
+          <Figura ruta="grupo/medicionesdeprueba.webp" recorte="3 / 2" />
         </div>
       </Bloque>
 

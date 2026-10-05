@@ -110,7 +110,7 @@ function Parametrico() {
           {p.imagenes && (
             <div className="rejilla-fotos" style={{ marginTop: 16 }}>
               {p.imagenes.map((r) => (
-                <Figura key={r} ruta={r} />
+                <Figura key={r} ruta={r} recorte="16 / 10" />
               ))}
             </div>
           )}

@@ -130,9 +130,23 @@
 .trabajo-fotos {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  /* --cols lo calcula Galeria.jsx para que los renglones salgan parejos (6 fotos = 3 + 3) */
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+}
+
+@media (max-width: 760px) {
+  .trabajo-fotos:not(.fotos-1) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .trabajo-fotos:not(.fotos-1) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .trabajo-fotos.fotos-1 {
   grid-template-columns: minmax(0, 640px);
+  justify-content: center;
 }
