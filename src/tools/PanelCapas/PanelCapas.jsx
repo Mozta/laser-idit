@@ -46,8 +46,8 @@ function Dibujo({ objetos, capas, seleccion, alElegir, turnos, simulando }) {
               d={o.d}
               fill="none"
               stroke={color(o)}
-              strokeWidth={o.tipo === 'grabado' ? 1.4 : 1.8}
-              strokeDasharray={o.tipo === 'grabado' ? '2 1.5' : undefined}
+              strokeWidth={o.tipo === 'grabado' ? 2.6 : 1.8}
+              strokeOpacity={o.tipo === 'grabado' ? 0.45 : 1}
               strokeLinejoin="round"
               initial={simulando ? { pathLength: 0, opacity: turno < 0 ? 0.25 : 1 } : false}
               animate={{ pathLength: 1, opacity: turno < 0 && simulando ? 0.25 : 1 }}
@@ -119,7 +119,7 @@ export default function PanelCapas() {
           </ul>
           <figure className="pc-area">
             <Dibujo objetos={objetos} capas={capas} seleccion={objSel} alElegir={setObjSel} turnos={turnos} simulando={simulando} />
-            <figcaption className="muted">Grabado en línea punteada. Toca un objeto para seleccionarlo.</figcaption>
+            <figcaption className="muted">El grabado se ve tenue: marca la superficie sin atravesar. Toca un objeto para seleccionarlo.</figcaption>
           </figure>
         </div>
 
