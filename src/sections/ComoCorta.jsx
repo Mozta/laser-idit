@@ -1,6 +1,5 @@
 import Seccion, { Bloque, Revelar } from '../components/Seccion.jsx'
 import Tarjeta, { Aviso } from '../components/Tarjeta.jsx'
-import Figura from '../components/Figura.jsx'
 import parametros from '../data/parametros.json'
 import '../tools/svg.css'
 import './secciones.css'
@@ -124,21 +123,6 @@ export default function ComoCorta() {
         </Aviso>
       </Bloque>
 
-      <Bloque titulo="Haz tu prueba de potencia y velocidad">
-        <p>
-          Corta una matriz de cuadritos, cada uno con otra combinación de potencia y velocidad, y quédate con la que atraviesa
-          limpio y quema menos. La página grupal usó una plantilla de{' '}
-          <a href="https://lasergridmaster.com/" target="_blank" rel="noreferrer">
-            LaserGridMaster
-          </a>{' '}
-          para armar la matriz; también puedes dibujarla tú.
-        </p>
-        <div className="rejilla-fotos">
-          <Figura ruta="2019/captura18.webp" />
-          <Figura ruta="grupo/lasergrin.webp" />
-          <Figura ruta="2019/team.webp" />
-        </div>
-      </Bloque>
     </Seccion>
   )
 }

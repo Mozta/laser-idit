@@ -48,7 +48,7 @@ Tabla de valores reportados para MDF de 3 mm (Máx / Mín / Velocidad):
 - Daniel, 2026: 80 / 75 / 25 (reporta que quemó un poco)
 - Página grupal, 2026: 75 / 70 / 30
 
-Punto de partida: máx 70–80, mín unos 10 abajo, 20–30 mm/s. Se confirma con una prueba de potencia y velocidad en la máquina del día. La página grupal usa una plantilla de LaserGridMaster para la matriz de prueba; mencionarlo como opción.
+Punto de partida: máx 70–80, mín unos 10 abajo, 20–30 mm/s. Se confirma con una prueba de potencia y velocidad en la máquina del día. El bloque «Haz tu prueba de potencia y velocidad» (matriz de prueba, plantilla de LaserGridMaster y sus fotos) se quitó a petición de Rafael; la sección solo recomienda confirmar con una prueba.
 
 ## 3. Kerf
 
