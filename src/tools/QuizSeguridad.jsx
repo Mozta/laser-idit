@@ -26,17 +26,27 @@ function guardar(r) {
 
 const LETRAS = ['A', 'B', 'C', 'D']
 
+// Recibe el foco cuando aparece. Como cada pregunta se monta hasta que termina de salir la anterior,
+// así el foco llega al título nuevo y no se pierde en el que se va.
+function EnfocarAlMontar({ as: Tag, children, ...resto }) {
+  const ref = useRef(null)
+  useEffect(() => {
+    ref.current?.focus()
+  }, [])
+  return (
+    <Tag ref={ref} tabIndex={-1} {...resto}>
+      {children}
+    </Tag>
+  )
+}
+
 export default function QuizSeguridad() {
   const [actual, setActual] = useState(-1)
   const [respuestas, setRespuestas] = useState([])
   const [previo, setPrevio] = useState(null)
-  const titulo = useRef(null)
   const { preguntas, aprobado } = quiz
 
   useEffect(() => setPrevio(leerGuardado()), [])
-  useEffect(() => {
-    if (actual >= 0) titulo.current?.focus()
-  }, [actual])
 
   const terminado = actual >= preguntas.length
   const resultado = terminado ? calificar(preguntas, respuestas, aprobado) : null
@@ -90,9 +100,9 @@ export default function QuizSeguridad() {
             <p className="muted quiz-cuenta">
               Pregunta {actual + 1} de {preguntas.length}
             </p>
-            <h4 ref={titulo} tabIndex={-1} className="quiz-pregunta">
+            <EnfocarAlMontar as="h4" className="quiz-pregunta">
               {p.pregunta}
-            </h4>
+            </EnfocarAlMontar>
             <ul className="quiz-opciones">
               {p.opciones.map((o, i) => {
                 const esCorrecta = i === p.correcta
@@ -137,9 +147,9 @@ export default function QuizSeguridad() {
 
         {resultado && (
           <motion.div key="fin" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }}>
-            <p className={`quiz-puntaje ${resultado.aprobado ? 'teal' : 'rose'}`} ref={titulo} tabIndex={-1}>
+            <EnfocarAlMontar as="p" className={`quiz-puntaje ${resultado.aprobado ? 'teal' : 'rose'}`}>
               {resultado.aciertos} de {resultado.total}
-            </p>
+            </EnfocarAlMontar>
             <p>
               {resultado.aprobado
                 ? 'Aprobado. Llega a la máquina con estas reglas en la cabeza y con tu inducción hecha.'
