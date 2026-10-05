@@ -78,9 +78,9 @@ Checklist:
 - Capas por color: en SmartCarve cada color es una capa con su potencia, velocidad y prioridad.
 - Orden de trabajo: **grabado → huecos interiores → contorno exterior**. Si el contorno va antes, la pieza se suelta y lo de adentro sale desplazado.
 
-Diseño paramétrico: recomendar parámetros `espesor`, `kerf` y `ranura = espesor − kerf`. Mostrar cómo en Fusion (Modify › Change Parameters), Onshape (Variable, se usan como `#espesor`), AutoCAD (Parameters Manager, como en 2019) y OpenSCAD (variables en código; la ruta de Daniel, natural para alumnos de Sistemas).
+Diseño paramétrico: recomendar parámetros `espesor`, `kerf` y `ranura = espesor − kerf`. Mostrar cómo en Fusion (Modify › Change Parameters), Onshape (Variable, se usan como `#espesor`), AutoCAD (Parameters Manager, como en 2019), OpenSCAD (variables en código; la ruta de Daniel, natural para alumnos de Sistemas), SolidWorks (Herramientas › Ecuaciones, variables globales) y CATIA V5 (Herramientas › Fórmula).
 
-Exportar: Fusion, clic derecho en el boceto › Save As DXF. Onshape, clic derecho en la cara plana › Export as DXF/DWG.
+Exportar: Fusion, clic derecho en el boceto › Save As DXF. Onshape, clic derecho en la cara plana › Export as DXF/DWG. SolidWorks, clic derecho en la cara plana › Exportar a DXF/DWG. CATIA V5, desde un dibujo en Drafting › Guardar como dxf.
 
 Interactivos: validador de DXF (etapa 2) y animación del orden de corte.
 

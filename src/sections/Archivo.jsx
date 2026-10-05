@@ -57,6 +57,30 @@ const PROGRAMAS = [
     codigo: 'espesor = 2.85;  // mide tu MDF\nkerf    = 0.2;   // de tu prueba\nranura  = espesor - kerf;\n\ndifference() {\n  square([60, 40]);\n  translate([30 - ranura / 2, 25])\n    square([ranura, 15]);\n}',
     imagenes: ['daniel/scad1.webp', 'daniel/scad3.webp'],
   },
+  {
+    valor: 'solidworks',
+    etiqueta: 'SolidWorks',
+    color: 'text',
+    pasos: [
+      <>Revisa que la pieza esté en milímetros: <strong>Herramientas › Opciones › Propiedades de documento › Unidades</strong> (MMGS).</>,
+      <>Abre <strong>Herramientas › Ecuaciones</strong> y crea tres <strong>variables globales</strong>: <code>espesor</code>, <code>kerf</code> y <code>ranura</code> con el valor <code>"espesor" - "kerf"</code>.</>,
+      <>Al acotar la ranura en el croquis, escribe <code>=</code> y elige <code>"ranura"</code> en lugar de un número.</>,
+      <>Para exportar: clic derecho en la cara plana de la pieza › <strong>Exportar a DXF/DWG</strong>.</>,
+    ],
+    codigo: '"espesor" = 2.85\n"kerf"    = 0.2\n"ranura"  = "espesor" - "kerf"',
+  },
+  {
+    valor: 'catia',
+    etiqueta: 'CATIA',
+    color: 'muted',
+    pasos: [
+      <>En CATIA V5, crea los parámetros con <strong>Herramientas › Fórmula</strong> (f(x)): <strong>Nuevo parámetro de tipo</strong> Longitud para <code>espesor</code> y <code>kerf</code>.</>,
+      <>Crea <code>ranura</code> también como Longitud y dale la fórmula <code>espesor - kerf</code>.</>,
+      <>Al acotar la ranura en el Sketcher, doble clic en la cota › clic derecho en el valor › <strong>Editar fórmula</strong> y elige <code>ranura</code>.</>,
+      <>Para exportar: pasa la pieza al taller <strong>Drafting</strong>, crea la vista de la cara plana y guarda con <strong>Archivo › Guardar como</strong> en formato <code>dxf</code>.</>,
+    ],
+    codigo: 'espesor = 2.85mm\nkerf    = 0.2mm\nranura  = espesor - kerf',
+  },
 ]
 
 function Parametrico() {
