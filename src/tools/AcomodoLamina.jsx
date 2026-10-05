@@ -74,7 +74,40 @@ function Camas({ lamina, resultados }) {
   )
 }
 
-export default function AcomodoLamina() {
+const MAX_LAMINA = 5000
+
+// Sección 1: en qué cama entra la lámina del alumno.
+export function ComparadorCamas() {
+  const [W, setW] = useState('600')
+  const [H, setH] = useState('600')
+  const val = { W: leerNumero(W), H: leerNumero(H) }
+  const ok = Number.isFinite(val.W) && Number.isFinite(val.H) && val.W > 0 && val.H > 0
+  const muyGrande = ok && (val.W > MAX_LAMINA || val.H > MAX_LAMINA)
+  const camas = ok && !muyGrande ? compararCamas(val, maquinas) : null
+
+  return (
+    <Herramienta
+      id="comparador-camas"
+      titulo="¿En qué cama entra tu lámina?"
+      descripcion="Escribe el tamaño de tu material. Las tres camas se dibujan a la misma escala, con tu lámina puesta en el origen."
+    >
+      <div className="campos">
+        <Campo etiqueta="Lámina, ancho" valor={W} alCambiar={setW} />
+        <Campo etiqueta="Lámina, alto" valor={H} alCambiar={setH} />
+      </div>
+      {muyGrande && <Mensaje tono="amber">Esa lámina es enorme. Revisa que esté en milímetros.</Mensaje>}
+      {camas && (
+        <>
+          <p className="muted">El punto amarillo es el origen, en la esquina superior derecha. «Justo al límite» significa 5 mm o menos de holgura.</p>
+          <Camas lamina={val} resultados={camas} />
+        </>
+      )}
+    </Herramienta>
+  )
+}
+
+// Sección 4: cuántas piezas iguales caben en la lámina, con separación y margen.
+export function AcomodoPiezas() {
   const [W, setW] = useState('600')
   const [H, setH] = useState('600')
   const [w, setw] = useState('80')
@@ -84,15 +117,13 @@ export default function AcomodoLamina() {
 
   const val = { W: leerNumero(W), H: leerNumero(H), w: leerNumero(w), h: leerNumero(h), g: leerNumero(g), m: leerNumero(m) }
   const r = acomodar(val)
-  const laminaOk = Number.isFinite(val.W) && Number.isFinite(val.H) && val.W > 0 && val.H > 0
-  const camas = laminaOk ? compararCamas({ W: val.W, H: val.H }, maquinas) : null
-  const muyGrande = laminaOk && (val.W > 5000 || val.H > 5000)
+  const muyGrande = val.W > MAX_LAMINA || val.H > MAX_LAMINA
 
   return (
     <Herramienta
       id="acomodo-lamina"
-      titulo="Acomodo en la lámina"
-      descripcion="Cuántas piezas iguales caben en tu material y en cuál cama entra la lámina."
+      titulo="¿Cuántas piezas caben en tu lámina?"
+      descripcion="Para piezas iguales: deja al menos 3 mm entre piezas y 3 mm al borde. Prueba la pieza normal y girada, y te muestra la que acomoda más."
     >
       <div className="campos">
         <Campo etiqueta="Lámina, ancho" valor={W} alCambiar={setW} />
@@ -115,18 +146,10 @@ export default function AcomodoLamina() {
             <Resultado etiqueta="Orientación" valor={r.mejor.girada ? 'Girada 90°' : 'Normal'} unidad="" />
           </div>
           <p className="nota-prueba">
-            Normal: {r.normal.total} · Girada: {r.girada.total}. Se muestra la que acomoda más.
+            Normal: {r.normal.total} · Girada: {r.girada.total}. Si tus piezas son distintas entre sí, acomódalas en tu programa y
+            revisa la separación con el validador de abajo.
           </p>
         </div>
-      )}
-      {camas && !muyGrande && (
-        <>
-          <h4 style={{ marginTop: 28 }}>¿En qué cama entra tu lámina?</h4>
-          <p className="muted">
-            Las tres camas a la misma escala. El punto ámbar es el origen, en la esquina superior derecha.
-          </p>
-          <Camas lamina={{ W: val.W, H: val.H }} resultados={camas} />
-        </>
       )}
     </Herramienta>
   )

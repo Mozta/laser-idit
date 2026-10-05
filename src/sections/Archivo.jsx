@@ -8,6 +8,7 @@ import { Segmentado } from '../tools/comun.jsx'
 import OrdenCorte from '../tools/OrdenCorte.jsx'
 import ValidadorDxf from '../tools/ValidadorDxf/ValidadorDxf.jsx'
 import PanelCapas from '../tools/PanelCapas/PanelCapas.jsx'
+import { AcomodoPiezas } from '../tools/AcomodoLamina.jsx'
 import './secciones.css'
 
 const PROGRAMAS = [
@@ -145,6 +146,14 @@ export default function Archivo() {
           <Figura ruta="daniel/laser3.webp" />
         </div>
       </div>
+
+      <Bloque titulo="Acomoda tus piezas">
+        <p>
+          La regla de los 3 mm cuenta para el acomodo: entre pieza y pieza, y entre las piezas y el borde de la lámina. Con piezas
+          iguales, calcula cuántas te salen por lámina.
+        </p>
+        <AcomodoPiezas />
+      </Bloque>
 
       <Bloque>
         <ValidadorDxf />

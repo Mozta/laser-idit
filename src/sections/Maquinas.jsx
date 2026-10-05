@@ -2,7 +2,7 @@ import Seccion, { Bloque, Revelar } from '../components/Seccion.jsx'
 import Tarjeta from '../components/Tarjeta.jsx'
 import Figura from '../components/Figura.jsx'
 import Checklist from '../components/Checklist.jsx'
-import AcomodoLamina from '../tools/AcomodoLamina.jsx'
+import { ComparadorCamas } from '../tools/AcomodoLamina.jsx'
 import maquinas from '../data/maquinas.json'
 import './secciones.css'
 
@@ -38,7 +38,7 @@ export default function Maquinas() {
       </Bloque>
 
       <Bloque>
-        <AcomodoLamina />
+        <ComparadorCamas />
       </Bloque>
     </Seccion>
   )

@@ -65,6 +65,10 @@ export default function Materiales() {
               La hoja mide 1.22 × 2.44 m. Pídela cortada en piezas de <strong>60 × 60 cm</strong>: salen 8 por hoja.
             </p>
             <p>Media hoja no cabe en ninguna máquina.</p>
+            <p>
+              Para saber cuántas láminas comprar, calcula cuántas piezas te salen por lámina en{' '}
+              <a href="#acomodo-lamina">Prepara tu archivo</a>.
+            </p>
           </Tarjeta>
           <Aviso tono="rose" titulo="Revisa antes de comprar">
             <p>Sin melamina, sin pintura y sin pandeo. Una hoja pandeada cambia el foco de un lado a otro.</p>

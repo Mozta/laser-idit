@@ -32,7 +32,7 @@ Idea central: tres cortadoras, mismo flujo.
 
 Las tres: láser de CO₂ de 100 W, controladas con SmartCarve 4.3 (requiere llave USB conectada), reciben archivos DXF. Hay un switch inferior que enciende los sistemas auxiliares, incluido el extractor.
 
-Interactivo: comparador de camas a escala con la pieza de material del alumno encima (ver `herramientas.md`, "Acomodo en la lámina").
+Interactivo: comparador de camas a escala con la pieza de material del alumno encima (ver `herramientas.md`, "Acomodo en la lámina"). El conteo de piezas por lámina va en la sección 4.
 
 ## 2. Cómo corta
 
@@ -82,7 +82,7 @@ Diseño paramétrico: recomendar parámetros `espesor`, `kerf` y `ranura = espes
 
 Exportar: Fusion, clic derecho en el boceto › Save As DXF. Onshape, clic derecho en la cara plana › Export as DXF/DWG. SolidWorks, clic derecho en la cara plana › Exportar a DXF/DWG. CATIA V5, desde un dibujo en Drafting › Guardar como dxf.
 
-Interactivos: validador de DXF (etapa 2) y animación del orden de corte.
+Interactivos: conteo de piezas por lámina, validador de DXF (etapa 2), animación del orden de corte y panel de capas de SmartCarve.
 
 ## 5. Usa la máquina
 

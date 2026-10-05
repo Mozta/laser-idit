@@ -86,6 +86,8 @@ Prueba adicional: el DXF generado debe pasar el validador de la etapa 2 sin erro
 
 ## 5. Acomodo en la lámina
 
+Dividida en dos bloques: el **comparador de camas** (solo lámina `W × H`) va en la sección 1, y el **conteo de piezas** (lámina, pieza, separación y margen) va en la sección 4, junto a la regla de los 3 mm. La sección 7 enlaza al conteo para calcular cuántas láminas comprar.
+
 - Entradas: lámina `W × H` (por defecto 600 × 600), pieza `w × h`, separación `g` (3), margen al borde `m` (3).
 - Por eje: `floor((W − 2m + g) / (w + g))`. Calcular normal y con la pieza girada 90°; mostrar el mayor.
 - Dibujo a escala de la lámina con las piezas acomodadas.
