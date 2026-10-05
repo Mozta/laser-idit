@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Herramienta, Campo, Resultado } from './comun.jsx'
+import { Herramienta, Campo, Resultado, Mensaje, MENSAJE_INVALIDO } from './comun.jsx'
 import Formula from '../components/Formula.jsx'
 import { calcularRanura } from '../lib/ranura.js'
-import { formatear, leerNumero } from '../lib/numeros.js'
+import { formatearFijo, leerNumero, escrito } from '../lib/numeros.js'
 
 export default function CalculadoraRanura() {
   const [t, setT] = useState('2.85')
@@ -11,7 +11,8 @@ export default function CalculadoraRanura() {
   const [d, setd] = useState('12')
 
   const r = calcularRanura({ t: leerNumero(t), k: leerNumero(k), exterior: leerNumero(D), hueco: leerNumero(d) })
-  const f = (v) => (r && Number.isFinite(v) ? formatear(v, 2) : '—')
+  const valido = r && !r.error
+  const f = (v) => (valido && Number.isFinite(v) ? formatearFijo(v, 2) : '—')
 
   return (
     <Herramienta
@@ -24,6 +25,8 @@ export default function CalculadoraRanura() {
         <Campo etiqueta="Espesor real medido (t)" valor={t} alCambiar={setT} />
         <Campo etiqueta="Kerf total (k)" valor={k} alCambiar={setK} />
       </div>
+      {r?.error && <Mensaje>{r.error}</Mensaje>}
+      {!r && [t, k].every(escrito) && <Mensaje tono="amber">{MENSAJE_INVALIDO}</Mensaje>}
       <div className="resultados" aria-live="polite">
         <Resultado etiqueta="Dibuja la ranura de" valor={f(r?.ranura)} destacado />
       </div>

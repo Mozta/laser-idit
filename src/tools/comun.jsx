@@ -70,6 +70,8 @@ export function Resultado({ etiqueta, valor, unidad = 'mm', destacado = false, t
   )
 }
 
+export const MENSAJE_INVALIDO = 'Revisa los valores: tienen que ser números mayores que cero.'
+
 export function Mensaje({ tono = 'rose', children }) {
   return (
     <motion.p

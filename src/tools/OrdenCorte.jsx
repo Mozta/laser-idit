@@ -98,7 +98,7 @@ export default function OrdenCorte() {
     <Herramienta
       id="orden-corte"
       titulo="¿Por qué los huecos van primero?"
-      descripcion="Compara los dos órdenes. Cuando el contorno se cierra, la pieza queda suelta sobre la cama de panal y cualquier vibración la mueve."
+      descripcion="Compara los dos órdenes. Cuando el contorno se cierra, la pieza queda suelta sobre la cama y cualquier vibración la mueve."
     >
       <Segmentado grupo="orden" etiqueta="Orden de corte" opciones={ORDENES} valor={orden} alCambiar={cambiarOrden} />
       <figure className="diagrama" style={{ marginTop: 16 }}>

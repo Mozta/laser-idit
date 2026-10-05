@@ -1,14 +1,45 @@
 {
   "material": "MDF de 3 mm",
   "reportados": [
-    { "fuente": "Fab Academy 2019", "autor": "Rafael Pérez Aguirre", "max": 60, "min": 50, "velocidad": 18, "nota": "" },
-    { "fuente": "Fab Academy 2026", "autor": "Daniel Peña Cruz", "max": 80, "min": 75, "velocidad": 25, "nota": "Reporta que quemó un poco." },
-    { "fuente": "Fab Academy 2026, página grupal", "autor": "Itzel Eunice Moreno Rodríguez y equipo", "max": 75, "min": 70, "velocidad": 30, "nota": "" }
+    {
+      "fuente": "Fab Academy 2019",
+      "autor": "Rafael Pérez Aguirre",
+      "max": 60,
+      "min": 50,
+      "velocidad": 18,
+      "nota": ""
+    },
+    {
+      "fuente": "Fab Academy 2026",
+      "autor": "Daniel Peña Cruz",
+      "max": 80,
+      "min": 75,
+      "velocidad": 25,
+      "nota": "Reporta que quemó un poco."
+    },
+    {
+      "fuente": "Fab Academy 2026, página grupal",
+      "autor": "Itzel Eunice Moreno Rodríguez y equipo",
+      "max": 75,
+      "min": 70,
+      "velocidad": 30,
+      "nota": ""
+    }
   ],
   "puntoDePartida": {
     "max": "70–80 %",
     "min": "unos 10 puntos abajo de la máxima",
     "velocidad": "20–30 mm/s"
   },
-  "foco": 5
+  "foco": 5,
+  "grabado": [
+    {
+      "fuente": "Fab Academy 2019",
+      "autor": "Rafael Pérez Aguirre",
+      "max": 25,
+      "min": 20,
+      "velocidad": 40,
+      "nota": "Grabado en MDF de 3 mm."
+    }
+  ]
 }

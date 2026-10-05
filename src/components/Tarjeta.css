@@ -1,10 +1,22 @@
 .tarjeta {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--line);
-  border-left: 8px solid var(--acento, var(--teal));
-  border-radius: var(--radius);
-  padding: clamp(18px, 3vw, 26px);
+  border-radius: 0;
+  padding: clamp(20px, 3vw, 28px);
   min-width: 0;
+}
+
+/* Línea de color arriba de la celda */
+.tarjeta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--acento, var(--accent));
+  transform-origin: left;
 }
 
 .tarjeta > :last-child {
@@ -13,43 +25,45 @@
 
 .tarjeta-titulo {
   font-size: var(--fs-4);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text);
 }
 
+/* Celda amarilla para las ideas clave */
 .acento-seccion {
-  background: var(--teal);
-  color: var(--bg);
-  border-radius: var(--radius);
-  padding: clamp(24px, 4vw, 44px);
+  background: var(--accent);
+  color: var(--ink);
+  padding: clamp(28px, 5vw, 56px);
   font-size: var(--fs-4);
+  display: grid;
+  gap: 8px;
 }
 
 .acento-seccion p {
-  max-width: 60ch;
+  margin: 0;
 }
 
 .acento-seccion strong {
-  font-size: var(--fs-3);
+  font-size: var(--fs-2);
   display: block;
-  line-height: 1.15;
-  margin-bottom: 10px;
-}
-
-.acento-seccion > :last-child {
-  margin-bottom: 0;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin-bottom: 8px;
 }
 
 .aviso {
   display: grid;
   gap: 4px;
-  border-radius: 14px;
-  padding: 14px 18px;
-  background: color-mix(in srgb, var(--acento) 12%, var(--card));
-  border: 1px solid color-mix(in srgb, var(--acento) 50%, var(--line));
+  padding: 16px 20px;
+  background: color-mix(in srgb, var(--acento) 8%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--acento) 45%, var(--line));
 }
 
 .aviso-titulo {
+  font-family: var(--mono);
+  font-size: var(--fs-kicker);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--acento);
 }
 

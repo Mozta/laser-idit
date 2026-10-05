@@ -1,10 +1,10 @@
 import { puntoEn, finContornos } from '../../lib/trabajoCorte.js'
 
 export const COLORES = {
-  fondo: '#23232F',
-  teal: '#3CC8B4',
+  fondo: '#0d1111',
+  teal: '#ffdb2a',
   amber: '#F5B841',
-  rose: '#F0627E',
+  rose: '#ff5f57',
   madera: '#8A6A48',
   maderaClara: '#A9855E',
 }
@@ -126,16 +126,16 @@ export function crearDibujante(trabajo, escena) {
     }
 
     const [r0, r1] = escena.rieles
-    x.fillStyle = '#4A4A62'
+    x.fillStyle = '#2c3533'
     x.fillRect(r0 + 10, cabeza[1] - 12, r1 - r0 - 20, 24)
-    x.fillStyle = '#3A3A4E'
+    x.fillStyle = '#1e2625'
     x.fillRect(r0, ly - 40, 20, lh + 80)
     x.fillRect(r1 - 20, ly - 40, 20, lh + 80)
-    x.fillStyle = '#8E8EA8'
+    x.fillStyle = '#a3aba7'
     x.beginPath()
     x.roundRect(cabeza[0] - 26, cabeza[1] - 26, 52, 52, 10)
     x.fill()
-    x.fillStyle = '#5A5A76'
+    x.fillStyle = '#4d5755'
     x.beginPath()
     x.arc(cabeza[0], cabeza[1], 13, 0, 7)
     x.fill()

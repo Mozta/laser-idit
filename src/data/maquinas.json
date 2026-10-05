@@ -12,7 +12,7 @@
   {
     "id": "cma1080k",
     "modelo": "CAMFive CFL-CMA1080K",
-    "corto": "1080K",
+    "corto": "CMA1080K",
     "ancho": 1000,
     "alto": 800,
     "cama": "Panal o varillas",
@@ -22,7 +22,7 @@
   {
     "id": "cma1309t",
     "modelo": "CAMFive CFL-CMA1309T",
-    "corto": "1309T",
+    "corto": "CMA1309T",
     "ancho": 1300,
     "alto": 900,
     "cama": "Panal",

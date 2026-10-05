@@ -18,3 +18,11 @@ describe('calculadora de ranura', () => {
     expect(calcularRanura({ t: NaN, k: 0.2 })).toBeNull()
   })
 })
+
+describe('ranura, entradas inválidas', () => {
+  it('el kerf no puede ser igual o mayor que el espesor', () => {
+    expect(calcularRanura({ t: 3, k: 3.5 }).error).toMatch(/menor que el espesor/)
+    expect(calcularRanura({ t: 3, k: 3 }).error).toBeDefined()
+    expect(calcularRanura({ t: 3, k: -0.1 })).toBeNull()
+  })
+})

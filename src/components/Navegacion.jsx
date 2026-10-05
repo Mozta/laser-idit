@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { SECCIONES } from '../data/secciones.js'
 import './Navegacion.css'
 
@@ -29,6 +29,9 @@ function useSeccionActiva() {
 export default function Navegacion() {
   const activa = useSeccionActiva()
   const [abierto, setAbierto] = useState(false)
+  const [flotante, setFlotante] = useState(false)
+  const { scrollY } = useScroll()
+  useMotionValueEvent(scrollY, 'change', (y) => setFlotante(y > 48))
 
   useEffect(() => {
     if (!abierto) return
@@ -38,11 +41,14 @@ export default function Navegacion() {
   }, [abierto])
 
   return (
-    <header className="nav">
-      <div className="nav-barra wrap">
+    <header className={`nav${flotante || abierto ? ' flotante' : ''}`}>
+      <div className="nav-barra">
         <a className="nav-marca" href="#inicio" onClick={() => setAbierto(false)}>
-          <span className="nav-punto" aria-hidden="true" />
-          Corte láser <span className="muted">IDIT</span>
+          <svg className="nav-logo" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" />
+            <circle cx="12" cy="12" r="3.5" fill="currentColor" />
+          </svg>
+          Corte láser <span className="nav-sub">IDIT</span>
         </a>
         <nav aria-label="Secciones" className="nav-escritorio">
           <ul>
@@ -56,14 +62,17 @@ export default function Navegacion() {
             ))}
           </ul>
         </nav>
+        <a className="btn btn-oscuro nav-cta" href="#validador-dxf">
+          Revisa tu DXF
+        </a>
         <button
           type="button"
-          className="btn nav-menu"
+          className="btn btn-oscuro nav-menu"
           aria-expanded={abierto}
           aria-controls="nav-movil"
           onClick={() => setAbierto((v) => !v)}
         >
-          {abierto ? 'Cerrar' : 'Secciones'}
+          {abierto ? 'Cerrar' : 'Menú'}
         </button>
       </div>
       <AnimatePresence>
@@ -77,7 +86,7 @@ export default function Navegacion() {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.2 }}
           >
-            <ul className="wrap">
+            <ul>
               {SECCIONES.map((s, i) => (
                 <li key={s.id}>
                   <a href={`#${s.id}`} onClick={() => setAbierto(false)} aria-current={activa === s.id ? 'location' : undefined}>

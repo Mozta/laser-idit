@@ -3,8 +3,8 @@ import './Checklist.css'
 export function Palomita() {
   return (
     <svg className="palomita" viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
-      <path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="1" y="1" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" />
+      <path d="M6.5 12.5l3.5 3.5L17.5 8.5" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="square" />
     </svg>
   )
 }
@@ -12,8 +12,8 @@ export function Palomita() {
 export function Tache() {
   return (
     <svg className="palomita" viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
-      <path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+      <rect x="1" y="1" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" />
+      <path d="M7.5 7.5l9 9M16.5 7.5l-9 9" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="square" />
     </svg>
   )
 }

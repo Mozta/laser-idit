@@ -71,6 +71,18 @@ describe('casos generales', () => {
     expect(h.longitud).toBeCloseTo(2000, 6)
     expect(h.segundos).toBeCloseTo(100, 6)
   })
+  it('una línea suelta enorme se revisa rápido', () => {
+    const inicio = performance.now()
+    validarDxf(leer('linea-enorme.dxf'))
+    expect(performance.now() - inicio).toBeLessThan(2000)
+  })
+  it('el tiempo nunca dice 60 s', () => {
+    // 2990 mm a 25 mm/s = 119.6 s → 2 min 0 s
+    const t = leer('grande.dxf').replace(/\n10\n700\n/g, '\n10\n1000\n').replace(/\n20\n300\n/g, '\n20\n495\n')
+    const h = validarDxf(t).hallazgos.find((x) => x.id === '13')
+    expect(h.segundos).toBeCloseTo(119.6, 6)
+    expect(h.mensaje).toMatch(/2 min 0 s/)
+  })
   it('sugiere pulgadas o cm si no hay unidades y el dibujo es chico', () => {
     const t = leer('sin-unidades.dxf').replace(/\n10\n100\n/g, '\n10\n4\n').replace(/\n20\n80\n/g, '\n20\n3\n')
     expect(validarDxf(t).hallazgos.find((x) => x.id === '2b').mensaje).toMatch(/pulgadas o en centímetros/)

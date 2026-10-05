@@ -32,7 +32,7 @@ Idea central: tres cortadoras, mismo flujo.
 
 Las tres: láser de CO₂ de 100 W, controladas con SmartCarve 4.3 (requiere llave USB conectada), reciben archivos DXF. Hay un switch inferior que enciende los sistemas auxiliares, incluido el extractor.
 
-Interactivo: comparador de camas a escala con la pieza de material del alumno encima (ver `herramientas.md`, "Acomodo en la lámina").
+Interactivo: comparador de camas a escala con la pieza de material del alumno encima (ver `herramientas.md`, "Acomodo en la lámina"). El conteo de piezas por lámina va en la sección 4.
 
 ## 2. Cómo corta
 
@@ -40,7 +40,7 @@ Idea central: un haz invisible concentrado en un punto evapora el material.
 
 - **Foco:** distancia entre la boquilla y el material. 5 mm, ajustada con un calibrador de esa medida. Muy bajo quema; muy alto no corta.
 - **Potencia máxima (%):** la que usa en tramos rectos. Decide si atraviesa el material.
-- **Potencia mínima (%):** la que usa en curvas y esquinas, donde el cabezal frena. Si es alta, quema las esquinas; si es baja, deja curvas sin cortar. Se deja 10 a 20 % abajo de la máxima.
+- **Potencia mínima (%):** la que usa en curvas y esquinas, donde el cabezal frena. Si es alta, quema las esquinas; si es baja, deja curvas sin cortar. Se deja 10 a 20 puntos abajo de la máxima.
 - **Velocidad (mm/s):** más lenta corta más hondo, pero quema más y ensancha el corte.
 
 Tabla de valores reportados para MDF de 3 mm (Máx / Mín / Velocidad):
@@ -48,7 +48,7 @@ Tabla de valores reportados para MDF de 3 mm (Máx / Mín / Velocidad):
 - Daniel, 2026: 80 / 75 / 25 (reporta que quemó un poco)
 - Página grupal, 2026: 75 / 70 / 30
 
-Punto de partida: máx 70–80, mín unos 10 abajo, 20–30 mm/s. Se confirma con una prueba de potencia y velocidad en la máquina del día. La página grupal usa una plantilla de LaserGridMaster para la matriz de prueba; mencionarlo como opción.
+Punto de partida: máx 70–80, mín unos 10 abajo, 20–30 mm/s. Se confirma con una prueba de potencia y velocidad en la máquina del día. El bloque «Haz tu prueba de potencia y velocidad» (matriz de prueba, plantilla de LaserGridMaster y sus fotos) se quitó a petición de Rafael; la sección solo recomienda confirmar con una prueba.
 
 ## 3. Kerf
 
@@ -78,11 +78,11 @@ Checklist:
 - Capas por color: en SmartCarve cada color es una capa con su potencia, velocidad y prioridad.
 - Orden de trabajo: **grabado → huecos interiores → contorno exterior**. Si el contorno va antes, la pieza se suelta y lo de adentro sale desplazado.
 
-Diseño paramétrico: recomendar parámetros `espesor`, `kerf` y `ranura = espesor − kerf`. Mostrar cómo en Fusion (Modify › Change Parameters), Onshape (Variable, se usan como `#espesor`), AutoCAD (Parameters Manager, como en 2019) y OpenSCAD (variables en código; la ruta de Daniel, natural para alumnos de Sistemas).
+Diseño paramétrico: recomendar parámetros `espesor`, `kerf` y `ranura = espesor − kerf`. Mostrar cómo en Fusion (Modify › Change Parameters), Onshape (Variable, se usan como `#espesor`), AutoCAD (Parameters Manager, como en 2019), OpenSCAD (variables en código; la ruta de Daniel, natural para alumnos de Sistemas), SolidWorks (Herramientas › Ecuaciones, variables globales) y CATIA V5 (Herramientas › Fórmula).
 
-Exportar: Fusion, clic derecho en el boceto › Save As DXF. Onshape, clic derecho en la cara plana › Export as DXF/DWG.
+Exportar: Fusion, clic derecho en el boceto › Save As DXF. Onshape, clic derecho en la cara plana › Export as DXF/DWG. SolidWorks, clic derecho en la cara plana › Exportar a DXF/DWG. CATIA V5, desde un dibujo en Drafting › Guardar como dxf.
 
-Interactivos: validador de DXF (etapa 2) y animación del orden de corte.
+Interactivos: conteo de piezas por lámina, validador de DXF (etapa 2), animación del orden de corte y panel de capas de SmartCarve.
 
 ## 5. Usa la máquina
 
@@ -91,7 +91,7 @@ Idea central: cinco fases, siempre en el mismo orden.
 1. **Encender:** switch inferior (arranca el extractor, hace mucho ruido) → switches de la máquina → liberar paro de emergencia → girar la llave.
 2. **Preparar:** foco a 5 mm con el calibrador (se aflojan las tuercas, se pone el calibrador, se aprietan) → material en la cama → origen en la esquina superior derecha con las flechas y el botón Origin.
 3. **Programar:** en SmartCarve, importar el DXF en mm → asignar capas, prioridades, potencia y velocidad → Go Scale (el cabezal recorre el perímetro del trabajo para verificar que cabe en el material). Opcional: guardar como `.oud` para cargar desde USB.
-4. **Cortar:** cerrar la tapa → botón Laser → Start → vigilar todo el corte.
+4. **Cortar:** cerrar la tapa → subir la perilla de potencia del tablero → botón Laser → Start → vigilar todo el corte. (La perilla la mencionan las tres fuentes; se agregó en la revisión de octubre.)
 5. **Terminar:** esperar a que el extractor saque el humo → apagar el botón Laser → abrir → retirar piezas → apagar en orden inverso (potencia al mínimo, llave fuera, paro, switches) → limpiar la cama.
 
 Interactivo opcional: modo "paso a paso" con casillas, pensado para usarse en el celular frente a la máquina.

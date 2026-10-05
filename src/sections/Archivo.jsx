@@ -6,14 +6,19 @@ import Figura from '../components/Figura.jsx'
 import Checklist from '../components/Checklist.jsx'
 import { Segmentado } from '../tools/comun.jsx'
 import OrdenCorte from '../tools/OrdenCorte.jsx'
-import ValidadorDxf from '../tools/ValidadorDxf/ValidadorDxf.jsx'
+import { crearDiferido } from '../tools/Diferido.jsx'
+import { AcomodoPiezas } from '../tools/AcomodoLamina.jsx'
 import './secciones.css'
+
+// Las dos herramientas más pesadas van en archivos aparte y se cargan cuando hacen falta.
+const ValidadorDxf = crearDiferido(() => import('../tools/ValidadorDxf/ValidadorDxf.jsx'))
+const PanelCapas = crearDiferido(() => import('../tools/PanelCapas/PanelCapas.jsx'))
 
 const PROGRAMAS = [
   {
     valor: 'fusion',
     etiqueta: 'Fusion',
-    color: 'teal',
+    color: 'accent',
     pasos: [
       <>Abre <strong>Modify › Change Parameters</strong>.</>,
       <>Agrega tres parámetros de usuario: <code>espesor</code>, <code>kerf</code> y <code>ranura</code> con la expresión <code>espesor - kerf</code>.</>,
@@ -25,7 +30,7 @@ const PROGRAMAS = [
   {
     valor: 'onshape',
     etiqueta: 'Onshape',
-    color: 'orange',
+    color: 'blue',
     pasos: [
       <>Agrega una operación <strong>Variable</strong> por cada parámetro, al inicio del árbol.</>,
       <>Úsalas en cotas con el signo de número: <code>#espesor</code>, <code>#ranura</code>.</>,
@@ -36,7 +41,7 @@ const PROGRAMAS = [
   {
     valor: 'autocad',
     etiqueta: 'AutoCAD',
-    color: 'amber',
+    color: 'teal',
     pasos: [
       <>Abre el <strong>Parameters Manager</strong> y crea los parámetros de usuario.</>,
       <>Acota con restricciones paramétricas y usa los parámetros en las expresiones. Así se diseñó el kit de 2019.</>,
@@ -48,13 +53,37 @@ const PROGRAMAS = [
   {
     valor: 'openscad',
     etiqueta: 'OpenSCAD',
-    color: 'rose',
+    color: 'amber',
     pasos: [
       <>Los parámetros son variables al inicio de tu código. Es la ruta de Daniel, natural si ya programas.</>,
       <>Dibuja en 2D, renderiza con <strong>F6</strong> y exporta con <strong>File › Export › Export as DXF</strong>.</>,
     ],
     codigo: 'espesor = 2.85;  // mide tu MDF\nkerf    = 0.2;   // de tu prueba\nranura  = espesor - kerf;\n\ndifference() {\n  square([60, 40]);\n  translate([30 - ranura / 2, 25])\n    square([ranura, 15]);\n}',
     imagenes: ['daniel/scad1.webp', 'daniel/scad3.webp'],
+  },
+  {
+    valor: 'solidworks',
+    etiqueta: 'SolidWorks',
+    color: 'text',
+    pasos: [
+      <>Revisa que la pieza esté en milímetros: <strong>Herramientas › Opciones › Propiedades de documento › Unidades</strong> (MMGS).</>,
+      <>Abre <strong>Herramientas › Ecuaciones</strong> y crea tres <strong>variables globales</strong>: <code>espesor</code>, <code>kerf</code> y <code>ranura</code> con el valor <code>"espesor" - "kerf"</code>.</>,
+      <>Al acotar la ranura en el croquis, escribe <code>=</code> y elige <code>"ranura"</code> en lugar de un número.</>,
+      <>Para exportar: clic derecho en la cara plana de la pieza › <strong>Exportar a DXF/DWG</strong>.</>,
+    ],
+    codigo: '"espesor" = 2.85\n"kerf"    = 0.2\n"ranura"  = "espesor" - "kerf"',
+  },
+  {
+    valor: 'catia',
+    etiqueta: 'CATIA',
+    color: 'muted',
+    pasos: [
+      <>En CATIA V5, crea los parámetros con <strong>Herramientas › Fórmula</strong> (f(x)): <strong>Nuevo parámetro de tipo</strong> Longitud para <code>espesor</code> y <code>kerf</code>.</>,
+      <>Crea <code>ranura</code> también como Longitud y dale la fórmula <code>espesor - kerf</code>.</>,
+      <>Al acotar la ranura en el Sketcher, doble clic en la cota › clic derecho en el valor › <strong>Editar fórmula</strong> y elige <code>ranura</code>.</>,
+      <>Para exportar: pasa la pieza al taller <strong>Drafting</strong>, crea la vista de la cara plana y guarda con <strong>Archivo › Guardar como</strong> en formato <code>dxf</code>.</>,
+    ],
+    codigo: 'espesor = 2.85mm\nkerf    = 0.2mm\nranura  = espesor - kerf',
   },
 ]
 
@@ -77,14 +106,19 @@ function Parametrico() {
             <Tarjeta titulo={p.etiqueta} acento={p.color}>
               <Checklist items={p.pasos} />
             </Tarjeta>
-            <pre className="codigo">
-              <code>{p.codigo}</code>
-            </pre>
+            <div>
+              <pre className="codigo">
+                <code>{p.codigo}</code>
+              </pre>
+              <p className="nota-prueba" style={{ marginTop: 8 }}>
+                Valores de ejemplo: usa el espesor que mediste y el kerf de tu prueba.
+              </p>
+            </div>
           </div>
           {p.imagenes && (
             <div className="rejilla-fotos" style={{ marginTop: 16 }}>
               {p.imagenes.map((r) => (
-                <Figura key={r} ruta={r} />
+                <Figura key={r} ruta={r} recorte="16 / 10" />
               ))}
             </div>
           )}
@@ -121,8 +155,16 @@ export default function Archivo() {
         </div>
       </div>
 
+      <Bloque titulo="Acomoda tus piezas">
+        <p>
+          La regla de los 3 mm cuenta para el acomodo: entre pieza y pieza, y entre las piezas y el borde de la lámina. Con piezas
+          iguales, calcula cuántas te salen por lámina.
+        </p>
+        <AcomodoPiezas />
+      </Bloque>
+
       <Bloque>
-        <ValidadorDxf />
+        <ValidadorDxf id="validador-dxf" titulo="Revisa tu DXF antes de cortar" />
       </Bloque>
 
       <Bloque titulo="Orden de trabajo: grabado, huecos, contorno">
@@ -131,6 +173,15 @@ export default function Archivo() {
           exterior. Si el contorno va antes, la pieza se suelta y lo de adentro sale desplazado.
         </p>
         <OrdenCorte />
+      </Bloque>
+
+      <Bloque titulo="Capas por color en SmartCarve">
+        <p>
+          SmartCarve separa tu dibujo por color: cada color es una capa con su potencia, su velocidad y su prioridad. Las
+          prioridades se ejecutan de menor a mayor. Es lo que te deja grabar primero, cortar los huecos después y el contorno
+          al final.
+        </p>
+        <PanelCapas id="panel-capas" titulo="Asigna capas como en SmartCarve" />
       </Bloque>
 
       <Bloque titulo="Diseña con parámetros">

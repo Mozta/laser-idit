@@ -53,7 +53,7 @@ export default function Figura({ ruta, pie, className = '', prioridad = false, r
         onClick={(e) => e.target === dialogo.current && dialogo.current.close()}
         aria-label={img.alt}
       >
-        <img src={rutaImagen(ruta)} alt={img.alt} width={img.ancho} height={img.alto} />
+        <img src={rutaImagen(ruta)} alt={img.alt} width={img.ancho} height={img.alto} loading="lazy" decoding="async" />
         <p>
           {texto && <span>{texto} </span>}
           <Credito fuente={img.fuente} />

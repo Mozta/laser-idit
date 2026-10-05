@@ -386,7 +386,7 @@
     "daniel/laser13.webp": {
       "fuente": "daniel",
       "alt": "Piezas del soporte de laptop en rojo, sin cotas, acomodadas juntas con una pequeña separación entre ellas",
-      "pie": "Archivo listo para cortar: piezas juntas, con al menos 3 mm entre ellas.",
+      "pie": "Archivo listo para cortar: piezas acomodadas con separación entre ellas.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/daniel-penyacruz/images/week3/laser13.webp",
       "ancho": 1225,
       "alto": 735
@@ -450,7 +450,7 @@
     "grupo/calibraciondedistancia.webp": {
       "fuente": "grupo",
       "alt": "Persona ajusta el cabezal láser sobre una tira de MDF en la cama de panal, con la tapa de la cortadora abierta",
-      "pie": "Ajuste del cabezal sobre el material antes de cortar",
+      "pie": "Ajuste del cabezal sobre el material antes de cortar.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/calibraciondedistancia.jpeg",
       "ancho": 1179,
       "alto": 868
@@ -458,7 +458,7 @@
     "grupo/calibraciondedistancia5mm.webp": {
       "fuente": "grupo",
       "alt": "Manos ajustan la altura del cabezal láser usando una pieza calibradora metálica entre la boquilla y la placa de MDF",
-      "pie": "Con la pieza calibradora se ajusta la distancia de foco",
+      "pie": "Con la pieza calibradora se ajusta la distancia de foco.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/calibraciondedistancia5mm.jpeg",
       "ancho": 1179,
       "alto": 872
@@ -466,7 +466,7 @@
     "grupo/cerrarmaquina.webp": {
       "fuente": "grupo",
       "alt": "Manos bajan la tapa azul de la cortadora tomándola de la manija hasta cerrarla",
-      "pie": "Cierra la tapa antes de mandar el corte",
+      "pie": "Cierra la tapa antes de mandar el corte.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cerrarmaquina.jpeg",
       "ancho": 1179,
       "alto": 884
@@ -474,7 +474,7 @@
     "grupo/cflcma.webp": {
       "fuente": "grupo",
       "alt": "Cortadora láser CAMFive CFL-CMA1080K, marcada con el número 2, con la tapa cerrada; a su lado, el enfriador de agua con un garrafón",
-      "pie": "Máquina 2: CFL-CMA1080K, junto a su enfriador",
+      "pie": "Máquina 2: CFL-CMA1080K, junto a su enfriador.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/CFLCMA.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -482,7 +482,7 @@
     "grupo/cflcma1200.webp": {
       "fuente": "grupo",
       "alt": "Cortadora láser CAMFive CFL-CMA1200, marcada con el número 1, con la tapa azul abierta y la cama de panal a la vista",
-      "pie": "Máquina 1: CFL-CMA1200, con tapa abierta y cama de panal",
+      "pie": "Máquina 1: CFL-CMA1200, con tapa abierta y cama de panal.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/CFLCMA1200.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -498,7 +498,7 @@
     "grupo/controlesdemaquina.webp": {
       "fuente": "grupo",
       "alt": "Tablero de la cortadora: amperímetro en mA, perilla Laser1 de MIN a MAX, botón Laser, llave, botón Rotate y panel CAMFive",
-      "pie": "Tablero de control: amperímetro, perilla de potencia, llave y panel",
+      "pie": "Tablero de control: amperímetro, perilla de potencia, llave y panel.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/controlesdemaquina.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -506,7 +506,7 @@
     "grupo/cortadorapordentro.webp": {
       "fuente": "grupo",
       "alt": "Cabezal láser con su manguera de aire, colocado sobre una tira de MDF en la cama de panal dentro de la cortadora",
-      "pie": "El cabezal listo sobre el material",
+      "pie": "El cabezal listo sobre el material.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cortadorapordentro.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -514,7 +514,7 @@
     "grupo/cortelaser.webp": {
       "fuente": "grupo",
       "alt": "Vista a través de la ventana de la tapa cerrada: un punto brillante del láser corta piezas de MDF sobre la cama",
-      "pie": "El láser cortando, visto desde la tapa cerrada",
+      "pie": "El láser cortando, visto desde la tapa cerrada.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/cortelaser.jpeg",
       "ancho": 1178,
       "alto": 872
@@ -522,7 +522,7 @@
     "grupo/encendido1.webp": {
       "fuente": "grupo",
       "alt": "Persona en cuclillas señala el interruptor del regulador de voltaje DJW-3000, ubicado debajo de la cortadora",
-      "pie": "Primero se enciende el regulador que está debajo de la máquina",
+      "pie": "Primero se enciende el regulador que está debajo de la máquina.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/encendido1.jpeg",
       "ancho": 1178,
       "alto": 852
@@ -530,7 +530,7 @@
     "grupo/encendido2.webp": {
       "fuente": "grupo",
       "alt": "Mano señala el interruptor principal en el costado de la cortadora, debajo del paro de emergencia y de las etiquetas de advertencia",
-      "pie": "Después, el interruptor del costado de la máquina",
+      "pie": "Después, el interruptor del costado de la máquina.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/encendido2.jpeg",
       "ancho": 1178,
       "alto": 875
@@ -538,7 +538,7 @@
     "grupo/extractordehumo.webp": {
       "fuente": "grupo",
       "alt": "Extractor de humo verde conectado a la parte trasera de la cortadora con una manguera flexible y a un ducto de PVC blanco",
-      "pie": "El extractor saca el humo de la máquina hacia el ducto",
+      "pie": "El extractor saca el humo de la máquina hacia el ducto.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/extractordehumo.jpeg",
       "ancho": 960,
       "alto": 1280
@@ -554,7 +554,7 @@
     "grupo/lasergrin.webp": {
       "fuente": "grupo",
       "alt": "Página LaserGridMaster.com con una cuadrícula de prueba de 10 por 10: potencia de 10 a 90 % contra velocidad de 10 a 95 mm/s",
-      "pie": "Plantilla de LaserGridMaster para comparar potencia y velocidad",
+      "pie": "Plantilla de LaserGridMaster para comparar potencia y velocidad.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/lasergrin.jpeg",
       "ancho": 1315,
       "alto": 677
@@ -562,7 +562,7 @@
     "grupo/laserresonator.webp": {
       "fuente": "grupo",
       "alt": "Compartimento trasero abierto de la cortadora que deja ver el tubo láser de vidrio, con su espiral de enfriamiento y cables de alto voltaje",
-      "pie": "Dentro de este tubo de vidrio se genera el haz láser",
+      "pie": "Dentro de este tubo de vidrio se genera el haz láser.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/laserresonator.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -570,7 +570,7 @@
     "grupo/manejodecontroles.webp": {
       "fuente": "grupo",
       "alt": "Dedo presiona las flechas del panel CAMFive para mover el cabezal sobre la cama, donde hay restos de MDF cortado",
-      "pie": "Con las flechas del panel mueves el cabezal al punto de origen",
+      "pie": "Con las flechas del panel mueves el cabezal al punto de origen.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/manejodecontroles.jpeg",
       "ancho": 1178,
       "alto": 880
@@ -578,15 +578,15 @@
     "grupo/maquinalaser.webp": {
       "fuente": "grupo",
       "alt": "Cortadora CAMFive CFL-CMA1080K, número 2, con la tapa abierta y piezas de MDF cortadas sobre la cama de panal",
-      "pie": "La máquina 2 abierta, con piezas recién cortadas en la cama",
+      "pie": "La máquina 2 abierta, con piezas recién cortadas en la cama.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/maquinalaser.jpeg",
       "ancho": 1280,
       "alto": 960
     },
     "grupo/medicionesdeprueba.webp": {
       "fuente": "grupo",
-      "alt": "Manos miden con un calibrador digital Mitutoyo las tiras de una prueba de kerf cortada en MDF sobre la cama de panal",
-      "pie": "Midiendo la prueba de kerf con calibrador",
+      "alt": "Manos miden con un vernier digital Mitutoyo las tiras de una prueba de kerf cortada en MDF sobre la cama de panal",
+      "pie": "Midiendo la prueba de kerf con vernier.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/medicionesdeprueba.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -594,7 +594,7 @@
     "grupo/parametrosdemaquina.webp": {
       "fuente": "grupo",
       "alt": "Monitor con SmartCarve 4.3 abierto: diseño de prueba de kerf al centro, panel de capas y parámetros a la derecha",
-      "pie": "El archivo de prueba de kerf abierto en SmartCarve",
+      "pie": "El archivo de prueba de kerf abierto en SmartCarve.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/parametrosdemaquina.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -602,7 +602,7 @@
     "grupo/parodeemergencia.webp": {
       "fuente": "grupo",
       "alt": "Mano gira el botón rojo de paro de emergencia de la CFL-CMA1080K para liberarlo; arriba se ven el panel CAMFive y la llave",
-      "pie": "Gira el paro de emergencia para liberarlo antes de arrancar",
+      "pie": "Gira el paro de emergencia para liberarlo antes de arrancar.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/parodeemergencia.jpeg",
       "ancho": 1178,
       "alto": 862
@@ -610,7 +610,7 @@
     "grupo/pinnedjoints.webp": {
       "fuente": "grupo",
       "alt": "Dos placas de MDF encajadas en ángulo por una ranura, con una pieza delgada atravesada en la unión",
-      "pie": "Junta con perno entre dos placas de MDF",
+      "pie": "Junta con perno entre dos placas de MDF.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pinnedjoints.jpeg",
       "ancho": 1600,
       "alto": 720
@@ -626,7 +626,7 @@
     "grupo/pruebadecorte.webp": {
       "fuente": "grupo",
       "alt": "Pieza de cartón gris con dos ventanas cortadas y zonas de líneas grabadas, sobre la cama de panal con restos de corte",
-      "pie": "Al terminar, revisa que las piezas se hayan cortado completas",
+      "pie": "Al terminar, revisa que las piezas se hayan cortado completas.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pruebadecorte.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -634,7 +634,7 @@
     "grupo/pruebasdetolerancias.webp": {
       "fuente": "grupo",
       "alt": "Dos peines de MDF ensamblados en ángulo sobre una mano, con ranuras rotuladas de 2.60 a 3.00 mm",
-      "pie": "Peine de holguras: prueba qué ranura ajusta mejor con tu material",
+      "pie": "Peine de holguras: prueba qué ranura ajusta mejor con tu material.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/pruebasdetolerancias.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -642,7 +642,7 @@
     "grupo/snapfit.webp": {
       "fuente": "grupo",
       "alt": "Dos placas de MDF unidas en ángulo; una pestaña con gancho atraviesa una ranura en el centro de la placa superior",
-      "pie": "Junta de gancho: la pestaña se flexiona y queda trabada",
+      "pie": "Junta de gancho: la pestaña se flexiona y queda trabada.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/snapfit.jpeg",
       "ancho": 1600,
       "alto": 720
@@ -650,7 +650,7 @@
     "grupo/tipodemaquinalaser.webp": {
       "fuente": "grupo",
       "alt": "Enfriador de agua CAMFive SL-2D para tubo láser de CO2, con pantalla de control, colocado entre dos cortadoras",
-      "pie": "El enfriador mantiene frío el tubo láser mientras corta",
+      "pie": "El enfriador mantiene frío el tubo láser mientras corta.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/tipodemaquinalaser.jpeg",
       "ancho": 1280,
       "alto": 960
@@ -658,7 +658,7 @@
     "grupo/toolmenu.webp": {
       "fuente": "grupo",
       "alt": "Interfaz de SmartCarve 4.3 con sus zonas marcadas en color: menús, lista de objetos, herramientas, área de trabajo, capas, parámetros y ejecución",
-      "pie": "Las zonas de SmartCarve que vas a usar",
+      "pie": "Las zonas de SmartCarve que vas a usar.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/toolmenu.jpeg",
       "ancho": 1320,
       "alto": 681
@@ -666,7 +666,7 @@
     "grupo/typesofjoints.webp": {
       "fuente": "grupo",
       "alt": "Diez piezas de MDF en dos filas con distintas ranuras, pestañas y dientes para probar varios tipos de junta",
-      "pie": "Piezas para probar distintos tipos de junta",
+      "pie": "Piezas para probar distintos tipos de junta.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/typesofjoints.jpeg",
       "ancho": 1600,
       "alto": 720
@@ -674,7 +674,7 @@
     "grupo/wedgejoints.webp": {
       "fuente": "grupo",
       "alt": "Dos placas de MDF unidas en ángulo; una pestaña sale por una ranura de la placa superior y la asegura una pequeña cuña",
-      "pie": "Junta de cuña: una pieza pequeña asegura la pestaña",
+      "pie": "Junta de cuña: una pieza pequeña asegura la pestaña.",
       "original": "https://fabacademy.org/2026/labs/puebla/students/itzeleunice-moreno/images_group/wedgejoints.jpeg",
       "ancho": 1600,
       "alto": 720

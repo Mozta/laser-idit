@@ -1,24 +1,47 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { motion } from 'motion/react'
-import { Herramienta, Campo, Resultado, Mensaje } from './comun.jsx'
+import { Herramienta, Campo, Resultado, Mensaje, MENSAJE_INVALIDO } from './comun.jsx'
 import { acomodar, compararCamas } from '../lib/acomodo.js'
-import { formatear, leerNumero } from '../lib/numeros.js'
+import { leerNumero, escrito } from '../lib/numeros.js'
 import maquinas from '../data/maquinas.json'
 import './svg.css'
 import './AcomodoLamina.css'
 
 const MAX_ANIMADAS = 120
+// Arriba de este número no se dibuja cada pieza: se usa un patrón que repite una sola.
+const MAX_DIBUJADAS = 600
 
 function Lamina({ W, H, g, m, mejor }) {
-  const piezas = []
-  for (let f = 0; f < mejor.filas; f++)
-    for (let c = 0; c < mejor.columnas; c++) piezas.push([m + c * (mejor.pw + g), m + f * (mejor.ph + g)])
-  const animar = piezas.length <= MAX_ANIMADAS
+  const idPatron = useId()
+  const total = mejor.columnas * mejor.filas
   const borde = Math.max(W, H) / 250
+  const usarPatron = total > MAX_DIBUJADAS
+  const piezas = []
+  if (!usarPatron)
+    for (let f = 0; f < mejor.filas; f++)
+      for (let c = 0; c < mejor.columnas; c++) piezas.push([m + c * (mejor.pw + g), m + f * (mejor.ph + g)])
+  const animar = piezas.length <= MAX_ANIMADAS
+  const estiloPieza = { stroke: 'var(--accent)', strokeWidth: Math.min(borde, mejor.pw / 4, mejor.ph / 4) }
   return (
-    <svg viewBox={`${-borde} ${-borde} ${W + 2 * borde} ${H + 2 * borde}`} role="img" aria-label={`Lámina de ${W} por ${H} mm con ${piezas.length} piezas acomodadas.`}>
+    <svg viewBox={`${-borde} ${-borde} ${W + 2 * borde} ${H + 2 * borde}`} role="img" aria-label={`Lámina de ${W} por ${H} mm con ${total} piezas acomodadas.`}>
+      {usarPatron && (
+        <defs>
+          <pattern id={idPatron} x={m} y={m} width={mejor.pw + g} height={mejor.ph + g} patternUnits="userSpaceOnUse">
+            <rect width={mejor.pw} height={mejor.ph} className="s-pieza" style={estiloPieza} />
+          </pattern>
+        </defs>
+      )}
       <rect width={W} height={H} className="s-madera" />
       <rect x={m} y={m} width={Math.max(0, W - 2 * m)} height={Math.max(0, H - 2 * m)} className="s-guia" style={{ strokeWidth: borde }} />
+      {usarPatron && total > 0 && (
+        <rect
+          x={m}
+          y={m}
+          width={mejor.columnas * (mejor.pw + g) - g}
+          height={mejor.filas * (mejor.ph + g) - g}
+          fill={`url(#${idPatron})`}
+        />
+      )}
       {piezas.map(([x, y], i) => (
         <motion.g
           key={`${mejor.pw}-${mejor.ph}-${i}`}
@@ -26,7 +49,7 @@ function Lamina({ W, H, g, m, mejor }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.25, delay: animar ? i * 0.012 : 0 }}
         >
-          <rect x={x} y={y} width={mejor.pw} height={mejor.ph} className="s-pieza" style={{ stroke: 'var(--teal)', strokeWidth: borde }} />
+          <rect x={x} y={y} width={mejor.pw} height={mejor.ph} className="s-pieza" style={estiloPieza} />
         </motion.g>
       ))}
     </svg>
@@ -74,7 +97,41 @@ function Camas({ lamina, resultados }) {
   )
 }
 
-export default function AcomodoLamina() {
+const MAX_LAMINA = 5000
+
+// Sección 1: en qué cama entra la lámina del alumno.
+export function ComparadorCamas() {
+  const [W, setW] = useState('600')
+  const [H, setH] = useState('600')
+  const val = { W: leerNumero(W), H: leerNumero(H) }
+  const ok = Number.isFinite(val.W) && Number.isFinite(val.H) && val.W > 0 && val.H > 0
+  const muyGrande = ok && (val.W > MAX_LAMINA || val.H > MAX_LAMINA)
+  const camas = ok && !muyGrande ? compararCamas(val, maquinas) : null
+
+  return (
+    <Herramienta
+      id="comparador-camas"
+      titulo="¿En qué cama entra tu lámina?"
+      descripcion="Escribe el tamaño de tu material. Las tres camas se dibujan a la misma escala, con tu lámina puesta en el origen."
+    >
+      <div className="campos">
+        <Campo etiqueta="Lámina, ancho" valor={W} alCambiar={setW} />
+        <Campo etiqueta="Lámina, alto" valor={H} alCambiar={setH} />
+      </div>
+      {muyGrande && <Mensaje tono="amber">Esa lámina es enorme. Revisa que esté en milímetros.</Mensaje>}
+      {!ok && [W, H].every(escrito) && <Mensaje tono="amber">{MENSAJE_INVALIDO}</Mensaje>}
+      {camas && (
+        <>
+          <p className="muted">El punto amarillo es el origen, en la esquina superior derecha. «Justo al límite» significa 5 mm o menos de holgura.</p>
+          <Camas lamina={val} resultados={camas} />
+        </>
+      )}
+    </Herramienta>
+  )
+}
+
+// Sección 4: cuántas piezas iguales caben en la lámina, con separación y margen.
+export function AcomodoPiezas() {
   const [W, setW] = useState('600')
   const [H, setH] = useState('600')
   const [w, setw] = useState('80')
@@ -84,15 +141,13 @@ export default function AcomodoLamina() {
 
   const val = { W: leerNumero(W), H: leerNumero(H), w: leerNumero(w), h: leerNumero(h), g: leerNumero(g), m: leerNumero(m) }
   const r = acomodar(val)
-  const laminaOk = Number.isFinite(val.W) && Number.isFinite(val.H) && val.W > 0 && val.H > 0
-  const camas = laminaOk ? compararCamas({ W: val.W, H: val.H }, maquinas) : null
-  const muyGrande = laminaOk && (val.W > 5000 || val.H > 5000)
+  const muyGrande = val.W > MAX_LAMINA || val.H > MAX_LAMINA
 
   return (
     <Herramienta
       id="acomodo-lamina"
-      titulo="Acomodo en la lámina"
-      descripcion="Cuántas piezas iguales caben en tu material y en cuál cama entra la lámina."
+      titulo="¿Cuántas piezas caben en tu lámina?"
+      descripcion="Para piezas iguales: deja al menos 3 mm entre piezas y 3 mm al borde. Prueba la pieza normal y girada, y te muestra la que acomoda más."
     >
       <div className="campos">
         <Campo etiqueta="Lámina, ancho" valor={W} alCambiar={setW} />
@@ -103,6 +158,8 @@ export default function AcomodoLamina() {
         <Campo etiqueta="Margen al borde" valor={m} alCambiar={setM} />
       </div>
       {muyGrande && <Mensaje tono="amber">Esa lámina es enorme. Revisa que esté en milímetros.</Mensaje>}
+      {!r && [W, H, w, h, g, m].every(escrito) && <Mensaje tono="amber">{MENSAJE_INVALIDO}</Mensaje>}
+      {r && r.total === 0 && !muyGrande && <Mensaje tono="amber">No cabe ninguna pieza: revisa el tamaño de la pieza, la separación y el margen.</Mensaje>}
       {r && !muyGrande && (
         <div className="acomodo">
           <figure className="diagrama acomodo-lamina">
@@ -115,18 +172,10 @@ export default function AcomodoLamina() {
             <Resultado etiqueta="Orientación" valor={r.mejor.girada ? 'Girada 90°' : 'Normal'} unidad="" />
           </div>
           <p className="nota-prueba">
-            Normal: {r.normal.total} · Girada: {r.girada.total}. Se muestra la que acomoda más.
+            Normal: {r.normal.total} · Girada: {r.girada.total}. Si tus piezas son distintas entre sí, acomódalas en tu programa y
+            revisa la separación con el validador de abajo.
           </p>
         </div>
-      )}
-      {camas && !muyGrande && (
-        <>
-          <h4 style={{ marginTop: 28 }}>¿En qué cama entra tu lámina?</h4>
-          <p className="muted">
-            Las tres camas a la misma escala. El punto ámbar es el origen, en la esquina superior derecha.
-          </p>
-          <Camas lamina={{ W: val.W, H: val.H }} resultados={camas} />
-        </>
       )}
     </Herramienta>
   )

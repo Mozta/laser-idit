@@ -21,8 +21,12 @@ function aplicar(m, [x, y]) {
   return [m[0] * x + m[2] * y + m[4], m[1] * x + m[3] * y + m[5]]
 }
 
-// Una extrusión con Z negativa refleja el eje X del sistema de la entidad.
+// Una extrusión con Z negativa refleja el eje X del sistema de la entidad (OCS).
+// LINE, SPLINE y POLYLINE 3D ya vienen en coordenadas del mundo: no se reflejan.
+const EN_OCS = new Set(['ARC', 'CIRCLE', 'LWPOLYLINE', 'POLYLINE', 'INSERT', 'ELLIPSE'])
+
 function espejo(e) {
+  if (!EN_OCS.has(e.type) || e.is3dPolyline) return false
   return (e.extrusionDirectionZ ?? e.extrusionDirection?.z ?? 1) < 0
 }
 

@@ -1,9 +1,19 @@
+.vdxf-avisos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.vdxf-avisos .vdxf-privacidad {
+  margin: 0;
+}
+
 .vdxf-privacidad {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--code-bg);
   color: var(--muted);
@@ -14,8 +24,7 @@
   content: '';
   width: 10px;
   height: 10px;
-  border-radius: 50%;
-  background: var(--teal);
+  background: var(--accent);
   flex-shrink: 0;
 }
 
@@ -26,14 +35,13 @@
   text-align: center;
   padding: clamp(20px, 5vw, 36px);
   border: 2px dashed var(--line);
-  border-radius: 18px;
   background: var(--code-bg);
   transition: border-color 0.2s, background 0.2s;
 }
 
 .vdxf-zona.encima {
-  border-color: var(--teal);
-  background: color-mix(in srgb, var(--teal) 10%, var(--code-bg));
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--code-bg));
 }
 
 .vdxf-icono {
@@ -74,7 +82,6 @@
 .vdxf-opciones,
 .vdxf-limites {
   border: 1px solid var(--line);
-  border-radius: 14px;
   padding: 0 16px;
   margin: 0 0 14px;
 }
@@ -103,7 +110,6 @@
   display: grid;
   gap: 2px;
   padding: 14px 18px;
-  border-radius: 14px;
   border-left: 8px solid var(--acento);
   background: color-mix(in srgb, var(--acento) 14%, var(--code-bg));
   margin: 4px 0 16px;
@@ -130,7 +136,7 @@
 .vdxf-vista {
   margin: 0;
   position: sticky;
-  top: 72px;
+  top: calc(var(--nav-h) + 18px);
 }
 
 .vdxf-svg {
@@ -139,7 +145,6 @@
   max-height: 60vh;
   background: var(--code-bg);
   border: 1px solid var(--line);
-  border-radius: 14px;
 }
 
 .vdxf-vista figcaption {
@@ -151,7 +156,6 @@
   padding: 40px 16px;
   text-align: center;
   background: var(--code-bg);
-  border-radius: 14px;
 }
 
 .vdxf-hallazgos {
@@ -181,7 +185,6 @@
   font-family: var(--mono);
   font-size: 0.85rem;
   padding: 1px 8px;
-  border-radius: 999px;
   background: color-mix(in srgb, var(--acento) 18%, transparent);
 }
 
@@ -193,7 +196,6 @@
   gap: 4px;
   text-align: left;
   padding: 10px 14px;
-  border-radius: 12px;
   border: 1px solid var(--line);
   border-left: 5px solid var(--acento);
   background: var(--code-bg);
@@ -240,4 +242,9 @@ button.vdxf-hallazgo:hover {
   .vdxf-vista {
     position: static;
   }
+}
+
+/* Va después de .vdxf-privacidad para ganarle por orden */
+.vdxf-smartcarve::before {
+  background: var(--amber);
 }

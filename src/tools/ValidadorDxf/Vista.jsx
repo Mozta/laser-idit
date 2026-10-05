@@ -20,7 +20,7 @@ export default function Vista({ trayectos, caja, seleccion }) {
   const resaltados = new Set(seleccion?.trayectos || [])
   const hayResaltado = resaltados.size > 0
   const radio = Math.max(marco.w, marco.h) / 70
-  const tono = seleccion ? `var(--${seleccion.nivel === 'error' ? 'rose' : seleccion.nivel === 'aviso' ? 'amber' : 'teal'})` : 'var(--teal)'
+  const tono = seleccion ? `var(--${seleccion.nivel === 'error' ? 'rose' : seleccion.nivel === 'aviso' ? 'amber' : 'blue'})` : 'var(--accent)'
 
   return (
     <svg

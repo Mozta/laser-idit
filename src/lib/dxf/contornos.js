@@ -33,19 +33,42 @@ function uneEnT(p, trayectos, excepto, tol, indice) {
   return null
 }
 
+// Rejilla de celdas para buscar trayectos cerca de un punto. La celda crece con el dibujo
+// (unas 256 por lado como máximo) y un trayecto que abarcaría demasiadas celdas va a una lista aparte,
+// para que una línea suelta enorme no congele la revisión.
+const MAX_CELDAS_POR_TRAYECTO = 4096
+
 function indiceEspacial(trayectos, tol) {
-  const celda = 25
+  let ancho = 0
+  if (trayectos.length) {
+    const xs = trayectos.flatMap((t) => [t.caja.minX, t.caja.maxX])
+    const ys = trayectos.flatMap((t) => [t.caja.minY, t.caja.maxY])
+    ancho = Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys))
+  }
+  const celda = Math.max(25, ancho / 256)
   const mapa = new Map()
+  const grandes = []
   for (const t of trayectos) {
     const c = t.caja
-    for (let x = Math.floor((c.minX - tol) / celda); x <= Math.floor((c.maxX + tol) / celda); x++)
-      for (let y = Math.floor((c.minY - tol) / celda); y <= Math.floor((c.maxY + tol) / celda); y++) {
+    const x0 = Math.floor((c.minX - tol) / celda)
+    const x1 = Math.floor((c.maxX + tol) / celda)
+    const y0 = Math.floor((c.minY - tol) / celda)
+    const y1 = Math.floor((c.maxY + tol) / celda)
+    if ((x1 - x0 + 1) * (y1 - y0 + 1) > MAX_CELDAS_POR_TRAYECTO) {
+      grandes.push(t)
+      continue
+    }
+    for (let x = x0; x <= x1; x++)
+      for (let y = y0; y <= y1; y++) {
         const k = `${x},${y}`
         if (!mapa.has(k)) mapa.set(k, [])
         mapa.get(k).push(t)
       }
   }
-  return (p) => mapa.get(`${Math.floor(p[0] / celda)},${Math.floor(p[1] / celda)}`) || []
+  return (p) => {
+    const cerca = mapa.get(`${Math.floor(p[0] / celda)},${Math.floor(p[1] / celda)}`) || []
+    return grandes.length ? cerca.concat(grandes) : cerca
+  }
 }
 
 class Conjuntos {

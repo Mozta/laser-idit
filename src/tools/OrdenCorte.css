@@ -2,7 +2,6 @@
   aspect-ratio: 620 / 440;
   width: 100%;
   background: var(--card);
-  border-radius: 12px;
   overflow: hidden;
 }
 

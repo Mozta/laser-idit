@@ -52,58 +52,80 @@ export function LienzoCortadora() {
   )
 }
 
+const DATOS = ['CO₂ 100 W', '3 cortadoras', 'MDF 3 mm', 'SmartCarve 4.3']
+
+const ATAJOS = [
+  { id: 'kerf', titulo: 'Kerf', texto: 'Mide el pedacito que se come el láser.' },
+  { id: 'validador-dxf', titulo: 'Tu archivo', texto: 'Revisa tu DXF antes de llevarlo.' },
+  { id: 'usa-la-maquina', titulo: 'Paso a paso', texto: 'Cinco fases frente a la máquina.' },
+  { id: 'seguridad', titulo: 'Seguridad', texto: 'Las reglas que no se negocian.' },
+  { id: 'galeria', titulo: 'Galería', texto: 'Lo que ya salió de estas máquinas.' },
+]
+
 export default function Portada() {
   return (
-    <section id="inicio" className="portada" aria-labelledby="portada-titulo">
-      <div className="wrap portada-rejilla">
-        <motion.div
-          className="portada-texto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          <p className="portada-pre">IDIT · IBERO Puebla</p>
-          <h1 id="portada-titulo">
-            Del dibujo a la pieza, <span className="teal">sin quemar el intento</span>
-          </h1>
-          <p className="portada-lead">
-            Lo que necesitas para cortar en las láseres del IDIT: cómo funcionan, cómo medir el kerf, cómo preparar tu
-            archivo y cómo operar la máquina con seguridad.
-          </p>
+    <>
+      <section id="inicio" className="portada" aria-labelledby="portada-titulo">
+        <div className="wrap portada-rejilla">
+          <motion.div
+            className="portada-texto"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="portada-pre kicker">IDIT · IBERO Puebla</p>
+            <h1 id="portada-titulo">Del dibujo a la pieza, sin quemar el intento.</h1>
+            <p className="portada-lead">
+              Lo que necesitas para cortar en las láseres del IDIT: cómo funcionan, cómo medir el kerf, cómo preparar tu
+              archivo y cómo operar la máquina con seguridad.
+            </p>
+            <div className="portada-acciones">
+              <a className="btn btn-oscuro btn-flecha" href="#maquinas">
+                Empieza aquí
+              </a>
+              <a className="btn portada-btn-linea" href="#validador-dxf">
+                Revisa tu DXF
+              </a>
+              <a className="btn portada-btn-linea" href="#kerf">
+                Calcula tu kerf
+              </a>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <LienzoCortadora />
+          </motion.div>
+        </div>
+        <div className="wrap">
           <ul className="portada-datos" aria-label="Datos rápidos">
-            <li>
-              <strong>3</strong> cortadoras
-            </li>
-            <li>
-              <strong>CO₂</strong> 100 W
-            </li>
-            <li>
-              <strong>MDF</strong> 3 mm
-            </li>
+            {DATOS.map((d) => (
+              <li key={d} className="kicker">
+                {d}
+              </li>
+            ))}
           </ul>
-          <div className="portada-acciones">
-            <a className="btn btn-primary" href="#maquinas">
-              Empieza aquí
-            </a>
-            <a className="btn" href="#validador-dxf">
-              Revisa tu DXF
-            </a>
-            <a className="btn" href="#kerf">
-              Calcula tu kerf
-            </a>
-            <a className="btn" href="#usa-la-maquina">
-              Paso a paso en la máquina
-            </a>
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
-        >
-          <LienzoCortadora />
-        </motion.div>
+        </div>
+      </section>
+      <div className="wrap">
+      <nav className="atajos" aria-label="Atajos">
+        {ATAJOS.map((a, i) => (
+          <motion.a
+            key={a.id}
+            href={`#${a.id}`}
+            className="atajo"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 + i * 0.06 }}
+          >
+            <span className="kicker">{a.titulo}</span>
+            <span>{a.texto}</span>
+          </motion.a>
+        ))}
+      </nav>
       </div>
-    </section>
+    </>
   )
 }

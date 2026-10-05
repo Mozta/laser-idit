@@ -47,3 +47,11 @@ describe('kerf, modo hueco en el marco', () => {
     expect(kerfHuecoMarco({ n: 10, g: 0 }).ok).toBe(false)
   })
 })
+
+describe('kerf, entradas inválidas', () => {
+  it('el número de piezas tiene que ser entero', () => {
+    expect(kerfPiezasJuntas({ L: 100, n: 2.5, M: 98 }).ok).toBe(false)
+    expect(kerfHuecoMarco({ n: 0, g: 1 }).ok).toBe(false)
+    expect(kerfHuecoMarco({ n: 2.5, g: 1 }).error).toBe(MENSAJES_KERF.piezas)
+  })
+})
