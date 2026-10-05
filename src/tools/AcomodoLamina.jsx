@@ -1,24 +1,47 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { motion } from 'motion/react'
-import { Herramienta, Campo, Resultado, Mensaje } from './comun.jsx'
+import { Herramienta, Campo, Resultado, Mensaje, MENSAJE_INVALIDO } from './comun.jsx'
 import { acomodar, compararCamas } from '../lib/acomodo.js'
-import { formatear, leerNumero } from '../lib/numeros.js'
+import { leerNumero, escrito } from '../lib/numeros.js'
 import maquinas from '../data/maquinas.json'
 import './svg.css'
 import './AcomodoLamina.css'
 
 const MAX_ANIMADAS = 120
+// Arriba de este número no se dibuja cada pieza: se usa un patrón que repite una sola.
+const MAX_DIBUJADAS = 600
 
 function Lamina({ W, H, g, m, mejor }) {
-  const piezas = []
-  for (let f = 0; f < mejor.filas; f++)
-    for (let c = 0; c < mejor.columnas; c++) piezas.push([m + c * (mejor.pw + g), m + f * (mejor.ph + g)])
-  const animar = piezas.length <= MAX_ANIMADAS
+  const idPatron = useId()
+  const total = mejor.columnas * mejor.filas
   const borde = Math.max(W, H) / 250
+  const usarPatron = total > MAX_DIBUJADAS
+  const piezas = []
+  if (!usarPatron)
+    for (let f = 0; f < mejor.filas; f++)
+      for (let c = 0; c < mejor.columnas; c++) piezas.push([m + c * (mejor.pw + g), m + f * (mejor.ph + g)])
+  const animar = piezas.length <= MAX_ANIMADAS
+  const estiloPieza = { stroke: 'var(--accent)', strokeWidth: Math.min(borde, mejor.pw / 4, mejor.ph / 4) }
   return (
-    <svg viewBox={`${-borde} ${-borde} ${W + 2 * borde} ${H + 2 * borde}`} role="img" aria-label={`Lámina de ${W} por ${H} mm con ${piezas.length} piezas acomodadas.`}>
+    <svg viewBox={`${-borde} ${-borde} ${W + 2 * borde} ${H + 2 * borde}`} role="img" aria-label={`Lámina de ${W} por ${H} mm con ${total} piezas acomodadas.`}>
+      {usarPatron && (
+        <defs>
+          <pattern id={idPatron} x={m} y={m} width={mejor.pw + g} height={mejor.ph + g} patternUnits="userSpaceOnUse">
+            <rect width={mejor.pw} height={mejor.ph} className="s-pieza" style={estiloPieza} />
+          </pattern>
+        </defs>
+      )}
       <rect width={W} height={H} className="s-madera" />
       <rect x={m} y={m} width={Math.max(0, W - 2 * m)} height={Math.max(0, H - 2 * m)} className="s-guia" style={{ strokeWidth: borde }} />
+      {usarPatron && total > 0 && (
+        <rect
+          x={m}
+          y={m}
+          width={mejor.columnas * (mejor.pw + g) - g}
+          height={mejor.filas * (mejor.ph + g) - g}
+          fill={`url(#${idPatron})`}
+        />
+      )}
       {piezas.map(([x, y], i) => (
         <motion.g
           key={`${mejor.pw}-${mejor.ph}-${i}`}
@@ -26,7 +49,7 @@ function Lamina({ W, H, g, m, mejor }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.25, delay: animar ? i * 0.012 : 0 }}
         >
-          <rect x={x} y={y} width={mejor.pw} height={mejor.ph} className="s-pieza" style={{ stroke: 'var(--accent)', strokeWidth: borde }} />
+          <rect x={x} y={y} width={mejor.pw} height={mejor.ph} className="s-pieza" style={estiloPieza} />
         </motion.g>
       ))}
     </svg>
@@ -96,6 +119,7 @@ export function ComparadorCamas() {
         <Campo etiqueta="Lámina, alto" valor={H} alCambiar={setH} />
       </div>
       {muyGrande && <Mensaje tono="amber">Esa lámina es enorme. Revisa que esté en milímetros.</Mensaje>}
+      {!ok && [W, H].every(escrito) && <Mensaje tono="amber">{MENSAJE_INVALIDO}</Mensaje>}
       {camas && (
         <>
           <p className="muted">El punto amarillo es el origen, en la esquina superior derecha. «Justo al límite» significa 5 mm o menos de holgura.</p>
@@ -134,6 +158,8 @@ export function AcomodoPiezas() {
         <Campo etiqueta="Margen al borde" valor={m} alCambiar={setM} />
       </div>
       {muyGrande && <Mensaje tono="amber">Esa lámina es enorme. Revisa que esté en milímetros.</Mensaje>}
+      {!r && [W, H, w, h, g, m].every(escrito) && <Mensaje tono="amber">{MENSAJE_INVALIDO}</Mensaje>}
+      {r && r.total === 0 && !muyGrande && <Mensaje tono="amber">No cabe ninguna pieza: revisa el tamaño de la pieza, la separación y el margen.</Mensaje>}
       {r && !muyGrande && (
         <div className="acomodo">
           <figure className="diagrama acomodo-lamina">
