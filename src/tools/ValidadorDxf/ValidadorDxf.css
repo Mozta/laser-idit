@@ -1,3 +1,14 @@
+.vdxf-avisos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.vdxf-avisos .vdxf-privacidad {
+  margin: 0;
+}
+
 .vdxf-privacidad {
   display: inline-flex;
   align-items: center;
@@ -125,7 +136,7 @@
 .vdxf-vista {
   margin: 0;
   position: sticky;
-  top: 72px;
+  top: calc(var(--nav-h) + 18px);
 }
 
 .vdxf-svg {
@@ -231,4 +242,9 @@ button.vdxf-hallazgo:hover {
   .vdxf-vista {
     position: static;
   }
+}
+
+/* Va después de .vdxf-privacidad para ganarle por orden */
+.vdxf-smartcarve::before {
+  background: var(--amber);
 }

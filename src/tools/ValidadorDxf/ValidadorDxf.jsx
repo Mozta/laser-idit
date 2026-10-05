@@ -8,6 +8,16 @@ import '../../tools/svg.css'
 import './ValidadorDxf.css'
 
 const MAX_BYTES = 10 * 1024 * 1024
+
+// Los DXF nuevos (R2007 en adelante) vienen en UTF-8 y los viejos en latin1.
+// Se intenta UTF-8 y, si hay bytes inválidos, latin1, que conserva cada byte (así un binario se reconoce por su encabezado).
+function decodificar(buf) {
+  try {
+    return new TextDecoder('utf-8', { fatal: true }).decode(buf)
+  } catch {
+    return new TextDecoder('latin1').decode(buf)
+  }
+}
 const NIVELES = [
   { nivel: 'error', titulo: 'Errores', tono: 'rose' },
   { nivel: 'aviso', titulo: 'Avisos', tono: 'amber' },
@@ -139,7 +149,8 @@ function Hallazgos({ hallazgos, seleccion, alElegir }) {
 export default function ValidadorDxf() {
   const [archivo, setArchivo] = useState(null) // { nombre, texto }
   const [error, setError] = useState(null)
-  const [seleccion, setSeleccion] = useState(null)
+  const [idSeleccion, setIdSeleccion] = useState(null)
+  const turnoCarga = useRef(0)
   const [t, setT] = useState('')
   const [k, setK] = useState('')
   const [W, setW] = useState('600')
@@ -156,32 +167,41 @@ export default function ValidadorDxf() {
     tolerancia: Number(tol),
   }
   const { cargando, resultado } = useValidador(archivo?.texto ?? null, opciones)
+  // El resaltado se guarda por id: sobrevive a que el resultado se recalcule con otras opciones.
+  const seleccion = resultado?.hallazgos.find((h) => h.id === idSeleccion) ?? null
+  const elegir = (h) => setIdSeleccion(h ? h.id : null)
+
+  // Rechazar un archivo borra el anterior: así nunca se ve un resultado que no corresponde.
+  const rechazar = (mensaje) => {
+    turnoCarga.current++
+    setArchivo(null)
+    setIdSeleccion(null)
+    setError(mensaje)
+  }
 
   const cargar = async (f) => {
-    setSeleccion(null)
-    if (!/\.dxf$/i.test(f.name)) {
-      setError('Ese archivo no es .dxf. Exporta tu dibujo como DXF.')
-      return
-    }
-    if (f.size > MAX_BYTES) {
-      setError('El archivo pesa más de 10 MB. Revisa que no traiga imágenes, sombreados o geometría de más.')
-      return
-    }
+    if (!/\.dxf$/i.test(f.name)) return rechazar('Ese archivo no es .dxf. Exporta tu dibujo como DXF.')
+    if (f.size > MAX_BYTES) return rechazar('El archivo pesa más de 10 MB. Revisa que no traiga imágenes, sombreados o geometría de más.')
+    const turno = ++turnoCarga.current
     setError(null)
+    setIdSeleccion(null)
     const buf = await f.arrayBuffer()
-    // latin1 conserva cada byte; así un DXF binario se reconoce por su encabezado.
-    setArchivo({ nombre: f.name, texto: new TextDecoder('latin1').decode(buf) })
+    if (turno !== turnoCarga.current) return
+    setArchivo({ nombre: f.name, texto: decodificar(buf) })
   }
 
   const cargarEjemplo = async (e) => {
-    setSeleccion(null)
+    const turno = ++turnoCarga.current
     setError(null)
+    setIdSeleccion(null)
     try {
       const r = await fetch(`${import.meta.env.BASE_URL}${e.ruta}${e.archivo}`)
       if (!r.ok) throw new Error()
-      setArchivo({ nombre: e.archivo, texto: await r.text() })
+      const texto = await r.text()
+      // Si el alumno tocó otro ejemplo mientras tanto, gana el último que tocó.
+      if (turno === turnoCarga.current) setArchivo({ nombre: e.archivo, texto })
     } catch {
-      setError('No pude cargar el ejemplo. Revisa tu conexión.')
+      if (turno === turnoCarga.current) rechazar('No pude cargar el ejemplo. Revisa tu conexión.')
     }
   }
 
@@ -191,7 +211,10 @@ export default function ValidadorDxf() {
       titulo="Revisa tu DXF antes de cortar"
       descripcion="Busca contornos abiertos, líneas repetidas, cotas, piezas muy juntas y más. Es un revisor que te avisa: al final, confirma siempre en SmartCarve con Go Scale."
     >
-      <p className="vdxf-privacidad">Tu archivo no sale de tu navegador: nada se sube a ningún servidor.</p>
+      <div className="vdxf-avisos">
+        <p className="vdxf-privacidad">Tu archivo no sale de tu navegador: nada se sube a ningún servidor.</p>
+        <p className="vdxf-privacidad vdxf-smartcarve">No sustituye la revisión en SmartCarve: haz Go Scale antes de cortar.</p>
+      </div>
 
       <Zona alCargar={cargar} cargando={cargando} />
 
@@ -241,7 +264,7 @@ export default function ValidadorDxf() {
                 {seleccion ? `Resaltado: ${seleccion.titulo}. Toca otra vez para quitarlo.` : 'Toca un hallazgo para verlo en el dibujo.'}
               </figcaption>
             </figure>
-            <Hallazgos hallazgos={resultado.hallazgos} seleccion={seleccion} alElegir={setSeleccion} />
+            <Hallazgos hallazgos={resultado.hallazgos} seleccion={seleccion} alElegir={elegir} />
           </div>
         </div>
       )}
@@ -252,7 +275,6 @@ export default function ValidadorDxf() {
           <li>No detecta cruces de líneas dentro de un mismo contorno.</li>
           <li>La detección de ranuras es aproximada: busca huecos y muescas rectangulares con un ancho cercano a tu espesor.</li>
           <li>Las splines y elipses se aproximan con segmentos de 0.01 mm de error.</li>
-          <li>No sustituye la revisión en SmartCarve: haz Go Scale antes de cortar.</li>
         </ul>
       </details>
     </Herramienta>

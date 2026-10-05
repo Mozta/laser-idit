@@ -1,44 +1,80 @@
 import { useEffect, useRef, useState } from 'react'
 
-// Corre la validación en un Web Worker; si el navegador no lo permite, en el hilo principal.
+const ERROR_CARGA = {
+  hallazgos: [
+    { id: '1', nivel: 'error', titulo: 'No se pudo revisar', mensaje: 'No pude cargar el revisor. Revisa tu conexión y vuelve a elegir el archivo.' },
+  ],
+  resumen: { estado: 'errores', texto: 'No se pudo revisar el archivo', errores: 1, avisos: 0 },
+  trayectos: [],
+  caja: null,
+}
+
+// Corre la validación en un Web Worker. Si el worker no existe o falla en cualquier momento,
+// valida en el hilo principal (ese código se carga aparte, solo si hace falta).
 export function useValidador(texto, opciones) {
   const [estado, setEstado] = useState({ cargando: false, resultado: null })
   const worker = useRef(null)
   const turno = useRef(0)
+  const pendiente = useRef(null)
+  const textoAnterior = useRef(null)
   const clave = JSON.stringify(opciones)
 
-  // Respaldo sin Worker: el validador se carga aparte para no inflar el sitio.
-  const enHiloPrincipal = async (texto, opciones, id) => {
-    const [{ validarDxf }, { resultadoParaVista }] = await Promise.all([import('../../lib/dxf/validar.js'), import('./vista.js')])
-    const r = resultadoParaVista(validarDxf(texto, opciones))
-    if (id === turno.current) setEstado({ cargando: false, resultado: r })
+  const terminar = (id, resultado) => {
+    if (id === turno.current) {
+      pendiente.current = null
+      setEstado({ cargando: false, resultado })
+    }
+  }
+
+  const enHiloPrincipal = async ({ id, texto, opciones }) => {
+    try {
+      const { validarEnHiloPrincipal } = await import('./respaldo.js')
+      terminar(id, validarEnHiloPrincipal(texto, opciones))
+    } catch {
+      terminar(id, ERROR_CARGA)
+    }
   }
 
   useEffect(() => {
+    let w = null
+    const descartar = () => {
+      w?.terminate()
+      if (worker.current === w) worker.current = null
+      // Si había un trabajo esperando respuesta, se hace en el hilo principal.
+      if (pendiente.current) enHiloPrincipal(pendiente.current)
+    }
     try {
-      worker.current = new Worker(new URL('./validador.worker.js', import.meta.url), { type: 'module' })
+      w = new Worker(new URL('./validador.worker.js', import.meta.url), { type: 'module' })
+      w.onmessage = ({ data }) => terminar(data.id, data.resultado)
+      w.onerror = descartar
+      w.onmessageerror = descartar
+      worker.current = w
     } catch {
       worker.current = null
     }
-    return () => worker.current?.terminate()
+    return () => {
+      w?.terminate()
+      worker.current = null
+    }
   }, [])
 
   useEffect(() => {
     if (texto == null) {
+      pendiente.current = null
+      textoAnterior.current = null
       setEstado({ cargando: false, resultado: null })
       return
     }
     const id = ++turno.current
-    setEstado((e) => ({ ...e, cargando: true }))
+    // Archivo nuevo: se borra el resultado anterior. Solo cambiaron opciones: se conserva mientras recalcula.
+    const archivoNuevo = textoAnterior.current !== texto
+    textoAnterior.current = texto
+    setEstado((e) => ({ cargando: true, resultado: archivoNuevo ? null : e.resultado }))
     const espera = setTimeout(() => {
-      const w = worker.current
-      if (w) {
-        w.onmessage = ({ data }) => {
-          if (data.id === turno.current) setEstado({ cargando: false, resultado: data.resultado })
-        }
-        w.onerror = () => enHiloPrincipal(texto, opciones, id)
-        w.postMessage({ id, texto, opciones })
-      } else enHiloPrincipal(texto, opciones, id)
+      const trabajo = { id, texto, opciones }
+      pendiente.current = trabajo
+      if (worker.current) worker.current.postMessage(trabajo)
+      else enHiloPrincipal(trabajo)
     }, 150)
     return () => clearTimeout(espera)
   }, [texto, clave])
