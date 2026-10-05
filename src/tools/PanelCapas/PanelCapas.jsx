@@ -17,7 +17,16 @@ const OBJETOS = [
 
 const TIPO = { grabado: 'grabar', hueco: 'cortar', contorno: 'cortar' }
 
-const capasIniciales = () => smartcarve.capas.map((c) => ({ ...c, procesar: true, max: '', min: '', vel: '' }))
+// Cada capa arranca con lo que dejó la sesión anterior, si se conoce.
+const capasIniciales = () =>
+  smartcarve.capas.map(({ heredados, ...c }) => ({
+    ...c,
+    procesar: true,
+    max: heredados ? String(heredados.max) : '',
+    min: heredados ? String(heredados.min) : '',
+    vel: heredados ? String(heredados.vel) : '',
+    heredado: !!heredados,
+  }))
 
 function Dibujo({ objetos, capas, seleccion, alElegir, turnos, simulando }) {
   const color = (o) => capas.find((c) => c.id === o.capa).color
@@ -68,6 +77,9 @@ export default function PanelCapas() {
   const obj = objetos.find((o) => o.id === objSel)
 
   const cambiarCapa = (id, campo, valor) => setCapas((cs) => cs.map((c) => (c.id === id ? { ...c, [campo]: valor } : c)))
+  // Editar un parámetro cuenta como revisarlo.
+  const cambiarParametro = (id, campo, valor) =>
+    setCapas((cs) => cs.map((c) => (c.id === id ? { ...c, [campo]: valor, heredado: false } : c)))
   const aplicar = () => {
     setObjetos((os) => os.map((o) => (o.id === objSel ? { ...o, capa: capaSel } : o)))
     setSimulando(0)
@@ -157,12 +169,21 @@ export default function PanelCapas() {
           <div className="pc-parametros">
             <p className="pc-titulo kicker">
               Layer Parameter · capa {capa.id} <span className="pc-muestra" style={{ background: capa.color }} aria-hidden="true" />
+              {capa.heredado && <span className="pc-heredado">heredados</span>}
             </p>
             <div className="campos">
-              <Campo etiqueta="Max. Power" unidad="%" valor={capa.max} alCambiar={(v) => cambiarCapa(capa.id, 'max', v)} />
-              <Campo etiqueta="Min. Power" unidad="%" valor={capa.min} alCambiar={(v) => cambiarCapa(capa.id, 'min', v)} />
-              <Campo etiqueta="Work Speed" unidad="mm/s" valor={capa.vel} alCambiar={(v) => cambiarCapa(capa.id, 'vel', v)} />
+              <Campo etiqueta="Max. Power" unidad="%" valor={capa.max} alCambiar={(v) => cambiarParametro(capa.id, 'max', v)} />
+              <Campo etiqueta="Min. Power" unidad="%" valor={capa.min} alCambiar={(v) => cambiarParametro(capa.id, 'min', v)} />
+              <Campo etiqueta="Work Speed" unidad="mm/s" valor={capa.vel} alCambiar={(v) => cambiarParametro(capa.id, 'vel', v)} />
             </div>
+            {capa.heredado && (
+              <div className="pc-aviso-heredado">
+                <p>Estos valores los dejó la sesión anterior. En la máquina, nunca cortes sin revisarlos.</p>
+                <button type="button" className="btn" onClick={() => cambiarCapa(capa.id, 'heredado', false)}>
+                  Confirmar valores
+                </button>
+              </div>
+            )}
             <p className="nota-prueba">
               Como referencia, en 2019 el corte fue {corte.max} / {corte.min} / {corte.velocidad} y el grabado {grabado.max} /{' '}
               {grabado.min} / {grabado.velocidad} en MDF de 3 mm. Son puntos de partida: tu prueba manda.
@@ -209,8 +230,9 @@ export default function PanelCapas() {
       </div>
 
       <p className="nota-prueba">
-        Las prioridades de inicio son las que muestra una captura de SmartCarve en el IDIT: el rojo (capa 3) va primero y el azul
-        (capa 1) en quinto lugar. En la máquina pueden estar distintas; revísalas cada vez. Si grabas rellenos o imágenes,
+        Las prioridades de inicio y los valores de la capa 1 son los que muestra una captura de SmartCarve en el IDIT: el rojo
+        (capa 3) va primero y el azul (capa 1) en quinto lugar. SmartCarve conserva lo que dejó la sesión anterior: revisa
+        prioridades y parámetros cada vez. Si grabas rellenos o imágenes,
         SmartCarve usa otro modo de proceso: ponlos en una capa aparte de las líneas de corte.
       </p>
     </Herramienta>

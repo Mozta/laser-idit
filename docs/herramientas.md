@@ -129,6 +129,7 @@ Imita la pestaña *Layer* del *Control Panel* de SmartCarve 4.3 (verificado en l
 
 - Colores y prioridades de inicio en `src/data/smartcarve.json`, tomados de la captura de la página grupal (el rojo, capa 3, tiene prioridad 1; el azul, capa 1, prioridad 5). Se avisa en pantalla que en la máquina pueden ser otras.
 - Pieza de ejemplo: un grabado, dos huecos y el contorno. Todos empiezan en la capa 1.
+- Valores heredados: como en la máquina, cada capa puede arrancar con lo que dejó la sesión anterior (`heredados` en `smartcarve.json`). Hoy solo la capa 1 los tiene (75 / 70 / 30, de la misma captura); las demás arrancan vacías hasta tener una foto del panel. Se marcan con la etiqueta "heredados" y dejan de contar como heredados al editar un campo o al pulsar "Confirmar valores".
 - Lógica en `src/lib/capas.js` (`ordenTrabajo`, `revisarCapas`), con pruebas.
 
 **Revisiones**
@@ -141,6 +142,7 @@ Imita la pestaña *Layer* del *Control Panel* de SmartCarve 4.3 (verificado en l
 | `mismo-turno` | Aviso | Contorno y huecos en la misma capa o con la misma prioridad |
 | `prioridad-repetida` | Aviso | Dos capas en uso con la misma prioridad |
 | `sin-parametros` | Aviso | Capa en uso sin potencia máxima, mínima o velocidad |
+| `heredados` | Aviso | Capa en uso con los valores de la sesión anterior sin revisar |
 | `min-mayor` | Error | Potencia mínima mayor que la máxima |
 | `fuera-rango` | Error | Potencia mayor que 100 % |
 
