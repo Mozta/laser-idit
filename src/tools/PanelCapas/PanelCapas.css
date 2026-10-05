@@ -320,9 +320,9 @@
 }
 
 .pc-mision p {
+  flex: 1 1 360px;
   margin: 0;
   font-size: var(--fs-4);
-  max-width: 60ch;
 }
 
 .pc-mision-num {

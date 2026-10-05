@@ -26,7 +26,6 @@
 
 .portada-lead {
   font-size: var(--fs-4);
-  max-width: 46ch;
   opacity: 0.8;
 }
 

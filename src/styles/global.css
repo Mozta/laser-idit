@@ -101,7 +101,6 @@ h4 { font-size: var(--fs-4); letter-spacing: -0.02em; }
 
 p {
   margin: 0 0 1em;
-  max-width: 68ch;
 }
 
 a {

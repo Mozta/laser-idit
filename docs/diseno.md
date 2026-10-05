@@ -52,4 +52,5 @@ Banda amarilla a todo lo ancho con el título, botones y la animación de la cor
 - Material atemporal: sin número de sesión ni fechas de semestre.
 - Contenido que llene el espacio: sin huecos vacíos ni marcadores de imagen sin imagen.
 - Móvil primero: los alumnos abren el sitio frente a la máquina.
+- El texto ocupa el ancho de su columna: sin límite de caracteres por línea en los párrafos. El ancho lo marcan el contenedor (máx. 1180 px) y las rejillas.
 - Contraste AA o mejor en todo texto; Lighthouse de accesibilidad 95 o más.
