@@ -1,6 +1,7 @@
 // Lógica del panel de capas de SmartCarve: orden de trabajo y revisión de la configuración.
 // objetos: [{ id, nombre, tipo: 'grabado' | 'hueco' | 'contorno', capa }]
-// capas:   [{ id, prioridad, procesar, max, min, vel }]
+// capas:   [{ id, prioridad, procesar, max, min, vel, heredado }]
+// heredado: la capa conserva los valores de la sesión anterior y nadie los ha revisado.
 
 const esCorte = (o) => o.tipo === 'hueco' || o.tipo === 'contorno'
 const lleno = (v) => Number.isFinite(v) && v > 0
@@ -88,6 +89,13 @@ export function revisarCapas(objetos, capas) {
 
   // Parámetros de cada capa en uso.
   for (const c of usadas) {
+    if (c.heredado)
+      h.push({
+        id: 'heredados',
+        nivel: 'aviso',
+        capa: c.id,
+        mensaje: `La capa ${c.id} trae los valores de la sesión anterior (${c.max} / ${c.min} / ${c.vel}). Confírmalos o cámbialos según tu prueba.`,
+      })
     if (![c.max, c.min, c.vel].every(lleno))
       h.push({ id: 'sin-parametros', nivel: 'aviso', capa: c.id, mensaje: `A la capa ${c.id} le falta potencia máxima, mínima o velocidad.` })
     else if (c.min > c.max)

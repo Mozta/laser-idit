@@ -53,6 +53,27 @@ describe('panel de capas', () => {
     expect(ordenTrabajo(objetos, capas).map((t) => t.capa)).toEqual([3, 2])
   })
 
+  it('la capa 1 trae valores heredados de la captura', () => {
+    expect(smartcarve.capas.find((c) => c.id === 1).heredados).toEqual({ max: 75, min: 70, vel: 30 })
+    expect(smartcarve.capas.filter((c) => c.heredados)).toHaveLength(1)
+  })
+
+  it('avisa si una capa en uso conserva valores heredados sin revisar', () => {
+    const capas = capasBase().map((c) => (c.id === 1 ? { ...c, max: 75, min: 70, vel: 30, heredado: true } : c))
+    // Grabado en 3 (prioridad 1), huecos en 2 (2), contorno en 1 (5)
+    const r = revisarCapas(asignar({ g: 3, c: 2, r: 2, k: 1 }), capas)
+    expect(ids(r)).toEqual(['heredados'])
+    expect(r.hallazgos[0].mensaje).toMatch(/75 \/ 70 \/ 30/)
+    // Al revisarlos, desaparece el aviso
+    const revisadas = capas.map((c) => ({ ...c, heredado: false }))
+    expect(revisarCapas(asignar({ g: 3, c: 2, r: 2, k: 1 }), revisadas).listo).toBe(true)
+  })
+
+  it('una capa heredada que no se usa no avisa', () => {
+    const capas = capasBase().map((c) => (c.id === 1 ? { ...c, heredado: true } : c))
+    expect(revisarCapas(asignar({ g: 3, c: 2, r: 2, k: 5 }), capas).listo).toBe(true)
+  })
+
   it('prioridad repetida, parámetros vacíos y mínima mayor que máxima', () => {
     const capas = capasBase().map((c) => {
       if (c.id === 2) return { ...c, prioridad: 1 }
