@@ -5,7 +5,11 @@
       "errores": [],
       "avisos": [],
       "piezas": 1,
-      "huecos": 2
+      "huecos": 2,
+      "incluye": [
+        "2",
+        "12"
+      ]
     },
     "abierto.dxf": {
       "errores": [
@@ -130,6 +134,37 @@
         "1"
       ],
       "avisos": []
+    },
+    "sobrantes.dxf": {
+      "errores": [],
+      "avisos": [
+        "6a"
+      ],
+      "piezas": 1
+    },
+    "diminutos.dxf": {
+      "errores": [],
+      "avisos": [
+        "8"
+      ],
+      "piezas": 1
+    },
+    "linea-extrusion.dxf": {
+      "errores": [],
+      "avisos": [],
+      "piezas": 1,
+      "caja": [
+        10,
+        10,
+        50,
+        50
+      ]
+    },
+    "linea-enorme.dxf": {
+      "incluye": [
+        "4",
+        "3"
+      ]
     }
   }
 }

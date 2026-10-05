@@ -79,7 +79,7 @@ export function revisarAbiertos({ analisis }) {
       id: '4',
       nivel: 'error',
       titulo: 'Contornos abiertos',
-      mensaje: `Hay ${plural(n, 'contorno abierto', 'contornos abiertos')}: esa pieza no se va a separar. Los puntos marcados son extremos sueltos.`,
+      mensaje: `Hay ${plural(n, 'contorno abierto', 'contornos abiertos')}: ${n === 1 ? 'esa pieza no se va a separar' : 'esas piezas no se van a separar'}. Los puntos marcados son extremos sueltos.`,
       trayectos: analisis.abiertos.flatMap((a) => a.trayectos),
       marcas: analisis.abiertos.flatMap((a) => a.sueltos),
     },
@@ -318,7 +318,7 @@ export function revisarSeparacion({ analisis }) {
       id: '10',
       nivel,
       titulo: 'Piezas muy juntas',
-      mensaje: `Dos piezas a ${f2(peor.d)} mm: déjales al menos ${MIN}.${extra}`,
+      mensaje: `Dos piezas a ${f2(peor.d)} mm: déjales al menos ${MIN} mm.${extra}`,
       distancia: peor.d,
       trayectos: [...new Set(cercanas.flatMap((c) => [...c.a.trayectos, ...c.b.trayectos]))],
       marcas: cercanas.map((c) => c.marca),
@@ -453,8 +453,9 @@ export function revisarTiempo({ trayectos, opciones }) {
   const L = trayectos.reduce((s, t) => s + t.longitud, 0)
   if (!L) return []
   const seg = L / opciones.velocidad
-  const min = Math.floor(seg / 60)
-  const s = Math.round(seg - min * 60)
+  const total = Math.round(seg)
+  const min = Math.floor(total / 60)
+  const s = total % 60
   return [
     {
       id: '13',

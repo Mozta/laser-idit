@@ -126,6 +126,30 @@ archivos['muescas.dxf'] = new Dxf().polilinea([
   [0, 60],
 ])
 
+// Rectángulo con un sombreado (HATCH) y un punto (POINT): elementos que la máquina no usa.
+archivos['sobrantes.dxf'] = new Dxf()
+  .rect(0, 0, 60, 40)
+  .e(0, 'POINT', 8, 'CORTE', 10, 30, 20, 20, 30, 0)
+  .e(0, 'HATCH', 8, 'CORTE', 10, 0, 20, 0, 30, 0, 2, 'SOLID', 70, 1, 71, 0, 91, 0)
+
+// Cuadrado cerrado de 20 mm cuyo lado inferior está hecho de 1000 segmentos de 0.02 mm.
+archivos['diminutos.dxf'] = (() => {
+  const v = []
+  for (let i = 0; i < 1000; i++) v.push([i * 0.02, 0])
+  v.push([20, 0], [20, 20], [0, 20])
+  return new Dxf().polilinea(v)
+})()
+
+// Cuadrado de cuatro LINE; dos traen extrusión (0, 0, −1). Las LINE vienen en coordenadas del mundo: no se reflejan.
+archivos['linea-extrusion.dxf'] = new Dxf()
+  .linea(10, 10, 50, 10)
+  .e(0, 'LINE', 8, 'CORTE', 10, 50, 20, 10, 30, 0, 11, 50, 21, 50, 31, 0, 210, 0, 220, 0, 230, -1)
+  .linea(50, 50, 10, 50)
+  .e(0, 'LINE', 8, 'CORTE', 10, 10, 20, 50, 30, 0, 11, 10, 21, 10, 31, 0, 210, 0, 220, 0, 230, -1)
+
+// Una pieza normal y una línea suelta de 100 m: la revisión no debe congelarse.
+archivos['linea-enorme.dxf'] = new Dxf().rect(0, 0, 40, 40).linea(100, 0, 100000, 100000)
+
 mkdirSync('fixtures/dxf', { recursive: true })
 for (const [nombre, d] of Object.entries(archivos)) writeFileSync(`fixtures/dxf/${nombre}`, d.texto())
 for (const marco of [false, true]) {
