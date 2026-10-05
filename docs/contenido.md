@@ -40,7 +40,7 @@ Idea central: un haz invisible concentrado en un punto evapora el material.
 
 - **Foco:** distancia entre la boquilla y el material. 5 mm, ajustada con un calibrador de esa medida. Muy bajo quema; muy alto no corta.
 - **Potencia máxima (%):** la que usa en tramos rectos. Decide si atraviesa el material.
-- **Potencia mínima (%):** la que usa en curvas y esquinas, donde el cabezal frena. Si es alta, quema las esquinas; si es baja, deja curvas sin cortar. Se deja 10 a 20 % abajo de la máxima.
+- **Potencia mínima (%):** la que usa en curvas y esquinas, donde el cabezal frena. Si es alta, quema las esquinas; si es baja, deja curvas sin cortar. Se deja 10 a 20 puntos abajo de la máxima.
 - **Velocidad (mm/s):** más lenta corta más hondo, pero quema más y ensancha el corte.
 
 Tabla de valores reportados para MDF de 3 mm (Máx / Mín / Velocidad):
@@ -91,7 +91,7 @@ Idea central: cinco fases, siempre en el mismo orden.
 1. **Encender:** switch inferior (arranca el extractor, hace mucho ruido) → switches de la máquina → liberar paro de emergencia → girar la llave.
 2. **Preparar:** foco a 5 mm con el calibrador (se aflojan las tuercas, se pone el calibrador, se aprietan) → material en la cama → origen en la esquina superior derecha con las flechas y el botón Origin.
 3. **Programar:** en SmartCarve, importar el DXF en mm → asignar capas, prioridades, potencia y velocidad → Go Scale (el cabezal recorre el perímetro del trabajo para verificar que cabe en el material). Opcional: guardar como `.oud` para cargar desde USB.
-4. **Cortar:** cerrar la tapa → botón Laser → Start → vigilar todo el corte.
+4. **Cortar:** cerrar la tapa → subir la perilla de potencia del tablero → botón Laser → Start → vigilar todo el corte. (La perilla la mencionan las tres fuentes; se agregó en la revisión de octubre.)
 5. **Terminar:** esperar a que el extractor saque el humo → apagar el botón Laser → abrir → retirar piezas → apagar en orden inverso (potencia al mínimo, llave fuera, paro, switches) → limpiar la cama.
 
 Interactivo opcional: modo "paso a paso" con casillas, pensado para usarse en el celular frente a la máquina.

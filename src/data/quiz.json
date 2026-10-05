@@ -54,7 +54,7 @@
         "No se corta: puede ser PVC y liberar cloro."
       ],
       "correcta": 3,
-      "explicacion": "PVC y vinil liberan cloro, que daña tus pulmones y la máquina. Si no sabes qué es, no entra."
+      "explicacion": "PVC y vinil liberan cloro. Si no sabes qué plástico es, no entra."
     },
     {
       "pregunta": "Ves mucho humo y la lámina no se atraviesa.",

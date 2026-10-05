@@ -5,7 +5,7 @@
     "presionHasta": -0.15
   },
   "estados": {
-    "floja": { "etiqueta": "Floja", "tono": "rose", "detalle": "La pestaña baila dentro de la ranura. Necesitará pegamento." },
+    "floja": { "etiqueta": "Floja", "tono": "rose", "detalle": "La pestaña baila dentro de la ranura." },
     "justa": { "etiqueta": "Justa, desliza", "tono": "teal", "detalle": "Entra sin esfuerzo y queda firme. Buena para piezas que se desarman." },
     "presion": { "etiqueta": "Entra a presión", "tono": "teal", "detalle": "Hay que empujar. Las fibras del MDF se comprimen y sostienen la unión." },
     "noEntra": { "etiqueta": "No entra", "tono": "rose", "detalle": "La pestaña es más ancha que la ranura. Si la fuerzas, el MDF se rompe." }

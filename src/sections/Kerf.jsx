@@ -171,8 +171,8 @@ export default function Kerf() {
         <div className="rejilla-2">
           <div>
             <p>
-              Daniel Peña Cruz diseñó un kit de esferas con ranuras. Tomó en cuenta el kerf, pero lo restó donde tenía que
-              sumarlo. Sus piezas no embonaban y necesitó <strong>9 cortes de prueba</strong> para llegar a un ajuste
+              Daniel Peña Cruz diseñó un kit de esferas con ranuras. Tomó en cuenta el kerf, pero lo aplicó al revés. Sus
+              piezas no embonaban y necesitó <strong>9 cortes de prueba</strong> para llegar a un ajuste
               aceptable.
             </p>
             <p>

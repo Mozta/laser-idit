@@ -42,7 +42,7 @@ const CONTROLES = [
     titulo: 'Potencia mínima (%)',
     acento: 'accent',
     texto:
-      'La que usa en curvas y esquinas, donde el cabezal frena. Si es alta, quema las esquinas; si es baja, deja curvas sin cortar. Déjala de 10 a 20 % abajo de la máxima.',
+      'La que usa en curvas y esquinas, donde el cabezal frena. Si es alta, quema las esquinas; si es baja, deja curvas sin cortar. Déjala de 10 a 20 puntos abajo de la máxima.',
   },
   {
     titulo: 'Velocidad (mm/s)',
@@ -115,7 +115,7 @@ export default function ComoCorta() {
             </tbody>
           </table>
         </div>
-        <Aviso titulo="Punto de partida, no receta">
+        <Aviso titulo="Es un punto de partida">
           <p>
             Empieza con máxima de {p.max}, mínima {p.min} y {p.velocidad}. Confírmalo con una prueba de potencia y velocidad en
             la máquina del día: el tubo, el lote de MDF y el foco cambian el resultado.

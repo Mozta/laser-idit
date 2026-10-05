@@ -109,9 +109,14 @@ function Parametrico() {
             <Tarjeta titulo={p.etiqueta} acento={p.color}>
               <Checklist items={p.pasos} />
             </Tarjeta>
-            <pre className="codigo">
-              <code>{p.codigo}</code>
-            </pre>
+            <div>
+              <pre className="codigo">
+                <code>{p.codigo}</code>
+              </pre>
+              <p className="nota-prueba" style={{ marginTop: 8 }}>
+                Valores de ejemplo: usa el espesor que mediste y el kerf de tu prueba.
+              </p>
+            </div>
           </div>
           {p.imagenes && (
             <div className="rejilla-fotos" style={{ marginTop: 16 }}>
