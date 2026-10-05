@@ -10,7 +10,8 @@ const lleno = (v) => Number.isFinite(v) && v > 0
 export function ordenTrabajo(objetos, capas) {
   const porId = new Map(capas.map((c) => [c.id, c]))
   const usadas = [...new Set(objetos.map((o) => o.capa))].map((id) => porId.get(id)).filter((c) => c && c.procesar)
-  usadas.sort((a, b) => a.prioridad - b.prioridad || a.id - b.id)
+  const p = (c) => (Number.isFinite(c.prioridad) ? c.prioridad : Infinity)
+  usadas.sort((a, b) => p(a) - p(b) || a.id - b.id)
   return usadas.map((c) => ({ capa: c.id, prioridad: c.prioridad, objetos: objetos.filter((o) => o.capa === c.id) }))
 }
 
@@ -25,6 +26,21 @@ export function revisarCapas(objetos, capas) {
 
   const activos = objetos.filter((o) => porId.get(o.capa).procesar)
   const usadas = [...new Set(activos.map((o) => o.capa))].map((id) => porId.get(id))
+
+  // Sin un número de prioridad no se puede saber el orden: nada de lo demás tiene sentido.
+  const sinPrioridad = usadas.filter((c) => !Number.isFinite(c.prioridad))
+  for (const c of sinPrioridad)
+    h.push({
+      id: 'sin-prioridad',
+      nivel: 'error',
+      capa: c.id,
+      objetos: activos.filter((o) => o.capa === c.id).map((o) => o.id),
+      mensaje: `La capa ${c.id} no tiene prioridad. Escribe un número en Prior: de él depende el orden de corte.`,
+    })
+  if (sinPrioridad.length) {
+    const errores = h.filter((x) => x.nivel === 'error').length
+    return { hallazgos: h, errores, avisos: 0, listo: false }
+  }
 
   // Grabado y corte en la misma capa comparten potencia y velocidad.
   for (const c of usadas) {
@@ -98,7 +114,7 @@ export function revisarCapas(objetos, capas) {
       })
     if (![c.max, c.min, c.vel].every(lleno))
       h.push({ id: 'sin-parametros', nivel: 'aviso', capa: c.id, mensaje: `A la capa ${c.id} le falta potencia máxima, mínima o velocidad.` })
-    else if (c.min > c.max)
+    if (Number.isFinite(c.min) && Number.isFinite(c.max) && c.min > c.max)
       h.push({ id: 'min-mayor', nivel: 'error', capa: c.id, mensaje: `En la capa ${c.id} la potencia mínima es mayor que la máxima.` })
     if ([c.max, c.min].some((v) => Number.isFinite(v) && v > 100))
       h.push({ id: 'fuera-rango', nivel: 'error', capa: c.id, mensaje: `En la capa ${c.id} la potencia pasa de 100 %.` })

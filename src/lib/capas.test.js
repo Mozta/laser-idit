@@ -37,12 +37,26 @@ describe('panel de capas', () => {
   it('rojo para cortar y azul para grabar sale al revés con esas prioridades', () => {
     // Capa 3 (rojo) tiene prioridad 1 y capa 1 (azul) prioridad 5.
     const r = revisarCapas(asignar({ g: 1, c: 3, r: 3, k: 3 }), capasBase())
-    expect(ids(r)).toContain('orden-grabado')
+    expect(ids(r)).toEqual(['mismo-turno', 'orden-grabado'])
   })
 
   it('contorno antes que los huecos', () => {
     const r = revisarCapas(asignar({ g: 3, c: 5, r: 5, k: 2 }), capasBase())
-    expect(ids(r)).toContain('orden-contorno')
+    expect(ids(r)).toEqual(['orden-contorno'])
+  })
+
+  it('una capa en uso sin prioridad es error y nunca da orden correcto', () => {
+    const capas = capasBase().map((c) => (c.id === 3 ? { ...c, prioridad: NaN } : c))
+    const objetos = asignar({ g: 3, c: 2, r: 2, k: 5 })
+    const r = revisarCapas(objetos, capas)
+    expect(ids(r)).toEqual(['sin-prioridad'])
+    expect(r.listo).toBe(false)
+    expect(ordenTrabajo(objetos, capas).map((t) => t.capa)).toEqual([2, 5, 3])
+  })
+
+  it('mínima mayor que máxima aunque falte la velocidad', () => {
+    const capas = capasBase().map((c) => (c.id === 3 ? { ...c, max: 20, min: 30, vel: NaN } : c))
+    expect(ids(revisarCapas(asignar({ g: 3, c: 2, r: 2, k: 5 }), capas))).toEqual(['min-mayor', 'sin-parametros'])
   })
 
   it('capa sin procesar', () => {

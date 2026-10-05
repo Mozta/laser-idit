@@ -178,14 +178,17 @@ export default function PanelCapas() {
     setCapaSel(capaId)
     if (objSel) asignar(objSel, capaId)
   }
+  // Llena solo las capas que usan los objetos; las demás quedan como estaban.
   const usarReferencia = () => {
-    setCapas((cs) =>
-      aplicarReferencia(objetos, aNumeros(cs), REFERENCIA).map((c, i) => {
-        const original = cs[i]
-        const cambio = c.max !== leerNumero(original.max) || c.heredado !== original.heredado
-        return cambio ? { ...original, max: String(c.max), min: String(c.min), vel: String(c.vel), heredado: false } : original
-      }),
-    )
+    const enUso = new Set(objetos.map((o) => o.capa))
+    setCapas((cs) => {
+      const conValores = aplicarReferencia(objetos, aNumeros(cs), REFERENCIA)
+      return cs.map((c, i) =>
+        enUso.has(c.id)
+          ? { ...c, max: String(conValores[i].max), min: String(conValores[i].min), vel: String(conValores[i].vel), heredado: false }
+          : c,
+      )
+    })
     setAviso('Valores de 2019 en MDF de 3 mm. Son un punto de partida: en la máquina se confirman con una prueba.')
   }
   const reiniciar = () => {
@@ -401,13 +404,13 @@ export default function PanelCapas() {
               <span className="pc-num">{i + 1}</span>
               <span className="pc-muestra" style={{ background: capas.find((c) => c.id === t.capa).color }} aria-hidden="true" />
               <span>
-                Capa {t.capa} (prioridad {t.prioridad}): {t.objetos.map((o) => o.nombre).join(', ')}
+                Capa {t.capa} (prioridad {Number.isFinite(t.prioridad) ? t.prioridad : '—'}): {t.objetos.map((o) => o.nombre).join(', ')}
               </span>
             </li>
           ))}
         </ol>
         {revision.listo ? (
-          <Mensaje tono="teal">Orden correcto: grabado, huecos y al final el contorno. En la máquina, confirma con Go Scale.</Mensaje>
+          <Mensaje tono="teal">Orden correcto: grabado, huecos y al final el contorno. En la máquina, revisa las prioridades (Prior) antes de Start y confirma con Go Scale que el trabajo cabe en tu material.</Mensaje>
         ) : (
           <>
             <Mensaje tono={principal.nivel === 'error' ? 'rose' : 'amber'}>{principal.mensaje}</Mensaje>

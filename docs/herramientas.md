@@ -137,6 +137,7 @@ Imita la pestaña *Layer* del *Control Panel* de SmartCarve 4.3 (verificado en l
 **Revisiones**
 | id | Nivel | Cuándo |
 |---|---|---|
+| `sin-prioridad` | Error | Una capa en uso no tiene número de prioridad (detiene las demás revisiones) |
 | `sin-procesar` | Error | Un objeto está en una capa con Process = No |
 | `mezcla` | Error | Grabado y corte en la misma capa |
 | `orden-grabado` | Error | Algún corte tiene prioridad menor que el grabado |
@@ -153,7 +154,7 @@ Imita la pestaña *Layer* del *Control Panel* de SmartCarve 4.3 (verificado en l
 |---|---|
 | 1 / 1 / 1 | `mezcla`, `mismo-turno` |
 | 3 / 2 / 5 con parámetros | Sin hallazgos; orden 3 → 2 → 5 |
-| 1 / 3 / 3 (azul graba, rojo corta) | `orden-grabado` |
+| 1 / 3 / 3 (azul graba, rojo corta) | `orden-grabado`, `mismo-turno` |
 | 3 / 5 / 2 | `orden-contorno` |
 
 Valores de referencia mostrados: corte 2019 (60 / 50 / 18) y grabado 2019 (25 / 20 / 40), los dos en MDF de 3 mm, presentados como punto de partida.
