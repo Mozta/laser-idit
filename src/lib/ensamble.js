@@ -5,7 +5,7 @@ export const ESTADOS = ajuste.estados
 
 // w: ancho dibujado de la ranura; t: espesor real; k: kerf.
 export function evaluarEnsamble({ w, t, k }, umbrales = ajuste.umbrales) {
-  if (![w, t, k].every(Number.isFinite)) return null
+  if (![w, t, k].every(Number.isFinite) || t <= 0 || k < 0 || w <= 0) return null
   const real = redondear(w + k, 6)
   const holgura = redondear(real - t, 6)
   let estado

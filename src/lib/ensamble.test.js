@@ -22,3 +22,11 @@ describe('simulador de ensamble (t = 2.85, k = 0.2)', () => {
     expect(evaluarEnsamble({ w: 2.49, t: 2.85, k: 0.2 }).estado).toBe('noEntra') // h = −0.16
   })
 })
+
+describe('ensamble, entradas inválidas', () => {
+  it('no calcula con espesor, kerf o ranura sin sentido', () => {
+    expect(evaluarEnsamble({ w: 2.5, t: 0, k: 0.2 })).toBeNull()
+    expect(evaluarEnsamble({ w: 2.5, t: 2.85, k: -0.2 })).toBeNull()
+    expect(evaluarEnsamble({ w: 0, t: 2.85, k: 0.2 })).toBeNull()
+  })
+})

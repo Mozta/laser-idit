@@ -1,8 +1,8 @@
 import { useId, useState } from 'react'
 import { motion } from 'motion/react'
-import { Herramienta, Campo, Resultado } from './comun.jsx'
+import { Herramienta, Campo, Resultado, Mensaje, MENSAJE_INVALIDO } from './comun.jsx'
 import { evaluarEnsamble } from '../lib/ensamble.js'
-import { formatear, leerNumero } from '../lib/numeros.js'
+import { formatear, formatearFijo, leerNumero, escrito } from '../lib/numeros.js'
 import './svg.css'
 import './SimuladorEnsamble.css'
 
@@ -92,9 +92,10 @@ export default function SimuladorEnsamble() {
       <figure className="diagrama ensamble-dibujo">
         <Ilustracion w={w} t={Number.isFinite(tn) ? tn : 0} k={Number.isFinite(kn) ? kn : 0} r={r} />
       </figure>
+      {!r && [t, k].every(escrito) && <Mensaje tono="amber">{MENSAJE_INVALIDO}</Mensaje>}
       <div className="resultados" aria-live="polite">
-        <Resultado etiqueta="Ranura real (w + k)" valor={r ? formatear(r.real, 2) : '—'} />
-        <Resultado etiqueta="Holgura" valor={r ? formatear(r.holgura, 2) : '—'} />
+        <Resultado etiqueta="Ranura real (w + k)" valor={r ? formatearFijo(r.real, 2) : '—'} />
+        <Resultado etiqueta="Holgura" valor={r ? formatearFijo(r.holgura, 2) : '—'} />
         <Resultado etiqueta="Resultado" valor={r ? r.etiqueta : '—'} unidad="" destacado tono={r?.tono} />
       </div>
       {r && <p className="ensamble-detalle">{r.detalle}</p>}

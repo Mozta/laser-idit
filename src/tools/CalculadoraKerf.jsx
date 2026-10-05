@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { Herramienta, Campo, Segmentado, Resultado, Mensaje } from './comun.jsx'
+import { Herramienta, Campo, Segmentado, Resultado, Mensaje, MENSAJE_INVALIDO } from './comun.jsx'
 import Formula from '../components/Formula.jsx'
 import { kerfPiezasJuntas, kerfHuecoMarco } from '../lib/kerf.js'
-import { formatear, leerNumero } from '../lib/numeros.js'
+import { formatearFijo, leerNumero, escrito } from '../lib/numeros.js'
 import './svg.css'
 
 const MODOS = [
@@ -13,9 +13,10 @@ const MODOS = [
 
 export function DiagramaPiezas() {
   const ancho = 44
+  const id = useId()
   return (
-    <svg viewBox="0 0 520 150" role="img" aria-labelledby="dk-piezas">
-      <title id="dk-piezas">
+    <svg viewBox="0 0 520 150" role="img" aria-labelledby={id}>
+      <title id={id}>
         Las diez piezas juntas, una contra otra. Arriba, el largo dibujado L; abajo, el largo medido M, que sale más corto.
       </title>
       <line x1="40" y1="22" x2="480" y2="22" className="s-guia" />
@@ -34,9 +35,10 @@ export function DiagramaPiezas() {
 }
 
 export function DiagramaMarco() {
+  const id = useId()
   return (
-    <svg viewBox="0 0 520 150" role="img" aria-labelledby="dk-marco">
-      <title id="dk-marco">
+    <svg viewBox="0 0 520 150" role="img" aria-labelledby={id}>
+      <title id={id}>
         Las diez piezas regresan al marco y se empujan hacia un lado. Sobra un hueco g al final, que vale once kerfs.
       </title>
       <rect x="20" y="20" width="480" height="100" className="s-madera" />
@@ -104,11 +106,12 @@ export default function CalculadoraKerf() {
       </div>
 
       {r && !ok && <Mensaje>{r.error}</Mensaje>}
+      {!r && (modo === 'piezas' ? [L, n, M] : [n, g]).every(escrito) && <Mensaje tono="amber">{MENSAJE_INVALIDO}</Mensaje>}
       {ok && r.avisos.map((a) => <Mensaje key={a} tono="amber">{a}</Mensaje>)}
 
       <div className="resultados" aria-live="polite">
-        <Resultado etiqueta="Kerf total" valor={ok ? formatear(r.kerf, 3) : '—'} destacado />
-        <Resultado etiqueta="Kerf por lado" valor={ok ? formatear(r.porLado, 4) : '—'} />
+        <Resultado etiqueta="Kerf total" valor={ok ? formatearFijo(r.kerf, 3) : '—'} destacado />
+        <Resultado etiqueta="Kerf por lado" valor={ok ? formatearFijo(r.porLado, 4) : '—'} />
       </div>
       <p className="nota-prueba">
         El kerf total es el ancho del corte. Cada borde pierde la mitad: ese es el kerf por lado.

@@ -8,7 +8,7 @@ import CalculadoraRanura from '../tools/CalculadoraRanura.jsx'
 import SimuladorEnsamble from '../tools/SimuladorEnsamble.jsx'
 import GeneradorTira from '../tools/GeneradorTira.jsx'
 import kerf from '../data/kerf.json'
-import { formatear } from '../lib/numeros.js'
+import { formatearFijo } from '../lib/numeros.js'
 import '../tools/svg.css'
 import './secciones.css'
 
@@ -131,17 +131,17 @@ export default function Kerf() {
 
       <Bloque titulo="El kerf cambia">
         <p>
-          Cuatro mediciones en las mismas máquinas, cuatro valores distintos. El kerf depende de la máquina, del tubo, de la
+          Cuatro valores reportados en las mismas máquinas, cuatro números distintos. El kerf depende de la máquina, del tubo, de la
           velocidad, del lote de material y de la forma de medir. Por eso se mide antes de cada proyecto.
         </p>
         <div className="table-wrap">
           <table>
-            <caption className="sr-only">Valores de kerf total reportados</caption>
+            <caption className="sr-only">Valores de kerf reportados</caption>
             <thead>
               <tr>
                 <th scope="col">Fuente</th>
                 <th scope="col">Material</th>
-                <th scope="col" className="num">Kerf total (mm)</th>
+                <th scope="col" className="num">Kerf reportado (mm)</th>
               </tr>
             </thead>
             <tbody>
@@ -158,7 +158,7 @@ export default function Kerf() {
                   <td>{r.material}</td>
                   <td className="num">
                     {r.aproximado ? '≈ ' : ''}
-                    {formatear(r.kerf, 3)}
+                    {formatearFijo(r.kerf, 3)}
                   </td>
                 </tr>
               ))}
