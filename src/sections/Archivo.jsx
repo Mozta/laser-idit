@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import Seccion, { Bloque } from '../components/Seccion.jsx'
 import Tarjeta from '../components/Tarjeta.jsx'
@@ -6,10 +6,16 @@ import Figura from '../components/Figura.jsx'
 import Checklist from '../components/Checklist.jsx'
 import { Segmentado } from '../tools/comun.jsx'
 import OrdenCorte from '../tools/OrdenCorte.jsx'
-import ValidadorDxf from '../tools/ValidadorDxf/ValidadorDxf.jsx'
-import PanelCapas from '../tools/PanelCapas/PanelCapas.jsx'
+import Cargando from '../tools/Cargando.jsx'
 import { AcomodoPiezas } from '../tools/AcomodoLamina.jsx'
 import './secciones.css'
+
+// Las dos herramientas más pesadas van en archivos aparte. La descarga empieza de inmediato,
+// en paralelo, para que estén listas cuando el alumno llegue a esta sección.
+const cargaValidador = import('../tools/ValidadorDxf/ValidadorDxf.jsx')
+const cargaPanel = import('../tools/PanelCapas/PanelCapas.jsx')
+const ValidadorDxf = lazy(() => cargaValidador)
+const PanelCapas = lazy(() => cargaPanel)
 
 const PROGRAMAS = [
   {
@@ -156,7 +162,9 @@ export default function Archivo() {
       </Bloque>
 
       <Bloque>
-        <ValidadorDxf />
+        <Suspense fallback={<Cargando id="validador-dxf" titulo="Revisa tu DXF antes de cortar" />}>
+          <ValidadorDxf />
+        </Suspense>
       </Bloque>
 
       <Bloque titulo="Orden de trabajo: grabado, huecos, contorno">
@@ -173,7 +181,9 @@ export default function Archivo() {
           prioridades se ejecutan de menor a mayor. Es lo que te deja grabar primero, cortar los huecos después y el contorno
           al final.
         </p>
-        <PanelCapas />
+        <Suspense fallback={<Cargando id="panel-capas" titulo="Asigna capas como en SmartCarve" />}>
+          <PanelCapas />
+        </Suspense>
       </Bloque>
 
       <Bloque titulo="Diseña con parámetros">
