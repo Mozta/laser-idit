@@ -108,3 +108,83 @@ export function revisarCapas(objetos, capas) {
   const avisos = h.filter((x) => x.nivel === 'aviso').length
   return { hallazgos: h, errores, avisos, listo: !errores && !avisos }
 }
+
+// ---------- Modo guiado ----------
+
+export const MISIONES = [
+  { id: 'grabado', titulo: 'Grabado primero', texto: 'Pon el grabado en la capa que va primero: la de prioridad más baja.' },
+  { id: 'huecos', titulo: 'Huecos después', texto: 'Pon los dos huecos en una capa que vaya después del grabado.' },
+  { id: 'contorno', titulo: 'Contorno al final', texto: 'Pon el contorno en una capa que vaya después de los huecos.' },
+  { id: 'parametros', titulo: 'Potencia y velocidad', texto: 'Revisa la potencia y la velocidad de cada capa que usas.' },
+]
+
+const lleno2 = (v) => Number.isFinite(v) && v > 0
+
+// Revisa cada misión por separado. Las capas deben venir con números (prioridad, max, min, vel).
+export function progresoMisiones(objetos, capas) {
+  const porId = new Map(capas.map((c) => [c.id, c]))
+  const capa = (o) => porId.get(o.capa)
+  const g = objetos.filter((o) => o.tipo === 'grabado')
+  const huecos = objetos.filter((o) => o.tipo === 'hueco')
+  const k = objetos.filter((o) => o.tipo === 'contorno')
+  const cortes = [...huecos, ...k]
+  const activos = (lista) => lista.every((o) => capa(o).procesar)
+  const capasDe = (lista) => new Set(lista.map((o) => o.capa))
+  const separadas = (a, b) => [...capasDe(a)].every((id) => !capasDe(b).has(id))
+  const maxP = (lista) => Math.max(...lista.map((o) => capa(o).prioridad))
+  const minP = (lista) => Math.min(...lista.map((o) => capa(o).prioridad))
+
+  const grabado = activos(g) && separadas(g, cortes) && maxP(g) < minP(cortes)
+  const huecosOk = activos(huecos) && separadas(huecos, [...g, ...k]) && minP(huecos) > maxP(g)
+  const contorno = activos(k) && separadas(k, [...g, ...huecos]) && minP(k) > maxP([...g, ...huecos])
+  const usadas = [...capasDe(objetos)].map((id) => porId.get(id))
+  const parametros =
+    grabado &&
+    huecosOk &&
+    contorno &&
+    usadas.every((c) => [c.max, c.min, c.vel].every(lleno2) && c.min <= c.max && c.max <= 100 && !c.heredado)
+
+  const hechos = { grabado, huecos: huecosOk, contorno, parametros }
+  const pasos = MISIONES.map((m) => ({ ...m, hecho: hechos[m.id] }))
+  const actual = pasos.findIndex((p) => !p.hecho)
+  return { pasos, actual, completo: actual === -1 }
+}
+
+// Capa que sugiere la pista para la misión dada (o null si no aplica).
+export function capaSugerida(mision, objetos, capas) {
+  const porId = new Map(capas.map((c) => [c.id, c]))
+  const disponibles = capas.filter((c) => c.procesar && Number.isFinite(c.prioridad)).sort((a, b) => a.prioridad - b.prioridad || a.id - b.id)
+  const prio = (tipo) => objetos.filter((o) => o.tipo === tipo).map((o) => porId.get(o.capa).prioridad)
+  const ocupadas = (tipos) => new Set(objetos.filter((o) => tipos.includes(o.tipo)).map((o) => o.capa))
+
+  if (mision === 'grabado') {
+    const conCorte = ocupadas(['hueco', 'contorno'])
+    // La de prioridad más baja que no tenga cortes; si los cortes ocupan la más baja, igual se sugiere la siguiente libre.
+    return disponibles.find((c) => !conCorte.has(c.id))?.id ?? null
+  }
+  if (mision === 'huecos') {
+    const pg = Math.max(...prio('grabado'))
+    const ocup = ocupadas(['grabado', 'contorno'])
+    return disponibles.find((c) => c.prioridad > pg && !ocup.has(c.id))?.id ?? null
+  }
+  if (mision === 'contorno') {
+    const pmax = Math.max(...prio('grabado'), ...prio('hueco'))
+    const ocup = ocupadas(['grabado', 'hueco'])
+    return disponibles.find((c) => c.prioridad > pmax && !ocup.has(c.id))?.id ?? null
+  }
+  return null
+}
+
+// Llena las capas en uso con valores de referencia: grabado si la capa solo graba, corte en otro caso.
+export function aplicarReferencia(objetos, capas, { corte, grabado }) {
+  const usadas = new Map()
+  for (const o of objetos) {
+    const previo = usadas.get(o.capa)
+    usadas.set(o.capa, previo === 'corte' || o.tipo !== 'grabado' ? 'corte' : 'grabado')
+  }
+  return capas.map((c) => {
+    if (!usadas.has(c.id)) return c
+    const v = usadas.get(c.id) === 'grabado' ? grabado : corte
+    return { ...c, max: v.max, min: v.min, vel: v.velocidad, heredado: false }
+  })
+}

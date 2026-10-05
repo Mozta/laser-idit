@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { ordenTrabajo, revisarCapas } from './capas.js'
+import { ordenTrabajo, revisarCapas, progresoMisiones, capaSugerida, aplicarReferencia } from './capas.js'
 import smartcarve from '../data/smartcarve.json'
 
 const OBJETOS = [
@@ -83,5 +83,57 @@ describe('panel de capas', () => {
     })
     const r = revisarCapas(asignar({ g: 3, c: 2, r: 2, k: 5 }), capas)
     expect(ids(r)).toEqual(['min-mayor', 'prioridad-repetida', 'sin-parametros'])
+  })
+})
+
+describe('modo guiado', () => {
+  const capasN = () => smartcarve.capas.map((c) => ({ ...c, procesar: true, max: NaN, min: NaN, vel: NaN, heredado: false }))
+  const ref = { corte: { max: 60, min: 50, velocidad: 18 }, grabado: { max: 25, min: 20, velocidad: 40 } }
+
+  it('al inicio, todo en la capa 1: misión 1 pendiente y la pista sugiere la capa 3', () => {
+    const objetos = asignar({ g: 1, c: 1, r: 1, k: 1 })
+    const p = progresoMisiones(objetos, capasN())
+    expect(p.actual).toBe(0)
+    expect(capaSugerida('grabado', objetos, capasN())).toBe(3)
+  })
+
+  it('avanza misión por misión con las capas que sugiere la pista', () => {
+    let mapa = { g: 1, c: 1, r: 1, k: 1 }
+    const capas = capasN()
+    mapa.g = capaSugerida('grabado', asignar(mapa), capas)
+    expect(progresoMisiones(asignar(mapa), capas).actual).toBe(1)
+    const h = capaSugerida('huecos', asignar(mapa), capas)
+    mapa = { ...mapa, c: h, r: h }
+    expect(h).toBe(2)
+    // El contorno sigue en la capa 1, que tiene prioridad 5: ya queda al final.
+    expect(progresoMisiones(asignar(mapa), capas).actual).toBe(3)
+    // Si el contorno estuviera en una capa que va antes, la pista sugiere la capa 5.
+    const antes = { ...mapa, k: 3 }
+    expect(progresoMisiones(asignar(antes), capas).actual).toBe(0)
+    expect(capaSugerida('contorno', asignar({ ...mapa, k: 4 }), capas)).toBe(5)
+    const conValores = aplicarReferencia(asignar(mapa), capas, ref)
+    const final = progresoMisiones(asignar(mapa), conValores)
+    expect(final.completo).toBe(true)
+    expect(revisarCapas(asignar(mapa), conValores).listo).toBe(true)
+  })
+
+  it('los valores de referencia distinguen grabado y corte', () => {
+    const capas = aplicarReferencia(asignar({ g: 3, c: 2, r: 2, k: 5 }), capasN(), ref)
+    const v = (id) => capas.find((c) => c.id === id)
+    expect([v(3).max, v(3).min, v(3).vel]).toEqual([25, 20, 40])
+    expect([v(2).max, v(2).min, v(2).vel]).toEqual([60, 50, 18])
+    expect(Number.isNaN(v(7).max)).toBe(true)
+  })
+
+  it('una capa que mezcla grabado y corte recibe valores de corte y la misión 1 no se cumple', () => {
+    const objetos = asignar({ g: 2, c: 2, r: 3, k: 5 })
+    expect(aplicarReferencia(objetos, capasN(), ref).find((c) => c.id === 2).max).toBe(60)
+    expect(progresoMisiones(objetos, capasN()).pasos[0].hecho).toBe(false)
+  })
+
+  it('valores heredados sin revisar no completan la misión 4', () => {
+    const objetos = asignar({ g: 3, c: 2, r: 2, k: 1 })
+    const capas = aplicarReferencia(objetos, capasN(), ref).map((c) => (c.id === 1 ? { ...c, heredado: true } : c))
+    expect(progresoMisiones(objetos, capas).actual).toBe(3)
   })
 })
