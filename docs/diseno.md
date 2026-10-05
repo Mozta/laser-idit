@@ -2,7 +2,7 @@
 
 Inspirado en el lenguaje visual de [motion.dev](https://motion.dev/): fondo casi negro verdoso, un solo acento amarillo intenso, rejillas de celdas con líneas finas, esquinas rectas y etiquetas monoespaciadas en mayúsculas. Se toma el estilo, no la marca: el logo, los textos y las ilustraciones son del sitio.
 
-> Esta versión vive en la rama `diseno-motion`. La versión anterior (paleta de la presentación de clase, Carlito, tarjetas redondeadas) está en `main`.
+> Es el estándar del sitio desde el pull request #1. La versión anterior (paleta de la presentación de clase, Carlito, tarjetas redondeadas) queda en el historial de git, antes de ese pull request.
 
 ## Colores
 
