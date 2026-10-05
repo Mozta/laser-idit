@@ -231,3 +231,206 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Modo guiado ---------- */
+
+.pc-modo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.pc-misiones {
+  border: 1px solid var(--line);
+  margin-bottom: 22px;
+}
+
+.pc-pasos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+
+.pc-pasos li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  color: var(--muted);
+  border-right: 1px solid var(--line);
+}
+
+.pc-pasos li:last-child {
+  border-right: 0;
+}
+
+.pc-paso-num {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid var(--line-2);
+}
+
+.pc-paso-num .palomita {
+  width: 26px;
+  height: 26px;
+  margin: 0;
+}
+
+.pc-pasos li.actual {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+.pc-pasos li.actual .pc-paso-num {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.pc-pasos li.hecho {
+  color: var(--text);
+  --acento: var(--teal);
+}
+
+.pc-pasos li.hecho .pc-paso-num {
+  border: 0;
+}
+
+.pc-mision {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding: 16px 18px;
+}
+
+.pc-mision p {
+  margin: 0;
+  font-size: var(--fs-4);
+  max-width: 60ch;
+}
+
+.pc-mision-num {
+  color: var(--accent);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pc-mision-nota {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.pc-mision-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Pista: un contorno amarillo que late */
+@keyframes pc-latido {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 2px var(--accent);
+  }
+  50% {
+    box-shadow: inset 0 0 0 2px transparent;
+  }
+}
+
+.pc-fila.pista,
+.pc-objetos button.pista,
+.pc-parametros.pista {
+  animation: pc-latido 1s ease-in-out infinite;
+}
+
+.pc-parametros.pista {
+  padding: 10px;
+}
+
+@keyframes pc-latido-trazo {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.pc-pista-trazo {
+  animation: pc-latido-trazo 1s ease-in-out infinite;
+}
+
+.pc-pista-texto {
+  margin: 10px 0 0;
+  padding: 10px 14px;
+  border-left: 4px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--code-bg));
+  font-size: 0.95rem;
+}
+
+.pc-referencia {
+  margin: 0 0 12px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.pc-ver-todos {
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-height: var(--tap);
+  padding: 0;
+  margin: 0 0 12px;
+  background: none;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pc-fila.pista,
+  .pc-objetos button.pista,
+  .pc-parametros.pista {
+    animation: none;
+    box-shadow: inset 0 0 0 2px var(--accent);
+  }
+  .pc-pista-trazo {
+    animation: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .pc-pasos {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pc-pasos li:nth-child(2) {
+    border-right: 0;
+  }
+  .pc-pasos li:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+}

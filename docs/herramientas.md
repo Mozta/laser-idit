@@ -155,3 +155,12 @@ Imita la pestaña *Layer* del *Control Panel* de SmartCarve 4.3 (verificado en l
 | 3 / 5 / 2 | `orden-contorno` |
 
 Valores de referencia mostrados: corte 2019 (60 / 50 / 18) y grabado 2019 (25 / 20 / 40), los dos en MDF de 3 mm, presentados como punto de partida.
+
+**Ayudas para principiantes**
+- Modo guiado (por defecto) con cuatro pasos: grabado primero, huecos después, contorno al final, potencia y velocidad. Cada paso se marca solo al cumplirse (`progresoMisiones` en `src/lib/capas.js`). Si el contorno ya estaba en una capa que va al final, el paso 3 se cumple sin tocarlo y el paso 4 lo explica.
+- **Pista:** resalta el objeto del paso y la capa sugerida (`capaSugerida`: la de prioridad más baja disponible para ese paso) y recuerda que manda el número de Prior, no el color.
+- **Muéstrame:** hace el paso con animación, objeto por objeto.
+- Tocar el color de una capa la aplica al objeto seleccionado (como clic derecho › Apply to picked object). El ID solo muestra los parámetros.
+- **Usar valores de referencia:** llena las capas en uso con los valores de 2019 (grabado si la capa solo graba, corte en otro caso; `aplicarReferencia`) y avisa que se confirman con una prueba.
+- Un solo mensaje principal (el primer error o aviso) y un enlace para ver los demás.
+- Modo libre: el panel sin pasos, para experimentar.
